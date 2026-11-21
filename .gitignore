@@ -1,0 +1,34 @@
+# Dependencies and builds
+node_modules/
+.next/
+out/
+*.tsbuildinfo
+next-env.d.ts
+
+# Generated at build time from data/images.json
+.cache/
+public/img/
+src/generated/
+
+# Local settings and secrets
+.env
+.env.local
+.env.*.local
+.DS_Store
+Thumbs.db
+
+# Client source files stay out of the public repo (company profile, decks, briefs, original logo)
+/*.pdf
+/*.PDF
+/*.docx
+/*.png
+/*.PNG
+
+# Tool working folders
+.taste-skill/
+.impeccable/review/
+.impeccable/mocks/
+.impeccable/questions/
+.impeccable/live/
+.impeccable/hook.cache.json
+.claude/
