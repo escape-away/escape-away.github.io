@@ -1,0 +1,18 @@
+{
+  "_about": "Real guest reviews only, typed in from what Escape Away shares. A review of a home names its unit code; a review of the company has unit null. Ratings appear on the site, and in its structured data, only from these entries. Keep each text in the language the guest wrote it in.",
+  "reviews": [
+    {
+      "id": "profile-abdallah",
+      "unit": null,
+      "name": {
+        "en": "Abdallah",
+        "ar": "عبدالله"
+      },
+      "date": null,
+      "rating": null,
+      "lang": "en",
+      "text": "A truly exceptional stay. The attention to detail was unparalleled, making us feel special from the moment we arrived. Highly recommend!",
+      "source": "Escape Away company profile"
+    }
+  ]
+}

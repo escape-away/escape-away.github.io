@@ -1,0 +1,231 @@
+{
+  "_about": "Units shown on the site. Generated from the team's Google Sheet at build once it is connected; until then these five are sample listings (sample: true) with stock photos, one per destination; each lists its gallery in order, the lead first. Pins are approximate on purpose: exact addresses never enter the website files. Prices stay null until Escape Away gives real starting prices.",
+  "units": [
+    {
+      "code": "NC-MRS-014",
+      "slug": "marassi-sea-view-chalet",
+      "sample": true,
+      "name": {
+        "en": "Sea-view chalet in Marassi",
+        "ar": "شاليه بإطلالة على البحر في مراسي"
+      },
+      "description": {
+        "en": "A three-bedroom chalet that looks out to the sea, with a shared pool, set up for families and groups of friends.",
+        "ar": "شاليه بثلاث غرف نوم مطل على البحر، مع حمام سباحة مشترك، مجهّز للعائلات ومجموعات الأصدقاء."
+      },
+      "type": "chalet",
+      "destination": "north-coast",
+      "compound": "Marassi",
+      "bedrooms": 3,
+      "beds": 4,
+      "baths": 2,
+      "guests": 7,
+      "amenities": [
+        "sea-view",
+        "shared-pool",
+        "parking",
+        "wifi",
+        "air-conditioning",
+        "kitchen"
+      ],
+      "fromPriceEgp": null,
+      "pinApprox": {
+        "lat": 30.98,
+        "lng": 28.75
+      },
+      "photos": [
+        "unit-NC-MRS-014-01",
+        "unit-NC-MRS-014-02",
+        "bedroom-01",
+        "unit-NC-MRS-014-04",
+        "unit-NC-MRS-014-05"
+      ],
+      "collections": [
+        "seaside",
+        "family"
+      ],
+      "airbnbUrl": null,
+      "bookingUrl": null
+    },
+    {
+      "code": "AL-ATW-007",
+      "slug": "alamein-towers-sea-apartment",
+      "sample": true,
+      "name": {
+        "en": "Sea-facing apartment in the Alamein Towers",
+        "ar": "شقة مطلة على البحر في أبراج العلمين"
+      },
+      "description": {
+        "en": "A two-bedroom apartment high above the Mediterranean, with a lift and a fitted kitchen.",
+        "ar": "شقة بغرفتي نوم في الأدوار العليا فوق البحر المتوسط، مع مصعد ومطبخ مجهّز."
+      },
+      "type": "apartment",
+      "destination": "el-alamein",
+      "compound": "Alamein Towers",
+      "bedrooms": 2,
+      "beds": 2,
+      "baths": 2,
+      "guests": 5,
+      "amenities": [
+        "sea-view",
+        "lift",
+        "wifi",
+        "air-conditioning",
+        "kitchen"
+      ],
+      "fromPriceEgp": null,
+      "pinApprox": {
+        "lat": 30.83,
+        "lng": 28.95
+      },
+      "photos": [
+        "interior-01",
+        "unit-AL-ATW-007-02",
+        "unit-AL-ATW-007-03",
+        "unit-AL-ATW-007-04",
+        "unit-AL-ATW-007-05"
+      ],
+      "collections": [
+        "seaside"
+      ],
+      "airbnbUrl": null,
+      "bookingUrl": null
+    },
+    {
+      "code": "GN-ATM-021",
+      "slug": "gouna-lagoon-apartment",
+      "sample": true,
+      "name": {
+        "en": "Lagoon-view apartment in Abu Tig Marina, Gouna",
+        "ar": "شقة بإطلالة على البحيرة في مارينا أبو تيج، الجونة"
+      },
+      "description": {
+        "en": "A one-bedroom apartment beside the lagoon, for couples and short Red Sea breaks.",
+        "ar": "شقة بغرفة نوم بجوار البحيرة، مناسبة للأزواج والإجازات القصيرة على البحر الأحمر."
+      },
+      "type": "apartment",
+      "destination": "gouna",
+      "compound": "Abu Tig Marina",
+      "bedrooms": 1,
+      "beds": 1,
+      "baths": 1,
+      "guests": 2,
+      "amenities": [
+        "sea-view",
+        "shared-pool",
+        "wifi",
+        "air-conditioning",
+        "kitchen"
+      ],
+      "fromPriceEgp": null,
+      "pinApprox": {
+        "lat": 27.4,
+        "lng": 33.68
+      },
+      "photos": [
+        "unit-GN-ATM-021-01",
+        "unit-GN-ATM-021-03",
+        "unit-GN-ATM-021-04",
+        "dest-gouna"
+      ],
+      "collections": [
+        "seaside"
+      ],
+      "airbnbUrl": null,
+      "bookingUrl": null
+    },
+    {
+      "code": "CA-MVI-003",
+      "slug": "new-cairo-garden-apartment",
+      "sample": true,
+      "name": {
+        "en": "Garden apartment in Mountain View iCity, New Cairo",
+        "ar": "شقة بحديقة في ماونتن فيو آي سيتي، القاهرة الجديدة"
+      },
+      "description": {
+        "en": "A two-bedroom apartment opening onto a private garden, with a workspace for longer city stays.",
+        "ar": "شقة بغرفتي نوم تطل على حديقة خاصة، مع مكان للعمل لإقامات أطول في المدينة."
+      },
+      "type": "apartment",
+      "destination": "cairo",
+      "compound": "Mountain View iCity",
+      "bedrooms": 2,
+      "beds": 3,
+      "baths": 2,
+      "guests": 4,
+      "amenities": [
+        "garden",
+        "parking",
+        "wifi",
+        "air-conditioning",
+        "kitchen",
+        "washer",
+        "workspace"
+      ],
+      "fromPriceEgp": null,
+      "pinApprox": {
+        "lat": 30.02,
+        "lng": 31.5
+      },
+      "photos": [
+        "unit-CA-MVI-003-01",
+        "unit-CA-MVI-003-02",
+        "unit-CA-MVI-003-04",
+        "unit-CA-MVI-003-05",
+        "dest-cairo"
+      ],
+      "collections": [
+        "city",
+        "family"
+      ],
+      "airbnbUrl": null,
+      "bookingUrl": null
+    },
+    {
+      "code": "SZ-ALG-011",
+      "slug": "allegria-family-villa",
+      "sample": true,
+      "name": {
+        "en": "Family villa in Allegria, Sheikh Zayed",
+        "ar": "فيلا عائلية في أليجريا، الشيخ زايد"
+      },
+      "description": {
+        "en": "A four-bedroom villa with a private pool and garden, with room for large families.",
+        "ar": "فيلا بأربع غرف نوم مع حمام سباحة خاص وحديقة، تتسع للعائلات الكبيرة."
+      },
+      "type": "villa",
+      "destination": "sheikh-zayed",
+      "compound": "Allegria",
+      "bedrooms": 4,
+      "beds": 5,
+      "baths": 4,
+      "guests": 9,
+      "amenities": [
+        "private-pool",
+        "garden",
+        "parking",
+        "wifi",
+        "air-conditioning",
+        "kitchen",
+        "washer"
+      ],
+      "fromPriceEgp": null,
+      "pinApprox": {
+        "lat": 30.06,
+        "lng": 30.95
+      },
+      "photos": [
+        "unit-SZ-ALG-011-02",
+        "unit-SZ-ALG-011-03",
+        "unit-SZ-ALG-011-04",
+        "unit-SZ-ALG-011-05",
+        "dest-sheikh-zayed"
+      ],
+      "collections": [
+        "family"
+      ],
+      "airbnbUrl": null,
+      "bookingUrl": null
+    }
+  ]
+}

@@ -1,0 +1,711 @@
+<!doctype html>
+<html lang="en" dir="ltr" data-ar-pair="c">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Escape Away · Design tokens</title>
+  <meta name="description" content="Step 1 of the Escape Away build: colour, type, the arch, components and motion, for review.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alexandria:wght@200..700&family=El+Messiri:wght@400..700&family=Fraunces:opsz,wght,SOFT,WONK@9..144,300..700,0..100,0..1&family=Jost:wght@400..600&family=Markazi+Text:wght@400..700&family=Readex+Pro:wght@300..600&display=swap">
+  <link rel="stylesheet" href="tokens.css">
+  <link rel="stylesheet" href="base.css">
+  <style>
+    /* Preview scaffolding only. The site's own components are built in step 3 from these tokens. */
+    .wrap { inline-size: min(100% - 2 * var(--gutter), var(--container)); margin-inline: auto; }
+    .section { padding-block: var(--space-section) 0; }
+    .section__head { display: grid; gap: var(--space-5); max-inline-size: 44rem; margin-block-end: var(--space-8); }
+    .group + .group { margin-block-start: var(--space-8); }
+    .group__name { font-family: var(--font-text); font-size: var(--text-small); font-weight: var(--weight-strong); letter-spacing: 0; margin-block-end: var(--space-5); }
+
+    /* Header */
+    .bar { position: sticky; inset-block-start: 0; z-index: var(--z-header); background: var(--color-ground); border-block-end: 1px solid var(--color-line); }
+    .bar__in { display: flex; align-items: center; gap: var(--space-6); min-block-size: var(--header-height); }
+    .brand { display: inline-flex; align-items: center; gap: var(--space-4); color: var(--color-ink); text-decoration: none; margin-inline-end: auto; }
+    .brand__meta { color: var(--color-ink-muted); }
+    .ea-mark { display: block; block-size: 30px; aspect-ratio: 580 / 392; background-color: currentColor;
+      -webkit-mask: url("assets/ea-mark.png") center / contain no-repeat; mask: url("assets/ea-mark.png") center / contain no-repeat; }
+    .bar__nav { display: flex; gap: var(--space-5); }
+    .bar__nav a { position: relative; text-decoration: none; color: var(--color-ink-muted); font-size: var(--text-small); padding-block: var(--space-2); transition: color var(--duration-fast) var(--ease-out); }
+    .bar__nav a::after { content: ""; position: absolute; inset-inline: 0; inset-block-end: 2px; block-size: 1px; background: currentColor; transform: scaleX(0); transform-origin: left; transition: transform var(--duration-base) var(--ease-out); }
+    [dir="rtl"] .bar__nav a::after { transform-origin: right; }
+    .bar__nav a:hover { color: var(--color-ink); }
+    .bar__nav a:hover::after { transform: scaleX(1); }
+    .controls { display: flex; align-items: center; gap: var(--space-4); }
+    .seg { display: inline-flex; padding: 3px; border-radius: var(--radius-pill); background: var(--color-surface); border: 1px solid var(--color-line-strong); }
+    .seg button { font: inherit; font-size: var(--text-small); font-weight: var(--weight-ui); min-block-size: 36px; min-inline-size: 44px; padding-inline: var(--space-3); border: 0; border-radius: var(--radius-pill); background: transparent; color: var(--color-ink); cursor: pointer; }
+    .seg button[aria-pressed="true"] { background: var(--color-action); color: var(--color-on-action); }
+    .seg button:lang(ar) { font-family: var(--font-text-arabic); }
+    .controls__label { font-size: var(--text-label); font-weight: var(--weight-ui); color: var(--color-ink-muted); }
+
+    /* Hero specimen */
+    .hero { display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr); align-items: center; gap: clamp(var(--space-7), 5vw, var(--space-9)); padding-block: var(--space-8) 0; }
+    .hero__text { display: grid; gap: var(--space-6); align-content: center; container-type: inline-size; }
+    .hero__lead { color: var(--color-ink-muted); }
+    .hero__arch { margin: 0; inline-size: 100%; aspect-ratio: 4 / 5; max-block-size: min(78vh, 680px); justify-self: end; }
+    .hero__note { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-4); color: var(--color-ink-muted); }
+    .link-btn { font: inherit; font-size: var(--text-small); font-weight: var(--weight-ui); color: var(--color-action); background: none; border: 0; padding: 0; min-block-size: var(--tap-min); text-decoration: underline; text-underline-offset: 0.25em; cursor: pointer; }
+
+    /* Search */
+    .search { position: relative; display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr) minmax(0, 0.9fr) auto; align-items: stretch; padding: var(--space-2); background: var(--color-surface); border: 1px solid var(--color-line-strong); border-radius: var(--radius-sheet); box-shadow: var(--shadow-raise); }
+    .search__field { position: relative; display: grid; align-content: center; gap: 2px; min-block-size: 64px; padding: var(--space-2) var(--space-4); border-inline-end: 1px solid var(--color-line); }
+    .search__field:nth-child(3) { border-inline-end: 0; }
+    .search__label { font-size: var(--text-label); font-weight: var(--weight-ui); line-height: var(--leading-label); }
+    .search__input { font: inherit; font-size: var(--text-small); color: var(--color-ink); background: transparent; border: 0; padding: 0; min-block-size: 28px; inline-size: 100%; text-align: start; cursor: text; }
+    .search__input:focus-visible { outline-offset: 6px; }
+    button.search__input { cursor: pointer; }
+    .search > .btn { align-self: center; margin-inline-start: var(--space-2); }
+    @container (max-width: 640px) {
+      .search { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); padding: var(--space-3); }
+      .search__field:first-child { grid-column: 1 / -1; border-inline-end: 0; border-block-end: 1px solid var(--color-line); }
+      .search > .btn { grid-column: 1 / -1; margin: var(--space-2) 0 0; inline-size: 100%; }
+    }
+    @container (max-width: 400px) {
+      .search { grid-template-columns: minmax(0, 1fr); }
+      .search__field { border-inline-end: 0; border-block-end: 1px solid var(--color-line); min-block-size: 60px; }
+      .search__field:nth-child(3) { border-block-end: 0; }
+    }
+
+    /* Guests popover: grows from its field */
+    .pop { position: absolute; inset-block-start: calc(100% + var(--space-2)); inset-inline-start: 0; z-index: var(--z-sheet); inline-size: min(320px, 86vw); padding: var(--space-5); background: var(--color-surface); border: 1px solid var(--color-line); border-radius: var(--radius-sheet); box-shadow: var(--shadow-float); display: grid; gap: var(--space-4);
+      transform-origin: top left; transform: scale(0.96); opacity: 0; visibility: hidden;
+      transition: transform var(--duration-base) var(--ease-out), opacity var(--duration-base) var(--ease-out), visibility 0s linear var(--duration-base); }
+    [dir="rtl"] .pop { transform-origin: top right; }
+    .pop.is-open { transform: none; opacity: 1; visibility: visible; transition-delay: 0s; }
+    .stepper { display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); }
+    .stepper__label { display: grid; }
+    .stepper__ctrl { display: inline-flex; align-items: center; gap: var(--space-3); }
+    .round { inline-size: var(--tap); block-size: var(--tap); display: grid; place-items: center; border-radius: 50%; border: 1px solid var(--color-line-strong); background: var(--color-ground); color: var(--color-ink); font: inherit; font-size: var(--text-lead); line-height: 1; cursor: pointer; }
+    .round:disabled { opacity: 0.4; cursor: not-allowed; }
+    .stepper output { min-inline-size: 2ch; text-align: center; font-weight: var(--weight-ui); }
+
+    /* Buttons */
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: var(--space-2); min-block-size: var(--field-height); padding-inline: 28px; border-radius: var(--radius-pill); border: 1px solid transparent; font: inherit; font-size: var(--text-body); font-weight: var(--weight-ui); line-height: 1; white-space: nowrap; text-decoration: none; cursor: pointer; }
+    .btn--primary { background: var(--color-action); color: var(--color-on-action); }
+    .btn--primary:hover { background: var(--color-action-hover); }
+    .btn--primary:active { background: var(--color-action-pressed); }
+    .btn--secondary { background: transparent; color: var(--color-action); border-color: var(--color-action); padding-inline: 24px; }
+    .btn--secondary:hover { background: rgb(0 60 130 / 0.07); }
+    .btn--on-navy { background: var(--color-dark-action); color: var(--color-dark-on-action); }
+    .btn--on-navy:hover { background: #fffaf3; }
+    .row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-4); }
+
+    /* Colour */
+    .swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: var(--space-7) var(--space-5); }
+    .swatch { display: grid; gap: var(--space-1); align-content: start; }
+    .swatch__chip { aspect-ratio: 4 / 5; border-radius: var(--radius-arch); background: var(--sw); box-shadow: inset 0 0 0 1px rgb(59 45 33 / 0.12); margin-block-end: var(--space-3); }
+    .swatch__name { font-family: var(--font-text); font-size: var(--text-body); font-weight: var(--weight-strong); letter-spacing: 0; }
+    .swatch__ratio { margin-block-start: var(--space-2); display: inline-flex; gap: var(--space-2); align-items: baseline; }
+    .swatch__ratio b { font-weight: var(--weight-strong); }
+    .navy-panel { margin-block-start: var(--space-8); padding: clamp(var(--space-6), 4vw, var(--space-8)); border-radius: var(--radius-card); }
+    .navy-panel .swatch__chip { box-shadow: inset 0 0 0 1px rgb(244 236 223 / 0.25); }
+
+    /* Type */
+    .spec { display: grid; grid-template-columns: minmax(150px, 0.26fr) minmax(0, 1fr); gap: var(--space-4) var(--space-7); padding-block: var(--space-6); border-block-start: 1px solid var(--color-line); align-items: baseline; }
+    .spec__meta { display: grid; gap: var(--space-1); }
+    .spec__role { font-weight: var(--weight-strong); }
+    .spec__value { color: var(--color-ink-muted); font-size: var(--text-label); }
+    .pairs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-5); }
+    .pair { display: grid; gap: var(--space-5); align-content: start; padding: var(--space-6); background: var(--color-surface); border: 1px solid var(--color-line); border-radius: var(--radius-card); }
+    .pair[aria-current="true"] { border-color: var(--color-action); box-shadow: inset 0 0 0 1px var(--color-action); }
+    .pair__head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: var(--space-1) var(--space-3); font-family: var(--font-text-latin); direction: ltr; }
+    .pair__head strong { white-space: nowrap; }
+    .pair__head span { font-size: var(--text-label); color: var(--color-ink-muted); }
+    .pair__card { font-weight: var(--weight-ui); font-size: var(--text-body); line-height: 1.6; }
+    .pair .t-muted { font-size: var(--text-small); }
+    .pair .t-subtitle { font-weight: var(--weight-display-light); }
+
+    /* Shape */
+    .shapes { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr) minmax(0, 1fr); gap: var(--space-6); align-items: end; }
+    .shape { display: grid; gap: var(--space-4); }
+    .shape__frame { margin: 0; }
+    .shape__frame.is-arch { aspect-ratio: 3 / 4; }
+    .shape__frame.is-soft { aspect-ratio: 4 / 3; }
+    .radii { display: grid; gap: var(--space-4); align-content: end; }
+    .radius { display: flex; align-items: center; gap: var(--space-4); }
+    .radius__box { inline-size: 72px; block-size: 48px; border: 1.5px solid var(--color-line-strong); background: var(--color-surface); flex: none; }
+    .rule-demo { display: grid; gap: var(--space-2); }
+
+    /* Components */
+    .comps { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-7) var(--space-6); }
+    .comp { display: grid; gap: var(--space-5); align-content: start; }
+    .comp--4 { grid-column: span 4; } .comp--5 { grid-column: span 5; } .comp--6 { grid-column: span 6; } .comp--7 { grid-column: span 7; } .comp--8 { grid-column: span 8; }
+    .chip { display: inline-flex; align-items: center; gap: var(--space-2); min-block-size: var(--tap); padding-inline: var(--space-4); border-radius: var(--radius-pill); border: 1px solid var(--color-line-strong); background: var(--color-surface); color: var(--color-ink); font: inherit; font-size: var(--text-small); cursor: pointer; }
+    .chip:hover { border-color: var(--color-ink); }
+    .chip[aria-pressed="true"] { background: var(--color-action); border-color: var(--color-action); color: var(--color-on-action); }
+    .field { display: grid; gap: var(--space-2); }
+    .field label { font-size: var(--text-label); font-weight: var(--weight-ui); }
+    .field input { min-block-size: var(--field-height); padding-inline: var(--space-4); border: 1px solid var(--color-line-strong); border-radius: var(--radius-input); background: var(--color-surface); font: inherit; color: var(--color-ink); }
+    .field input:focus-visible { border-color: var(--color-action); }
+    .field--error input { border-color: var(--ea-error); }
+    .field__error { color: var(--ea-error); font-size: var(--text-small); }
+    .map { position: relative; block-size: 260px; border-radius: var(--radius-card); background: var(--color-ground-alt); overflow: hidden; }
+    .map__note { position: absolute; inset-block-end: var(--space-3); inset-inline-start: var(--space-4); font-size: var(--text-label); color: var(--color-ink-muted); }
+    .pin { position: absolute; display: inline-flex; align-items: center; min-block-size: 32px; padding-inline: 12px; border-radius: var(--radius-pill); border: 2px solid var(--ea-navy); background: var(--ea-navy); color: var(--ea-cream); font: inherit; font-size: var(--text-small); font-weight: var(--weight-strong); box-shadow: var(--shadow-pin); cursor: pointer; }
+    .pin:hover { transform: scale(1.04); }
+    .pin[aria-pressed="true"] { background: var(--ea-cream); color: var(--ea-navy); z-index: 2; }
+    .cluster { position: absolute; display: grid; place-items: center; align-content: center; gap: 3px; inline-size: 56px; block-size: 56px; border-radius: 50%; border: 3px solid var(--ea-cream); background: var(--ea-navy); color: var(--ea-cream); box-shadow: var(--shadow-pin); font: inherit; cursor: pointer; }
+    .cluster .ea-mark { block-size: 10px; }
+    .cluster b { font-size: 0.8125rem; line-height: 1; font-weight: var(--weight-strong); }
+    .card-wrap { position: relative; max-inline-size: 380px; }
+    .card { display: grid; gap: var(--space-3); color: inherit; text-decoration: none; }
+    .card__photo { aspect-ratio: 4 / 3; }
+    .card__photo img { transition: transform var(--duration-slow) var(--ease-out); }
+    .card:hover .card__photo img { transform: scale(1.03); }
+    .card__title { font-family: var(--font-text); font-size: var(--text-body); font-weight: var(--weight-ui); letter-spacing: 0; line-height: 1.4; }
+    .card__meta { color: var(--color-ink-muted); font-size: var(--text-small); }
+    .card__price { font-size: var(--text-body); }
+    .card__price b { font-weight: var(--weight-strong); }
+    .card__sample { font-size: var(--text-label); color: var(--color-ink-muted); }
+    .heart { position: absolute; inset-block-start: var(--space-3); inset-inline-end: var(--space-3); z-index: 1; inline-size: var(--tap); block-size: var(--tap); display: grid; place-items: center; border: 0; border-radius: 50%; background: var(--ea-shell); color: var(--ea-espresso); box-shadow: var(--shadow-raise); cursor: pointer; }
+    .heart svg { inline-size: 22px; block-size: 22px; }
+    .heart .on { display: none; color: var(--ea-navy); }
+    .heart[aria-pressed="true"] .on { display: block; }
+    .heart[aria-pressed="true"] .off { display: none; }
+
+    /* Space, elevation, motion */
+    .scale { display: grid; gap: var(--space-3); }
+    .scale__row { display: grid; grid-template-columns: 7rem minmax(0, 1fr); align-items: center; gap: var(--space-4); font-size: var(--text-small); }
+    .scale__bar { block-size: 12px; background: var(--color-action); }
+    .shadows { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-5); }
+    .shadow { display: grid; place-items: center; min-block-size: 120px; border-radius: var(--radius-card); background: var(--color-surface); font-size: var(--text-small); text-align: center; padding: var(--space-4); }
+    .motion { display: grid; gap: 0; }
+    .motion__row { display: grid; grid-template-columns: minmax(150px, 0.3fr) minmax(0, 1fr) auto; gap: var(--space-5); align-items: center; padding-block: var(--space-4); border-block-start: 1px solid var(--color-line); }
+    .motion__row code { font-size: var(--text-label); color: var(--color-ink-muted); }
+
+    /* Owner specimen on navy */
+    .owner { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); gap: clamp(var(--space-7), 5vw, var(--space-9)); align-items: center; padding-block: var(--space-section); }
+    .owner__text { display: grid; gap: var(--space-6); }
+    .owner__lead { color: var(--color-dark-ink-muted); }
+    .steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-5); }
+    .steps li { display: grid; gap: var(--space-2); padding-block-start: var(--space-4); border-block-start: 1px solid var(--color-dark-detail); }
+    .steps b { font-family: var(--font-display); font-variation-settings: var(--display-variation); font-weight: var(--weight-display-light); font-size: var(--text-subtitle); color: var(--color-dark-detail); line-height: 1; }
+    .steps span { font-weight: var(--weight-ui); }
+    .owner__arch { margin: 0; aspect-ratio: 3 / 4; max-block-size: 600px; inline-size: 100%; justify-self: end; background: var(--ea-navy-deep); }
+
+    .foot { background: var(--color-dark-ground-deep); color: var(--color-dark-ink-muted); padding-block: var(--space-7); font-size: var(--text-small); }
+    .foot__in { display: grid; gap: var(--space-4); }
+    .foot strong { color: var(--color-dark-ink); font-weight: var(--weight-ui); }
+    .foot a { color: var(--color-dark-ink); }
+
+    @media (max-width: 1024px) {
+      .bar__nav { display: none; }
+      .comp--4, .comp--5, .comp--6, .comp--7, .comp--8 { grid-column: span 12; }
+      .shapes { grid-template-columns: 1fr 1fr; }
+      .radii { grid-column: span 2; }
+    }
+    @media (max-width: 860px) {
+      .hero, .owner { grid-template-columns: 1fr; }
+      .hero { padding-block-start: var(--space-5); gap: var(--space-6); }
+      .hero__arch { order: -1; aspect-ratio: auto; inline-size: min(82%, 420px); block-size: 29svh; max-block-size: none; justify-self: center; }
+      .hero__text { gap: var(--space-5); }
+      .hero__text > .search { order: 1; }
+      .hero__lead { order: 2; }
+      .hero__note { order: 3; }
+      .owner__arch { aspect-ratio: 4 / 3; }
+      .spec { grid-template-columns: 1fr; gap: var(--space-3); }
+      .pairs { grid-template-columns: 1fr; }
+      .shadows { grid-template-columns: 1fr; }
+      .motion__row { grid-template-columns: 1fr; gap: var(--space-2); }
+      .steps { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 560px) {
+      .brand__meta { display: none; }
+      .controls__label { display: none; }
+      .shapes { grid-template-columns: 1fr; }
+      .radii { grid-column: auto; }
+    }
+  </style>
+</head>
+<body>
+  <header class="bar">
+    <div class="wrap bar__in">
+      <a class="brand" href="#top" aria-label="Escape Away design tokens, top">
+        <span class="ea-mark" aria-hidden="true"></span>
+        <span class="brand__meta t-label">Design tokens · step 1 · for review</span>
+      </a>
+      <nav class="bar__nav" aria-label="Sections">
+        <a href="#colour">Colour</a>
+        <a href="#type">Type</a>
+        <a href="#shape">Shape</a>
+        <a href="#components">Components</a>
+        <a href="#motion">Motion</a>
+      </nav>
+      <div class="controls">
+        <div class="seg" role="group" aria-label="Sample language">
+          <button type="button" class="pressable" data-lang="en" aria-pressed="true">EN</button>
+          <button type="button" class="pressable" data-lang="ar" aria-pressed="false" lang="ar">عربي</button>
+        </div>
+        <span class="controls__label" id="pair-label">Arabic pair</span>
+        <div class="seg" role="group" aria-labelledby="pair-label">
+          <button type="button" class="pressable" data-pair="a" aria-pressed="false">A</button>
+          <button type="button" class="pressable" data-pair="b" aria-pressed="false">B</button>
+          <button type="button" class="pressable" data-pair="c" aria-pressed="true">C</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- Hero specimen: the arch, the two-weight headline and the working search -->
+    <section data-sample lang="en" dir="ltr" aria-label="Hero specimen">
+      <div class="wrap hero">
+        <div class="hero__text">
+          <h1 class="t-hero" data-en="Thoughtfully designed. <strong>For every stay.</strong>" data-ar="مصمَّمة بعناية. <strong>لكل إقامة.</strong>">Thoughtfully designed. <strong>For every stay.</strong></h1>
+          <p class="t-lead hero__lead" data-en="Homes in Cairo, Sheikh Zayed, the North Coast, El Alamein and Gouna, prepared and run by one team." data-ar="بيوت في القاهرة والشيخ زايد والساحل الشمالي والعلمين والجونة، يجهّزها ويديرها فريق واحد.">Homes in Cairo, Sheikh Zayed, the North Coast, El Alamein and Gouna, prepared and run by one team.</p>
+          <form class="search" role="search" aria-label="Find a stay" onsubmit="return false">
+            <div class="search__field">
+              <label class="search__label" for="where" data-en="Where" data-ar="الوجهة">Where</label>
+              <input class="search__input" id="where" name="where" autocomplete="off" placeholder="Area or compound" data-en-placeholder="Area or compound" data-ar-placeholder="المنطقة أو الكمبوند">
+            </div>
+            <div class="search__field">
+              <label class="search__label" for="when" data-en="When" data-ar="التواريخ">When</label>
+              <input class="search__input" id="when" name="when" autocomplete="off" placeholder="Add dates" data-en-placeholder="Add dates" data-ar-placeholder="أضف التواريخ">
+            </div>
+            <div class="search__field">
+              <span class="search__label" id="who-label" data-en="Who" data-ar="الضيوف">Who</span>
+              <button type="button" class="search__input" id="who" aria-labelledby="who-label who" aria-expanded="false" aria-controls="guests">4 guests</button>
+              <div class="pop" id="guests" role="dialog" aria-label="Guests">
+                <div class="stepper">
+                  <span class="stepper__label"><span data-en="Adults" data-ar="الكبار">Adults</span><span class="t-small t-muted" data-en="13 and over" data-ar="13 سنة فأكثر">13 and over</span></span>
+                  <span class="stepper__ctrl"><button type="button" class="round pressable" data-step="adults" data-by="-1" aria-label="Fewer adults">−</button><output id="adults" class="tabular">4</output><button type="button" class="round pressable" data-step="adults" data-by="1" aria-label="More adults">+</button></span>
+                </div>
+                <div class="stepper">
+                  <span class="stepper__label"><span data-en="Children" data-ar="الأطفال">Children</span><span class="t-small t-muted" data-en="2 to 12" data-ar="من 2 إلى 12 سنة">2 to 12</span></span>
+                  <span class="stepper__ctrl"><button type="button" class="round pressable" data-step="children" data-by="-1" aria-label="Fewer children">−</button><output id="children" class="tabular">0</output><button type="button" class="round pressable" data-step="children" data-by="1" aria-label="More children">+</button></span>
+                </div>
+              </div>
+            </div>
+            <button class="btn btn--primary pressable" type="submit" data-en="Search stays" data-ar="ابحث عن إقامة">Search stays</button>
+          </form>
+          <p class="hero__note t-small">
+            <span>The arch opens over 1.1 s while the photo settles.</span>
+            <button type="button" class="link-btn" id="replay">Replay the arrival</button>
+          </p>
+        </div>
+        <figure class="hero__arch arch arch-arrival" id="hero-arch">
+          <img src="https://images.unsplash.com/photo-1600541205201-ee96f8c639f8?ixid=NHwxMjA3fDA&amp;ixlib=rb-4.1.0&amp;w=1200&amp;q=70&amp;auto=format&amp;fit=crop" srcset="https://images.unsplash.com/photo-1600541205201-ee96f8c639f8?ixid=NHwxMjA3fDA&amp;ixlib=rb-4.1.0&amp;w=640&amp;q=70&amp;auto=format&amp;fit=crop 640w, https://images.unsplash.com/photo-1600541205201-ee96f8c639f8?ixid=NHwxMjA3fDA&amp;ixlib=rb-4.1.0&amp;w=960&amp;q=70&amp;auto=format&amp;fit=crop 960w, https://images.unsplash.com/photo-1600541205201-ee96f8c639f8?ixid=NHwxMjA3fDA&amp;ixlib=rb-4.1.0&amp;w=1200&amp;q=70&amp;auto=format&amp;fit=crop 1200w" sizes="(max-width: 860px) 82vw, 44vw" alt="White low-rise beach houses above turquoise water in late-afternoon light" data-en-alt="White low-rise beach houses above turquoise water in late-afternoon light" data-ar-alt="بيوت بيضاء منخفضة تطل على مياه فيروزية في ضوء العصر" width="1200" height="900" style="object-position: 38% 50%" fetchpriority="high" decoding="async">
+        </figure>
+      </div>
+    </section>
+
+    <!-- Colour -->
+    <section class="section" id="colour" aria-labelledby="colour-title">
+      <div class="wrap">
+        <div class="section__head">
+          <h2 class="t-title title-rule" id="colour-title">Colour: cream, sand <strong>and one navy.</strong></h2>
+          <p class="t-lead t-muted">The four brand colours come from the company profile, gold and ice blue from the pitch deck, and the rest are derived for the interface. The ratios below are measured from the token file.</p>
+        </div>
+
+        <div class="group">
+          <h3 class="group__name">Brand · company profile</h3>
+          <div class="swatches">
+            <article class="swatch" style="--sw: var(--ea-cream)" data-var="--ea-cream" data-pair-var="--ea-espresso" data-pair-name="Espresso text">
+              <div class="swatch__chip"></div><h4 class="swatch__name">Cream</h4><p class="t-small tabular" data-hex></p><p class="t-small t-muted">Page ground</p><p class="swatch__ratio t-label" data-ratio></p>
+            </article>
+            <article class="swatch" style="--sw: var(--ea-sand)" data-var="--ea-sand" data-pair-var="--ea-espresso" data-pair-name="Espresso text">
+              <div class="swatch__chip"></div><h4 class="swatch__name">Sand</h4><p class="t-small tabular" data-hex></p><p class="t-small t-muted">Bands, cards, placeholders, hairlines</p><p class="swatch__ratio t-label" data-ratio></p>
+            </article>
+            <article class="swatch" style="--sw: var(--ea-navy)" data-var="--ea-navy" data-pair-var="--ea-cream" data-pair-name="On cream">
+              <div class="swatch__chip"></div><h4 class="swatch__name">Escape Navy</h4><p class="t-small tabular" data-hex></p><p class="t-small t-muted">Every action; owner and footer grounds</p><p class="swatch__ratio t-label" data-ratio></p>
+            </article>
+            <article class="swatch" style="--sw: var(--ea-espresso)" data-var="--ea-espresso" data-pair-var="--ea-cream" data-pair-name="On cream">
+              <div class="swatch__chip"></div><h4 class="swatch__name">Espresso</h4><p class="t-small tabular" data-hex></p><p class="t-small t-muted">Text and icons</p><p class="swatch__ratio t-label" data-ratio></p>
+            </article>
+          </div>
+        </div>
+
+        <div class="group">
+          <h3 class="group__name">Accents · pitch deck, kept small</h3>
+          <div class="swatches">
+            <article class="swatch" style="--sw: var(--ea-gold)" data-var="--ea-gold" data-pair-var="--ea-cream" data-pair-name="Rule on cream" data-decorative>
+              <div class="swatch__chip"></div><h4 class="swatch__name">Warm Gold</h4><p class="t-small tabular" data-hex></p><p class="t-small t-muted">The rule under section titles. Never text</p><p class="swatch__ratio t-label" data-ratio></p>
+            </article>
+            <article class="swatch" style="--sw: var(--ea-ice)" data-var="--ea-ice" data-pair-var="--ea-navy" data-pair-name="Detail on navy" data-decorative>
+              <div class="swatch__chip"></div><h4 class="swatch__name">Ice Blue</h4><p class="t-small tabular" data-hex></p><p class="t-small t-muted">Rules, icons and marks on navy</p><p class="swatch__ratio t-label" data-ratio></p>
+            </article>
+          </div>
+        </div>
+
+        <div class="group">
+          <h3 class="group__name">Interface · derived</h3>
+          <div class="swatches">
+            <article class="swatch" style="--sw: var(--ea-shell)" data-var="--ea-shell" data-pair-var="--ea-espresso" data-pair-name="Espresso text">
+              <div class="swatch__chip"></div><h4 class="swatch__name">Shell</h4><p class="t-small tabular" data-hex></p><p class="t-small t-muted">Inputs, sheets, popovers</p><p class="swatch__ratio t-label" data-ratio></p>
+            </article>
+            <article class="swatch" style="--sw: var(--ea-espresso-muted)" data-var="--ea-espresso-muted" data-pair-var="--ea-sand" data-pair-name="On sand">
+              <div class="swatch__chip"></div><h4 class="swatch__name">Espresso Muted</h4><p class="t-small tabular" data-hex></p><p class="t-small t-muted">Secondary text</p><p class="swatch__ratio t-label" data-ratio></p>
+            </article>
+            <article class="swatch" style="--sw: var(--ea-control-line)" data-var="--ea-control-line" data-pair-var="--ea-cream" data-pair-name="Border on cream" data-decorative>
+              <div class="swatch__chip"></div><h4 class="swatch__name">Control Line</h4><p class="t-small tabular" data-hex></p><p class="t-small t-muted">Input and control borders</p><p class="swatch__ratio t-label" data-ratio></p>
+            </article>
+            <article class="swatch" style="--sw: var(--ea-navy-deep)" data-var="--ea-navy-deep" data-pair-var="--ea-cream" data-pair-name="Cream text">
+              <div class="swatch__chip"></div><h4 class="swatch__name">Navy Deep</h4><p class="t-small tabular" data-hex></p><p class="t-small t-muted">Pressed navy, footer strip</p><p class="swatch__ratio t-label" data-ratio></p>
+            </article>
+            <article class="swatch" style="--sw: var(--ea-success)" data-var="--ea-success" data-pair-var="--ea-cream" data-pair-name="On cream">
+              <div class="swatch__chip"></div><h4 class="swatch__name">Success</h4><p class="t-small tabular" data-hex></p><p class="t-small t-muted">Confirmations</p><p class="swatch__ratio t-label" data-ratio></p>
+            </article>
+            <article class="swatch" style="--sw: var(--ea-warning)" data-var="--ea-warning" data-pair-var="--ea-cream" data-pair-name="On cream">
+              <div class="swatch__chip"></div><h4 class="swatch__name">Warning</h4><p class="t-small tabular" data-hex></p><p class="t-small t-muted">Notices</p><p class="swatch__ratio t-label" data-ratio></p>
+            </article>
+            <article class="swatch" style="--sw: var(--ea-error)" data-var="--ea-error" data-pair-var="--ea-cream" data-pair-name="On cream">
+              <div class="swatch__chip"></div><h4 class="swatch__name">Error</h4><p class="t-small tabular" data-hex></p><p class="t-small t-muted">Field errors</p><p class="swatch__ratio t-label" data-ratio></p>
+            </article>
+          </div>
+        </div>
+
+        <div class="navy-panel ground-navy">
+          <h3 class="group__name">On navy · the owner section and the footer</h3>
+          <div class="swatches">
+            <article class="swatch" style="--sw: var(--ea-cream)" data-var="--ea-cream" data-pair-var="--ea-navy" data-pair-name="Text on navy">
+              <div class="swatch__chip"></div><h4 class="swatch__name">Cream</h4><p class="t-small tabular" data-hex></p><p class="t-small t-muted">Text and the button</p><p class="swatch__ratio t-label" data-ratio></p>
+            </article>
+            <article class="swatch" style="--sw: var(--ea-ice-text)" data-var="--ea-ice-text" data-pair-var="--ea-navy" data-pair-name="Small text on navy">
+              <div class="swatch__chip"></div><h4 class="swatch__name">Ice Text</h4><p class="t-small tabular" data-hex></p><p class="t-small t-muted">Secondary text on navy</p><p class="swatch__ratio t-label" data-ratio></p>
+            </article>
+            <article class="swatch" style="--sw: var(--ea-ice)" data-var="--ea-ice" data-pair-var="--ea-navy" data-pair-name="Rules and icons" data-decorative>
+              <div class="swatch__chip"></div><h4 class="swatch__name">Ice Blue</h4><p class="t-small tabular" data-hex></p><p class="t-small t-muted">Rules, icons, step numbers</p><p class="swatch__ratio t-label" data-ratio></p>
+            </article>
+            <article class="swatch" style="--sw: var(--ea-gold)" data-var="--ea-gold" data-pair-var="--ea-navy" data-pair-name="Rule on navy" data-decorative>
+              <div class="swatch__chip"></div><h4 class="swatch__name">Warm Gold</h4><p class="t-small tabular" data-hex></p><p class="t-small t-muted">The title rule on navy</p><p class="swatch__ratio t-label" data-ratio></p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Type -->
+    <section class="section" id="type" aria-labelledby="type-title">
+      <div class="wrap">
+        <div class="section__head">
+          <h2 class="t-title title-rule" id="type-title">Type in two weights, <strong>one colour.</strong></h2>
+          <p class="t-lead t-muted">Fraunces, made soft, stands in for Recoleta, and Jost stands in for Garet. Sizes grow with the screen; the values show what this window renders.</p>
+        </div>
+        <div class="specs">
+          <div class="spec"><div class="spec__meta"><span class="spec__role">Hero</span><span class="spec__value" data-measure="hero-sample"></span></div><p class="t-hero" id="hero-sample">More than a stay. <strong>A better way to host.</strong></p></div>
+          <div class="spec"><div class="spec__meta"><span class="spec__role">Section title</span><span class="spec__value" data-measure="title-sample"></span></div><p class="t-title" id="title-sample" style="font-family: var(--font-display); font-variation-settings: var(--display-variation); font-weight: var(--weight-display-light); letter-spacing: var(--tracking-display)">Stays for every <strong>story.</strong></p></div>
+          <div class="spec"><div class="spec__meta"><span class="spec__role">Sub-title</span><span class="spec__value" data-measure="subtitle-sample"></span></div><p class="t-subtitle" id="subtitle-sample" style="font-family: var(--font-display); font-variation-settings: var(--display-variation); font-weight: 400; letter-spacing: var(--tracking-display)">Sea-view chalet in Marassi</p></div>
+          <div class="spec"><div class="spec__meta"><span class="spec__role">Lead</span><span class="spec__value" data-measure="lead-sample"></span></div><p class="t-lead" id="lead-sample">Every home is designed with comfort in mind, from the furniture to the finishing touches.</p></div>
+          <div class="spec"><div class="spec__meta"><span class="spec__role">Body</span><span class="spec__value" data-measure="body-sample"></span></div><p id="body-sample" style="max-inline-size: var(--measure)">Check in from 3 pm and check out by noon. Hotel-quality bedding, professional cleaning before you arrive, and a team that answers around the clock, every day of the week.</p></div>
+          <div class="spec"><div class="spec__meta"><span class="spec__role">Small · prices</span><span class="spec__value" data-measure="small-sample"></span></div><p class="t-small tabular" id="small-sample">From EGP 7,500 a night · 7 guests · 3 bedrooms · 2 baths</p></div>
+          <div class="spec"><div class="spec__meta"><span class="spec__role">Label</span><span class="spec__value" data-measure="label-sample"></span></div><p class="t-label" id="label-sample">Check-in date</p></div>
+        </div>
+
+        <div class="group" id="arabic">
+          <h3 class="group__name" style="margin-block-start: var(--space-8)">Arabic pairs tested · C chosen on Nov 19, 2026 · the header switch still compares them</h3>
+          <div class="pairs">
+            <article class="pair" data-pair-card="a" aria-current="false" lang="ar" dir="rtl" style="--font-display-arabic: 'Markazi Text', serif; --font-text-arabic: 'Readex Pro', sans-serif; --display-scale: 1.15; --weight-display-light: 400">
+              <div class="pair__head"><strong>A</strong><span>Markazi Text + Readex Pro</span></div>
+              <p class="t-subtitle" style="font-family: var(--font-display); font-weight: var(--weight-display-light)">مصمَّمة بعناية. <strong style="font-weight: 700">لكل إقامة.</strong></p>
+              <p class="pair__card">شقة بحديقة خاصة في ماونتن فيو آي سيتي، القاهرة الجديدة</p>
+              <p class="tabular">ابتداءً من <b>7,500 ج.م</b> / الليلة</p>
+              <div><button type="button" class="btn btn--primary pressable">اطلب الحجز</button></div>
+              <p class="t-muted">فريقنا متاح على مدار 24 ساعة طوال أيام الأسبوع. نجهّز كل بيت قبل وصولك بمفروشات بمستوى الفنادق وتنظيف احترافي.</p>
+            </article>
+            <article class="pair" data-pair-card="b" aria-current="false" lang="ar" dir="rtl" style="--font-display-arabic: 'El Messiri', sans-serif; --font-text-arabic: 'Alexandria', sans-serif; --display-scale: 1; --weight-display-light: 400">
+              <div class="pair__head"><strong>B</strong><span>El Messiri + Alexandria</span></div>
+              <p class="t-subtitle" style="font-family: var(--font-display); font-weight: var(--weight-display-light)">مصمَّمة بعناية. <strong style="font-weight: 700">لكل إقامة.</strong></p>
+              <p class="pair__card">شقة بحديقة خاصة في ماونتن فيو آي سيتي، القاهرة الجديدة</p>
+              <p class="tabular">ابتداءً من <b>7,500 ج.م</b> / الليلة</p>
+              <div><button type="button" class="btn btn--primary pressable">اطلب الحجز</button></div>
+              <p class="t-muted">فريقنا متاح على مدار 24 ساعة طوال أيام الأسبوع. نجهّز كل بيت قبل وصولك بمفروشات بمستوى الفنادق وتنظيف احترافي.</p>
+            </article>
+            <article class="pair" data-pair-card="c" aria-current="true" lang="ar" dir="rtl" style="--font-display-arabic: 'Alexandria', sans-serif; --font-text-arabic: 'Alexandria', sans-serif; --display-scale: 0.94; --weight-display-light: 200">
+              <div class="pair__head"><strong>C · chosen</strong><span>Alexandria alone</span></div>
+              <p class="t-subtitle" style="font-family: var(--font-display); font-weight: var(--weight-display-light)">مصمَّمة بعناية. <strong style="font-weight: 700">لكل إقامة.</strong></p>
+              <p class="pair__card">شقة بحديقة خاصة في ماونتن فيو آي سيتي، القاهرة الجديدة</p>
+              <p class="tabular">ابتداءً من <b>7,500 ج.م</b> / الليلة</p>
+              <div><button type="button" class="btn btn--primary pressable">اطلب الحجز</button></div>
+              <p class="t-muted">فريقنا متاح على مدار 24 ساعة طوال أيام الأسبوع. نجهّز كل بيت قبل وصولك بمفروشات بمستوى الفنادق وتنظيف احترافي.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Shape -->
+    <section class="section" id="shape" aria-labelledby="shape-title">
+      <div class="wrap">
+        <div class="section__head">
+          <h2 class="t-title title-rule" id="shape-title">The arch, <strong>and nothing louder.</strong></h2>
+          <p class="t-lead t-muted">The arch from the company profile frames portrait photographs; the soft arch gives landscape crops a gentle top. Every other corner stays quiet.</p>
+        </div>
+        <div class="shapes">
+          <div class="shape">
+            <figure class="shape__frame is-arch arch"><img src="https://images.unsplash.com/photo-1634822929277-0c51ca0e8846?ixid=NHwxMjA3fDA&amp;ixlib=rb-4.1.0&amp;w=1000&amp;q=75&amp;auto=format&amp;fit=crop" alt="A tall, bright living room with a cream sofa and sheer curtains" width="1000" height="1500" loading="lazy" decoding="async"></figure>
+            <p class="t-small"><b>Arch</b> · full semicircle top · hero, destinations, collections, owner journey</p>
+          </div>
+          <div class="shape">
+            <figure class="shape__frame is-soft soft-arch"><img src="https://images.unsplash.com/photo-1722264222007-3e4f1808db3e?ixid=NHwxMjA3fDA&amp;ixlib=rb-4.1.0&amp;w=1400&amp;q=75&amp;auto=format&amp;fit=crop" alt="White low-rise buildings along a curved Red Sea shore with turquoise water" width="1400" height="786" style="object-position: 62% 50%" loading="lazy" decoding="async"></figure>
+            <p class="t-small"><b>Soft arch</b> · 50% by 18% top · listing cards and landscape crops</p>
+          </div>
+          <div class="radii">
+            <div class="radius"><span class="radius__box" style="border-radius: var(--radius-pill)"></span><span class="t-small"><b>Pill</b> · buttons, chips, pins</span></div>
+            <div class="radius"><span class="radius__box" style="border-radius: var(--radius-input)"></span><span class="t-small"><b>12 px</b> · inputs</span></div>
+            <div class="radius"><span class="radius__box" style="border-radius: var(--radius-card)"></span><span class="t-small"><b>16 px</b> · panels</span></div>
+            <div class="radius"><span class="radius__box" style="border-radius: var(--radius-sheet) var(--radius-sheet) 0 0"></span><span class="t-small"><b>20 px</b> · bottom sheets, search</span></div>
+            <div class="rule-demo">
+              <p class="t-subtitle title-rule" style="font-family: var(--font-display); font-variation-settings: var(--display-variation); font-weight: var(--weight-display-light)">Gold rule</p>
+              <p class="t-small t-muted">48 × 3 px under every section title, at its start.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Components -->
+    <section class="section" id="components" data-sample lang="en" dir="ltr" aria-labelledby="components-title">
+      <div class="wrap">
+        <div class="section__head">
+          <h2 class="t-title title-rule" id="components-title" data-en="Components, <strong>both directions.</strong>" data-ar="المكوّنات، <strong>في الاتجاهين.</strong>">Components, <strong>both directions.</strong></h2>
+          <p class="t-lead t-muted" data-en="Switch the header to عربي: every part mirrors, keeps its digits Western, and holds long Arabic names." data-ar="بدّل اللغة من الأعلى: كل جزء ينعكس، والأرقام تفضل إنجليزي، والأسماء الطويلة تفضل مقروءة.">Switch the header to عربي: every part mirrors, keeps its digits Western, and holds long Arabic names.</p>
+        </div>
+        <div class="comps">
+          <div class="comp comp--5">
+            <h3 class="group__name" data-en="Buttons" data-ar="الأزرار">Buttons</h3>
+            <div class="row">
+              <button type="button" class="btn btn--primary pressable" data-en="Request to book" data-ar="اطلب الحجز">Request to book</button>
+              <button type="button" class="btn btn--secondary pressable" data-en="Continue on WhatsApp" data-ar="كمّل على واتساب">Continue on WhatsApp</button>
+            </div>
+            <h3 class="group__name" data-en="Filter chips" data-ar="الفلاتر">Filter chips</h3>
+            <div class="row">
+              <button type="button" class="chip pressable" aria-pressed="true" data-en="Private pool" data-ar="حمام سباحة خاص">Private pool</button>
+              <button type="button" class="chip pressable" aria-pressed="false" data-en="Sea view" data-ar="إطلالة على البحر">Sea view</button>
+              <button type="button" class="chip pressable" aria-pressed="false" data-en="Parking" data-ar="موقف سيارات">Parking</button>
+              <button type="button" class="chip pressable" aria-pressed="false" data-en="Workspace" data-ar="مكان للعمل">Workspace</button>
+            </div>
+          </div>
+          <div class="comp comp--7">
+            <h3 class="group__name" data-en="Price pins and a cluster" data-ar="أسعار على الخريطة">Price pins and a cluster</h3>
+            <div class="map" aria-label="Map stand-in with price pins">
+              <button type="button" class="pin pressable tabular" style="inset-block-start: 22%; inset-inline-start: 12%" aria-pressed="false" data-en="EGP 7,500" data-ar="7,500 ج.م">EGP 7,500</button>
+              <button type="button" class="pin pressable tabular" style="inset-block-start: 48%; inset-inline-start: 38%" aria-pressed="true" data-en="EGP 12,000" data-ar="12,000 ج.م">EGP 12,000</button>
+              <button type="button" class="pin pressable tabular" style="inset-block-start: 20%; inset-inline-start: 62%" aria-pressed="false" data-en="EGP 4,200" data-ar="4,200 ج.م">EGP 4,200</button>
+              <button type="button" class="cluster pressable" style="inset-block-start: 56%; inset-inline-start: 74%" aria-label="14 stays here, zoom in"><span class="ea-mark" aria-hidden="true"></span><b class="tabular">14</b></button>
+              <span class="map__note" data-en="Flat stand-in. Mapbox arrives in step 4." data-ar="خلفية مؤقتة. الخريطة الحقيقية في الخطوة 4.">Flat stand-in. Mapbox arrives in step 4.</span>
+            </div>
+          </div>
+          <div class="comp comp--5">
+            <h3 class="group__name" data-en="Fields" data-ar="الحقول">Fields</h3>
+            <div class="field">
+              <label for="f-name" data-en="Your name" data-ar="الاسم">Your name</label>
+              <input id="f-name" autocomplete="name" placeholder="Name as on your ID" data-en-placeholder="Name as on your ID" data-ar-placeholder="الاسم كما في البطاقة">
+            </div>
+            <div class="field field--error">
+              <label for="f-wa" data-en="WhatsApp number" data-ar="رقم الواتساب">WhatsApp number</label>
+              <input id="f-wa" inputmode="tel" value="+20 10" aria-invalid="true" aria-describedby="f-wa-error" dir="ltr">
+              <p class="field__error" id="f-wa-error" data-en="Add the full number with the country code, like +20 10 0000 0000." data-ar="اكتب الرقم كامل بكود الدولة، زي +20 10 0000 0000.">Add the full number with the country code, like +20 10 0000 0000.</p>
+            </div>
+          </div>
+          <div class="comp comp--7">
+            <h3 class="group__name" data-en="Listing card" data-ar="بطاقة الإقامة">Listing card</h3>
+            <div class="card-wrap">
+              <a class="card" href="#components">
+                <figure class="card__photo soft-arch" style="margin: 0"><img src="https://images.unsplash.com/photo-1776761363365-ad83248b93df?ixid=NHwxMjA3fDA&amp;ixlib=rb-4.1.0&amp;w=900&amp;q=75&amp;auto=format&amp;fit=crop" alt="A calm bedroom with white linens and glass doors to a garden" width="900" height="600" loading="lazy" decoding="async"></figure>
+                <h4 class="card__title" data-en="Sea-view chalet in Marassi, North Coast" data-ar="شاليه بإطلالة على البحر في مراسي، الساحل الشمالي">Sea-view chalet in Marassi, North Coast</h4>
+                <p class="card__meta tabular" data-en="7 guests · 3 bedrooms · 2 baths" data-ar="7 ضيوف · 3 غرف نوم · 2 حمّام">7 guests · 3 bedrooms · 2 baths</p>
+                <p class="card__price tabular" data-en="From <b>EGP 7,500</b> a night" data-ar="ابتداءً من <b>7,500 ج.م</b> / الليلة">From <b>EGP 7,500</b> a night</p>
+                <p class="card__sample" data-en="Sample listing" data-ar="إقامة للعرض">Sample listing</p>
+              </a>
+              <button type="button" class="heart pressable" aria-pressed="false" aria-label="Save to wishlist">
+                <svg class="off" viewBox="0 0 256 256" aria-hidden="true"><path fill="currentColor" d="M178,40c-20.65,0-38.73,8.88-50,23.89C116.73,48.88,98.65,40,78,40a62.07,62.07,0,0,0-62,62c0,70,103.79,126.66,108.21,129a8,8,0,0,0,7.58,0C136.21,228.66,240,172,240,102A62.07,62.07,0,0,0,178,40ZM128,214.8C109.74,204.16,32,155.69,32,102A46.06,46.06,0,0,1,78,56c19.45,0,35.78,10.36,42.6,27a8,8,0,0,0,14.8,0c6.82-16.67,23.15-27,42.6-27a46.06,46.06,0,0,1,46,46C224,155.61,146.24,204.15,128,214.8Z"/></svg>
+                <svg class="on" viewBox="0 0 256 256" aria-hidden="true"><path fill="currentColor" d="M240,102c0,70-103.79,126.66-108.21,129a8,8,0,0,1-7.58,0C119.79,228.66,16,172,16,102A62.07,62.07,0,0,1,78,40c20.65,0,38.73,8.88,50,23.89C139.27,48.88,157.35,40,178,40A62.07,62.07,0,0,1,240,102Z"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Space, elevation and motion -->
+    <section class="section" id="motion" aria-labelledby="motion-title">
+      <div class="wrap">
+        <div class="section__head">
+          <h2 class="t-title title-rule" id="motion-title">Space, depth and <strong>motion.</strong></h2>
+          <p class="t-lead t-muted">A 4 px base, flat surfaces that only lift when they float, and motion that moves transform and opacity alone.</p>
+        </div>
+        <div class="comps">
+          <div class="comp comp--5">
+            <h3 class="group__name">Space</h3>
+            <div class="scale">
+              <div class="scale__row"><span class="tabular">1 · 4 px</span><span class="scale__bar" style="inline-size: var(--space-1)"></span></div>
+              <div class="scale__row"><span class="tabular">2 · 8 px</span><span class="scale__bar" style="inline-size: var(--space-2)"></span></div>
+              <div class="scale__row"><span class="tabular">3 · 12 px</span><span class="scale__bar" style="inline-size: var(--space-3)"></span></div>
+              <div class="scale__row"><span class="tabular">4 · 16 px</span><span class="scale__bar" style="inline-size: var(--space-4)"></span></div>
+              <div class="scale__row"><span class="tabular">5 · 24 px</span><span class="scale__bar" style="inline-size: var(--space-5)"></span></div>
+              <div class="scale__row"><span class="tabular">6 · 32 px</span><span class="scale__bar" style="inline-size: var(--space-6)"></span></div>
+              <div class="scale__row"><span class="tabular">7 · 48 px</span><span class="scale__bar" style="inline-size: var(--space-7)"></span></div>
+              <div class="scale__row"><span class="tabular">8 · 64 px</span><span class="scale__bar" style="inline-size: var(--space-8)"></span></div>
+              <div class="scale__row"><span class="tabular">9 · 96 px</span><span class="scale__bar" style="inline-size: var(--space-9)"></span></div>
+              <div class="scale__row"><span class="tabular">10 · 128 px</span><span class="scale__bar" style="inline-size: var(--space-10)"></span></div>
+              <div class="scale__row"><span>Sections</span><span class="t-small t-muted tabular">64 to 128 px apart · page edges 20 to 48 px · 1280 px wide</span></div>
+            </div>
+          </div>
+          <div class="comp comp--7">
+            <h3 class="group__name">Depth</h3>
+            <div class="shadows">
+              <div class="shadow" style="box-shadow: var(--shadow-raise)"><span><b>Raise</b><br><span class="t-muted">hovered card, search</span></span></div>
+              <div class="shadow" style="box-shadow: var(--shadow-float)"><span><b>Float</b><br><span class="t-muted">sheets, popovers</span></span></div>
+              <div class="shadow" style="background: var(--ea-navy); color: var(--ea-cream); box-shadow: var(--shadow-pin)"><span><b>Pin</b><br><span style="color: var(--ea-ice-text)">price pins, clusters</span></span></div>
+            </div>
+            <h3 class="group__name" style="margin-block-start: var(--space-7)">Motion</h3>
+            <div class="motion">
+              <div class="motion__row"><b>Arrival</b><code>1.1 s · ease-out · frame 86% → 100%, photo 116% → 100%</code><button type="button" class="link-btn" data-replay>Replay</button></div>
+              <div class="motion__row"><b>Press</b><code>120 ms · scale 97% · every button and pin</code><button type="button" class="btn btn--secondary pressable" style="min-block-size: 40px">Press me</button></div>
+              <div class="motion__row"><b>Popover</b><code>240 ms · grows from its trigger</code><button type="button" class="link-btn" data-open-guests>Open guests</button></div>
+              <div class="motion__row"><b>Reduced motion</b><code>the arch becomes a plain fade · nothing scales</code><span class="t-small t-muted">set by the system</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Owner specimen: the turn to navy -->
+    <section class="ground-navy" style="margin-block-start: var(--space-section)" data-sample lang="en" dir="ltr" aria-label="Owner section specimen">
+      <div class="wrap owner">
+        <div class="owner__text">
+          <h2 class="t-title title-rule" data-en="More than a stay. <strong>A better way to host.</strong>" data-ar="أكثر من إقامة. <strong>طريقة أفضل للاستضافة.</strong>">More than a stay. <strong>A better way to host.</strong></h2>
+          <p class="t-lead owner__lead" data-en="We design, furnish and manage your unit, from 2D and 3D planning to guests, housekeeping and reporting." data-ar="نصمّم وحدتك ونفرشها وندير الإقامة فيها، من التخطيط ثنائي وثلاثي الأبعاد حتى الضيوف والنظافة والتقارير.">We design, furnish and manage your unit, from 2D and 3D planning to guests, housekeeping and reporting.</p>
+          <ol class="steps">
+            <li><b class="tabular">1</b><span data-en="Design" data-ar="التصميم">Design</span></li>
+            <li><b class="tabular">2</b><span data-en="Style" data-ar="التجهيز">Style</span></li>
+            <li><b class="tabular">3</b><span data-en="Manage" data-ar="الإدارة">Manage</span></li>
+          </ol>
+          <div><a class="btn btn--on-navy pressable" href="#top" data-en="List your unit" data-ar="اعرض وحدتك معانا">List your unit</a></div>
+        </div>
+        <figure class="owner__arch arch"><img src="https://images.unsplash.com/photo-1791744891344-89e680f16ea2?ixid=NHwxMjA3fDA&amp;ixlib=rb-4.1.0&amp;w=1200&amp;q=75&amp;auto=format&amp;fit=crop" alt="Sand-coloured apartment buildings behind date palms in evening light" width="1200" height="900" style="object-position: 70% 50%" loading="lazy" decoding="async"></figure>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap foot__in">
+      <p><strong>Approved Nov 19, 2026,</strong> with Alexandria as the Arabic face. Still stand-ins: Fraunces and Jost for Recoleta and Garet, and the EA mark from the raster PNG until the vector arrives.</p>
+      <p>Tokens: <code>design/tokens.css</code> · base layer: <code>design/base.css</code> · rules: <code>DESIGN.md</code></p>
+      <p id="credits">Stand-in photos on Unsplash (Unsplash License), to be replaced by Escape Away's own: <a href="https://unsplash.com/photos/fDo_EgwFnG8">Dimitris Kiriakakis</a>, <a href="https://unsplash.com/photos/9iljaLpo9uw">Jonathan Borba</a>, <a href="https://unsplash.com/photos/4wB6TZFvMHQ">Bahaa Mourad</a>, <a href="https://unsplash.com/photos/uZoA9WaygLQ">Antonio Araujo</a>, <a href="https://unsplash.com/photos/tClLefDFGfM">Nejc Soklič</a>.</p>
+    </div>
+  </footer>
+
+  <script>
+    (() => {
+      const root = document.documentElement;
+
+      /* Contrast, measured from the token file so the numbers can't drift. */
+      const css = getComputedStyle(root);
+      const hex = (name) => css.getPropertyValue(name).trim().toUpperCase();
+      const lum = (h) => {
+        const n = h.replace('#', '');
+        const c = [0, 2, 4].map((i) => parseInt(n.slice(i, i + 2), 16) / 255)
+          .map((v) => (v <= 0.04045 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4)));
+        return 0.2126 * c[0] + 0.7152 * c[1] + 0.0722 * c[2];
+      };
+      const ratio = (a, b) => { const x = lum(a), y = lum(b); return (Math.max(x, y) + 0.05) / (Math.min(x, y) + 0.05); };
+      document.querySelectorAll('.swatch').forEach((el) => {
+        const own = hex(el.dataset.var);
+        const other = hex(el.dataset.pairVar);
+        el.querySelector('[data-hex]').textContent = own;
+        const r = ratio(own, other);
+        const decorative = el.hasAttribute('data-decorative');
+        const grade = decorative ? (r >= 3 ? '3:1 graphics' : 'decorative') : (r >= 7 ? 'AAA' : r >= 4.5 ? 'AA' : r >= 3 ? 'AA large' : 'fails');
+        el.querySelector('[data-ratio]').innerHTML = `${el.dataset.pairName} <b class="tabular">${r.toFixed(1)}:1</b> <span>${grade}</span>`;
+      });
+
+      /* Type readouts for this window. */
+      const measure = () => document.querySelectorAll('[data-measure]').forEach((el) => {
+        const t = document.getElementById(el.dataset.measure);
+        if (!t) return;
+        const s = getComputedStyle(t);
+        el.textContent = `${Math.round(parseFloat(s.fontSize))} px · ${s.fontWeight} · ${(parseFloat(s.lineHeight) / parseFloat(s.fontSize)).toFixed(2)}`;
+      });
+      measure();
+      addEventListener('resize', measure);
+      document.fonts && document.fonts.ready.then(measure);
+
+      /* The arrival: start once the hero photo has decoded; replay on request. */
+      const arch = document.getElementById('hero-arch');
+      const arrive = () => requestAnimationFrame(() => arch.classList.add('is-arrived'));
+      const img = arch.querySelector('img');
+      (img.decode ? img.decode() : Promise.resolve()).then(arrive, arrive);
+      const replay = () => { arch.classList.remove('is-arrived'); void arch.offsetWidth; setTimeout(arrive, 60); arch.scrollIntoView({ block: 'center', behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' }); };
+      document.getElementById('replay').addEventListener('click', replay);
+      document.querySelectorAll('[data-replay]').forEach((b) => b.addEventListener('click', replay));
+
+      /* Guests popover, grown from its field. */
+      const who = document.getElementById('who');
+      const pop = document.getElementById('guests');
+      const counts = { adults: 4, children: 0 };
+      const label = () => {
+        const n = counts.adults + counts.children;
+        const ar = who.closest('[data-sample]').getAttribute('lang') === 'ar';
+        who.textContent = ar ? `${n} ${n === 1 ? 'ضيف' : n === 2 ? 'ضيفان' : n <= 10 ? 'ضيوف' : 'ضيفًا'}` : `${n} ${n === 1 ? 'guest' : 'guests'}`;
+        document.querySelectorAll('[data-step]').forEach((b) => {
+          const k = b.dataset.step, by = +b.dataset.by;
+          b.disabled = by < 0 ? counts[k] <= (k === 'adults' ? 1 : 0) : counts.adults + counts.children >= 16;
+        });
+      };
+      const setPop = (open) => { pop.classList.toggle('is-open', open); who.setAttribute('aria-expanded', String(open)); };
+      who.addEventListener('click', () => setPop(who.getAttribute('aria-expanded') !== 'true'));
+      document.querySelectorAll('[data-open-guests]').forEach((b) => b.addEventListener('click', () => {
+        who.scrollIntoView({ block: 'center' }); setTimeout(() => { setPop(true); who.focus(); }, 250);
+      }));
+      document.addEventListener('click', (e) => { if (!pop.contains(e.target) && e.target !== who && !e.target.closest('[data-open-guests]')) setPop(false); });
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && pop.classList.contains('is-open')) { setPop(false); who.focus(); } });
+      document.querySelectorAll('[data-step]').forEach((b) => b.addEventListener('click', () => {
+        const k = b.dataset.step;
+        counts[k] = Math.max(0, counts[k] + Number(b.dataset.by));
+        document.getElementById(k).textContent = counts[k];
+        label();
+      }));
+      label();
+
+      /* Toggles: chips, pins. */
+      document.querySelectorAll('.chip, .heart').forEach((c) => c.addEventListener('click', () => c.setAttribute('aria-pressed', String(c.getAttribute('aria-pressed') !== 'true'))));
+      document.querySelectorAll('.pin').forEach((p) => p.addEventListener('click', () => {
+        document.querySelectorAll('.pin').forEach((q) => q.setAttribute('aria-pressed', String(q === p)));
+      }));
+
+      /* Language: flips the specimen regions, not the review notes. */
+      const setLang = (lang) => {
+        document.querySelectorAll('[data-lang]').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.lang === lang)));
+        document.querySelectorAll('[data-sample]').forEach((region) => {
+          region.setAttribute('lang', lang);
+          region.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+          region.querySelectorAll('[data-en]').forEach((el) => { el.innerHTML = el.dataset[lang]; });
+          region.querySelectorAll('[data-en-placeholder]').forEach((el) => { el.placeholder = lang === 'ar' ? el.dataset.arPlaceholder : el.dataset.enPlaceholder; });
+          region.querySelectorAll('[data-en-alt]').forEach((el) => { el.alt = lang === 'ar' ? el.dataset.arAlt : el.dataset.enAlt; });
+        });
+        label();
+        measure();
+      };
+      document.querySelectorAll('[data-lang]').forEach((b) => b.addEventListener('click', () => setLang(b.dataset.lang)));
+
+      /* Arabic pair: swaps the faces everywhere Arabic is set. */
+      const pairs = {
+        a: { display: "'Markazi Text', serif", text: "'Readex Pro', sans-serif", scale: '1.15', light: '400' },
+        b: { display: "'El Messiri', sans-serif", text: "'Alexandria', sans-serif", scale: '1', light: '400' },
+        c: { display: "'Alexandria', sans-serif", text: "'Alexandria', sans-serif", scale: '0.94', light: '200' },
+      };
+      const setPair = (id) => {
+        const p = pairs[id];
+        root.dataset.arPair = id;
+        document.querySelectorAll('[data-pair]').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.pair === id)));
+        document.querySelectorAll('[data-pair-card]').forEach((c) => c.setAttribute('aria-current', String(c.dataset.pairCard === id)));
+        document.querySelectorAll('[data-sample]').forEach((region) => {
+          region.style.setProperty('--font-display-arabic', p.display);
+          region.style.setProperty('--font-text-arabic', p.text);
+          if (region.getAttribute('lang') === 'ar') { region.style.setProperty('--display-scale', p.scale); region.style.setProperty('--weight-display-light', p.light); }
+        });
+        measure();
+      };
+      document.querySelectorAll('[data-pair]').forEach((b) => b.addEventListener('click', () => {
+        setPair(b.dataset.pair);
+        if (document.querySelector('[data-lang="ar"]').getAttribute('aria-pressed') !== 'true') setLang('ar');
+        setPair(b.dataset.pair);
+      }));
+      document.querySelector('[data-lang="en"]').addEventListener('click', () => document.querySelectorAll('[data-sample]').forEach((r) => { r.style.removeProperty('--display-scale'); r.style.removeProperty('--weight-display-light'); }));
+      document.querySelector('[data-lang="ar"]').addEventListener('click', () => setPair(root.dataset.arPair));
+    })();
+  </script>
+</body>
+</html>

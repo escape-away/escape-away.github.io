@@ -1,0 +1,592 @@
+{
+  "_about": "The five destinations. Intros feed the homepage tiles. Each guide is written separately in Arabic and English, from the company profile (unit types, sizes, who the stays suit, 24/7 support) and public facts about the area (distances and drive times are typical, rounded, and outside rush hour). The team should read each guide before go-live and update the date when they change it. Centres are approximate map views, never addresses. Aliases are other names people type for an area, in either language; the search folds Arabic letter variants itself.",
+  "destinations": [
+    {
+      "slug": "cairo",
+      "name": {
+        "en": "Cairo",
+        "ar": "القاهرة"
+      },
+      "aliases": [
+        "new cairo",
+        "fifth settlement",
+        "tagamoa",
+        "katameya",
+        "madinaty",
+        "القاهرة الجديدة",
+        "التجمع",
+        "التجمع الخامس",
+        "القطامية",
+        "مدينتي"
+      ],
+      "intro": {
+        "en": "City living in New Cairo: studios and one- or two-bedroom apartments, 35 to 100 m², for short and monthly stays.",
+        "ar": "سكن في القاهرة الجديدة: استوديوهات وشقق بغرفة أو غرفتي نوم، من 35 إلى 100 م²، لإقامات قصيرة وشهرية."
+      },
+      "center": {
+        "lat": 30.03,
+        "lng": 31.47
+      },
+      "zoom": 11,
+      "photo": "dest-cairo",
+      "guide": {
+        "updated": "2026-11-20",
+        "title": {
+          "en": "New Cairo apartments for short and monthly stays",
+          "ar": "شقق مفروشة في القاهرة الجديدة لإقامات قصيرة وشهرية"
+        },
+        "description": {
+          "en": "Furnished studios and one- or two-bedroom apartments in New Cairo, run by Escape Away for short and monthly stays, with guest support 24/7.",
+          "ar": "استوديوهات وشقق مفروشة بغرفة أو غرفتين في القاهرة الجديدة، تديرها Escape\u00a0Away لإقامات قصيرة وشهرية، مع دعم للضيوف على مدار الساعة."
+        },
+        "heading": {
+          "en": ["Stays in", "Cairo"],
+          "ar": ["إقامات في", "القاهرة"]
+        },
+        "answer": {
+          "en": "Escape Away’s city stays are in New Cairo, on the east side of Cairo: furnished studios and one- or two-bedroom apartments of 35 to 100 m², ready for a few nights or a few months, with guest support around the clock. They suit students, young professionals and anyone in Cairo for work.",
+          "ar": "إقامات Escape\u00a0Away في المدينة موجودة في القاهرة الجديدة، شرق القاهرة: استوديوهات وشقق مفروشة بغرفة أو غرفتين، من 35 إلى 100 م²، جاهزة لليالٍ قليلة أو لعدة أشهر، مع دعم للضيوف على مدار الساعة. وهي تناسب الطلاب والشباب العاملين وكل من يزور القاهرة للعمل."
+        },
+        "glance": [
+          {
+            "key": "bestFor",
+            "en": "Students, young professionals and work trips",
+            "ar": "الطلاب والشباب العاملون ورحلات العمل"
+          },
+          {
+            "key": "season",
+            "en": "All year round",
+            "ar": "طوال العام"
+          },
+          {
+            "key": "access",
+            "en": "30 to 40 minutes by car from Cairo International Airport, outside rush hour",
+            "ar": "من 30 إلى 40 دقيقة بالسيارة من مطار القاهرة الدولي، خارج أوقات الذروة"
+          },
+          {
+            "key": "homes",
+            "en": "Studios and one- or two-bedroom apartments, 35 to 100 m²",
+            "ar": "استوديوهات وشقق بغرفة أو غرفتين، من 35 إلى 100 م²"
+          },
+          {
+            "key": "length",
+            "en": "From a few nights to a few months",
+            "ar": "من ليالٍ قليلة إلى عدة أشهر"
+          }
+        ],
+        "know": {
+          "en": [
+            "New Cairo is spread out, and most people get around by car or through ride-hailing apps.",
+            "The American University in Cairo’s campus, Cairo Festival City and the offices along 90th Street are all in New Cairo.",
+            "Staying a month or longer? Say so in your request, or ask the team on WhatsApp.",
+            "Escape Away’s own office is here too, in Katameya Dunes."
+          ],
+          "ar": [
+            "القاهرة الجديدة واسعة، وأغلب التنقل فيها بالسيارة أو بتطبيقات طلب السيارات.",
+            "حرم الجامعة الأمريكية بالقاهرة وكايرو فستيفال سيتي والشركات على شارع التسعين، كلها في القاهرة الجديدة.",
+            "للإقامة شهرًا أو أكثر، اذكر ذلك في طلبك أو اسأل الفريق على واتساب.",
+            "ومكتب Escape\u00a0Away نفسه هنا أيضًا، في قطامية ديونز."
+          ]
+        },
+        "faq": [
+          {
+            "q": {
+              "en": "Can I stay a month in a furnished apartment in New Cairo?",
+              "ar": "ينفع أقعد شهر في شقة مفروشة في القاهرة الجديدة؟"
+            },
+            "a": {
+              "en": "Yes. Escape Away’s New Cairo apartments take short and medium stays, from a few nights to a few months. Send a request with your dates, or ask the team on WhatsApp about a longer stay.",
+              "ar": "أيوه. شقق Escape\u00a0Away في القاهرة الجديدة متاحة للإقامات القصيرة والمتوسطة، من كام ليلة لحد كام شهر. ابعت طلب بتواريخك، أو اسأل الفريق على واتساب عن الإقامات الأطول."
+            }
+          },
+          {
+            "q": {
+              "en": "Is New Cairo a good base for students?",
+              "ar": "القاهرة الجديدة مناسبة للطلاب؟"
+            },
+            "a": {
+              "en": "Yes. Escape Away’s New Cairo apartments are aimed at students and young professionals who want a fully furnished place and a flexible stay, and the American University in Cairo’s campus is in New Cairo.",
+              "ar": "أيوه. شقق Escape\u00a0Away هناك معمولة للطلاب والشباب اللي عايزين مكان مفروش بالكامل ومدة إقامة مرنة، وحرم الجامعة الأمريكية بالقاهرة نفسه في القاهرة الجديدة."
+            }
+          },
+          {
+            "q": {
+              "en": "How far is New Cairo from Cairo airport?",
+              "ar": "القاهرة الجديدة بعيدة قد إيه عن مطار القاهرة؟"
+            },
+            "a": {
+              "en": "About 30 to 40 minutes by car outside rush hour. At peak times, allow an hour or more.",
+              "ar": "حوالي 30 إلى 40 دقيقة بالسيارة بعيدًا عن الزحمة، وممكن تاخد ساعة أو أكتر في وقت الذروة."
+            }
+          }
+        ],
+        "owners": {
+          "en": "Own an apartment in New Cairo?",
+          "ar": "عندك شقة في القاهرة الجديدة؟"
+        }
+      }
+    },
+    {
+      "slug": "sheikh-zayed",
+      "name": {
+        "en": "Sheikh Zayed",
+        "ar": "الشيخ زايد"
+      },
+      "aliases": [
+        "zayed",
+        "sheikh zayed city",
+        "زايد",
+        "مدينة الشيخ زايد"
+      ],
+      "intro": {
+        "en": "Managed stays in Sheikh Zayed, west of Cairo.",
+        "ar": "إقامات مُدارة في الشيخ زايد، غرب القاهرة."
+      },
+      "center": {
+        "lat": 30.05,
+        "lng": 30.97
+      },
+      "zoom": 12,
+      "photo": "dest-sheikh-zayed",
+      "guide": {
+        "updated": "2026-11-20",
+        "title": {
+          "en": "Sheikh Zayed stays: furnished homes west of Cairo",
+          "ar": "إقامات في الشيخ زايد: بيوت مفروشة غرب القاهرة"
+        },
+        "description": {
+          "en": "Furnished homes in Sheikh Zayed City, west of Cairo, run by Escape Away. A short drive from the Grand Egyptian Museum and the Giza Pyramids.",
+          "ar": "بيوت مفروشة في مدينة الشيخ زايد غرب القاهرة، تديرها Escape\u00a0Away، وعلى مسافة قصيرة بالسيارة من المتحف المصري الكبير وأهرامات الجيزة."
+        },
+        "heading": {
+          "en": ["Stays in", "Sheikh Zayed"],
+          "ar": ["إقامات في", "الشيخ زايد"]
+        },
+        "answer": {
+          "en": "Sheikh Zayed City is a newer city west of Cairo, in Giza Governorate, beside 6th of October City. Escape Away runs furnished homes there in gated compounds: a calm base for families and groups, a short drive from the Grand Egyptian Museum and the Giza Pyramids, with guest support around the clock.",
+          "ar": "مدينة الشيخ زايد مدينة حديثة غرب القاهرة، في محافظة الجيزة بجوار مدينة 6 أكتوبر. تدير Escape\u00a0Away فيها بيوتًا مفروشة داخل كمبوندات مسوّرة: قاعدة هادئة للعائلات والمجموعات، وعلى مسافة قصيرة بالسيارة من المتحف المصري الكبير وأهرامات الجيزة، مع دعم للضيوف على مدار الساعة."
+        },
+        "glance": [
+          {
+            "key": "bestFor",
+            "en": "Families and groups, and days out at the Pyramids and the Grand Egyptian Museum",
+            "ar": "العائلات والمجموعات، وزيارة الأهرامات والمتحف المصري الكبير"
+          },
+          {
+            "key": "season",
+            "en": "All year round; spring and autumn are the mildest",
+            "ar": "طوال العام، والربيع والخريف ألطف الأوقات"
+          },
+          {
+            "key": "access",
+            "en": "About 30 minutes by car from Sphinx International Airport",
+            "ar": "حوالي 30 دقيقة بالسيارة من مطار سفنكس الدولي"
+          },
+          {
+            "key": "homes",
+            "en": "Furnished homes in gated compounds",
+            "ar": "بيوت مفروشة داخل كمبوندات مسوّرة"
+          }
+        ],
+        "know": {
+          "en": [
+            "The 26th of July Corridor is the main road from Sheikh Zayed into central Cairo.",
+            "Cairo International Airport is on the far side of the city, usually more than an hour away; Sphinx International is the closer one.",
+            "Daily life centres on compounds, clubs and malls, so a car or a ride-hailing app makes getting around easy."
+          ],
+          "ar": [
+            "محور 26 يوليو هو الطريق الرئيسي من الشيخ زايد إلى وسط القاهرة.",
+            "مطار القاهرة الدولي في الطرف الآخر من المدينة، وغالبًا على بعد أكثر من ساعة، ومطار سفنكس الدولي هو الأقرب.",
+            "الحياة اليومية تدور حول الكمبوندات والنوادي والمولات، والتنقل أسهل بالسيارة أو بتطبيقات طلب السيارات."
+          ]
+        },
+        "faq": [
+          {
+            "q": {
+              "en": "Where is Sheikh Zayed City?",
+              "ar": "الشيخ زايد فين بالظبط؟"
+            },
+            "a": {
+              "en": "West of central Cairo, in Giza Governorate, next to 6th of October City. It’s a newer city of gated compounds, clubs and malls, linked to central Cairo by the 26th of July Corridor.",
+              "ar": "غرب وسط القاهرة، في محافظة الجيزة جنب مدينة 6 أكتوبر. مدينة حديثة فيها كمبوندات ونوادي ومولات، ومحور 26 يوليو بيوصلها بوسط القاهرة."
+            }
+          },
+          {
+            "q": {
+              "en": "How far is Sheikh Zayed from the Grand Egyptian Museum?",
+              "ar": "الشيخ زايد بعيدة قد إيه عن المتحف المصري الكبير؟"
+            },
+            "a": {
+              "en": "Usually 20 to 30 minutes by car outside rush hour. The museum sits beside the Giza Pyramids, so the two make an easy day out.",
+              "ar": "عادةً من 20 إلى 30 دقيقة بالسيارة بعيدًا عن الزحمة. والمتحف جنب أهرامات الجيزة، فتقدر تزور الاتنين في يوم واحد."
+            }
+          },
+          {
+            "q": {
+              "en": "Which airport is closest to Sheikh Zayed?",
+              "ar": "إيه أقرب مطار للشيخ زايد؟"
+            },
+            "a": {
+              "en": "Sphinx International Airport, about 30 minutes away by car. Cairo International is across the city and usually takes more than an hour.",
+              "ar": "مطار سفنكس الدولي، على بعد حوالي 30 دقيقة بالسيارة. أما مطار القاهرة الدولي فعلى الناحية التانية من المدينة، والطريق له غالبًا أكتر من ساعة."
+            }
+          }
+        ],
+        "owners": {
+          "en": "Own a home in Sheikh Zayed?",
+          "ar": "عندك بيت في الشيخ زايد؟"
+        }
+      }
+    },
+    {
+      "slug": "north-coast",
+      "name": {
+        "en": "North Coast",
+        "ar": "الساحل الشمالي"
+      },
+      "aliases": [
+        "sahel",
+        "el sahel",
+        "north coast",
+        "الساحل",
+        "ساحل",
+        "الساحل الشمالي"
+      ],
+      "intro": {
+        "en": "Seaside holiday stays on the Mediterranean: studios, apartments with one to six bedrooms, and villas, 25 to 600 m².",
+        "ar": "إقامات صيفية على البحر المتوسط: استوديوهات وشقق من غرفة إلى ست غرف وفيلات، من 25 إلى 600 م²."
+      },
+      "center": {
+        "lat": 30.95,
+        "lng": 28.8
+      },
+      "zoom": 9,
+      "photo": "dest-north-coast",
+      "guide": {
+        "updated": "2026-11-20",
+        "title": {
+          "en": "North Coast holiday homes on the Mediterranean",
+          "ar": "بيوت للإجازة في الساحل الشمالي على البحر المتوسط"
+        },
+        "description": {
+          "en": "Seaside studios, apartments and villas on Egypt’s North Coast, run by Escape Away for summer holidays with family, friends or as a couple.",
+          "ar": "استوديوهات وشقق وفيلات على البحر في الساحل الشمالي، تديرها Escape\u00a0Away لإجازات الصيف مع العائلة أو الأصدقاء أو لشخصين."
+        },
+        "heading": {
+          "en": ["Stays on the", "North Coast"],
+          "ar": ["إقامات في", "الساحل الشمالي"]
+        },
+        "answer": {
+          "en": "Egypt’s North Coast, the Sahel, is the Mediterranean shore west of Alexandria, lined with gated resort compounds. Escape Away’s homes there are studios, apartments with one to six bedrooms and villas, 25 to 600 m², for holiday stays. The season runs from June to September, when the coast is at its liveliest.",
+          "ar": "الساحل الشمالي هو شاطئ البحر المتوسط غرب الإسكندرية، وتمتد عليه قرى وكمبوندات سياحية مسوّرة. بيوت Escape\u00a0Away هناك استوديوهات وشقق من غرفة إلى ست غرف وفيلات، من 25 إلى 600 م²، لإقامات الإجازة. والموسم من يونيو إلى سبتمبر، حين يكون الساحل في أوج حيويته."
+        },
+        "glance": [
+          {
+            "key": "bestFor",
+            "en": "Beach holidays for families, couples and groups",
+            "ar": "إجازات البحر للعائلات والأزواج والمجموعات"
+          },
+          {
+            "key": "season",
+            "en": "June to September; July, August and the Eid holidays book up first",
+            "ar": "من يونيو إلى سبتمبر، ويوليو وأغسطس وإجازات العيد تُحجز أولًا"
+          },
+          {
+            "key": "access",
+            "en": "About 2.5 to 3 hours by car from Cairo, longer on summer weekends",
+            "ar": "حوالي ساعتين ونصف إلى 3 ساعات بالسيارة من القاهرة، وأطول في عطلات الصيف"
+          },
+          {
+            "key": "homes",
+            "en": "Studios, apartments with one to six bedrooms and villas, 25 to 600 m²",
+            "ar": "استوديوهات وشقق من غرفة إلى 6 غرف وفيلات، من 25 إلى 600 م²"
+          },
+          {
+            "key": "length",
+            "en": "Short holiday stays",
+            "ar": "إقامات إجازة قصيرة"
+          }
+        ],
+        "know": {
+          "en": [
+            "Compounds are gated, and guests enter on a pass issued before arrival.",
+            "From October to May the coast goes quiet, and many restaurants and beach clubs close until the next summer.",
+            "Leaving Cairo on a summer Thursday or Friday can double the drive, so set off early.",
+            "The nearest airports are El Alamein International and Borg El Arab, Alexandria’s airport."
+          ],
+          "ar": [
+            "الكمبوندات مسوّرة، ويدخل الضيوف بتصريح يصدر قبل الوصول.",
+            "من أكتوبر إلى مايو يهدأ الساحل، وتغلق مطاعم ونوادٍ شاطئية كثيرة حتى الصيف التالي.",
+            "الخروج من القاهرة يوم خميس أو جمعة في الصيف قد يضاعف مدة الطريق، فالأفضل التحرك مبكرًا.",
+            "أقرب مطارين هما مطار العلمين الدولي ومطار برج العرب في الإسكندرية."
+          ]
+        },
+        "faq": [
+          {
+            "q": {
+              "en": "When is the best time to go to the North Coast?",
+              "ar": "إمتى أحسن وقت للساحل الشمالي؟"
+            },
+            "a": {
+              "en": "Between June and September, when the sea is warm and the compounds are in full swing. July, August and the Eid holidays book up first, so send your request early.",
+              "ar": "من يونيو لسبتمبر، لما الميّه بتبقى دافية والكمبوندات في عزّ نشاطها. يوليو وأغسطس وإجازات العيد بتتحجز الأول، فابعت طلبك بدري."
+            }
+          },
+          {
+            "q": {
+              "en": "Is the North Coast open in winter?",
+              "ar": "الساحل بيبقى فاتح في الشتا؟"
+            },
+            "a": {
+              "en": "Not the way it is in summer. From October to May the coast is quiet and many restaurants and beach clubs close. Ask the team on WhatsApp which homes take winter stays.",
+              "ar": "مش زي الصيف. من أكتوبر لمايو الساحل بيهدى، ومطاعم ونوادي شاطئية كتير بتقفل. اسأل الفريق على واتساب عن البيوت المتاحة للإقامة في الشتا."
+            }
+          },
+          {
+            "q": {
+              "en": "Is El Alamein part of the North Coast?",
+              "ar": "العلمين جزء من الساحل الشمالي؟"
+            },
+            "a": {
+              "en": "Yes, it’s on the same coast, about 100 km west of Alexandria. Escape Away lists it on its own because New Alamein is a city planned for all year, not only for summer.",
+              "ar": "أيوه، على نفس الساحل، حوالي 100 كم غرب إسكندرية. بس Escape\u00a0Away بتعرضها لوحدها لأن العلمين الجديدة مدينة متخططة للعيش طول السنة، مش للصيف بس."
+            }
+          }
+        ],
+        "owners": {
+          "en": "Own a chalet or villa on the North Coast?",
+          "ar": "عندك شاليه أو فيلا في الساحل؟"
+        }
+      }
+    },
+    {
+      "slug": "el-alamein",
+      "name": {
+        "en": "El Alamein",
+        "ar": "العلمين"
+      },
+      "aliases": [
+        "alamein",
+        "new alamein",
+        "العلمين الجديدة",
+        "علمين"
+      ],
+      "intro": {
+        "en": "Managed stays in El Alamein on the Mediterranean coast.",
+        "ar": "إقامات مُدارة في العلمين على ساحل البحر المتوسط."
+      },
+      "center": {
+        "lat": 30.83,
+        "lng": 28.95
+      },
+      "zoom": 11,
+      "photo": "dest-el-alamein",
+      "guide": {
+        "updated": "2026-11-20",
+        "title": {
+          "en": "El Alamein stays by the sea, in New Alamein",
+          "ar": "إقامات على البحر في العلمين الجديدة"
+        },
+        "description": {
+          "en": "Homes by the sea in New Alamein, including the Alamein Towers, run by Escape Away with guest support around the clock.",
+          "ar": "بيوت على البحر في العلمين الجديدة، منها أبراج العلمين، تديرها Escape\u00a0Away مع دعم للضيوف على مدار الساعة."
+        },
+        "heading": {
+          "en": ["Stays in", "El Alamein"],
+          "ar": ["إقامات في", "العلمين"]
+        },
+        "answer": {
+          "en": "El Alamein is on Egypt’s Mediterranean coast, about 100 km west of Alexandria. New Alamein, the city built there, was planned to be lived in all year, with towers on the seafront, long beaches and a busy summer. Escape Away manages homes in the Alamein Towers, with guest support around the clock.",
+          "ar": "تقع العلمين على ساحل البحر المتوسط، على بعد حوالي 100 كم غرب الإسكندرية. والعلمين الجديدة مدينة خُطط لها أن تُسكن طوال العام، فيها أبراج على البحر وشواطئ ممتدة وصيف مزدحم. وتدير Escape\u00a0Away بيوتًا في أبراج العلمين، مع دعم للضيوف على مدار الساعة."
+        },
+        "glance": [
+          {
+            "key": "bestFor",
+            "en": "Beach holidays with a city close by",
+            "ar": "إجازات البحر وحياة المدينة قريبة"
+          },
+          {
+            "key": "season",
+            "en": "Summer is the main season; the city is planned for all year",
+            "ar": "الصيف هو الموسم الأساسي، والمدينة مخططة للعيش طوال العام"
+          },
+          {
+            "key": "access",
+            "en": "Around 3 hours by car from Cairo",
+            "ar": "حوالي 3 ساعات بالسيارة من القاهرة"
+          },
+          {
+            "key": "homes",
+            "en": "Apartments in the Alamein Towers",
+            "ar": "شقق في أبراج العلمين"
+          }
+        ],
+        "know": {
+          "en": [
+            "The nearest airports are El Alamein International and Borg El Arab, Alexandria’s airport.",
+            "The El Alamein War Museum and the Second World War cemeteries are a short drive away.",
+            "July and August are the busiest months, so send your request early."
+          ],
+          "ar": [
+            "أقرب مطارين هما مطار العلمين الدولي ومطار برج العرب في الإسكندرية.",
+            "متحف العلمين العسكري ومقابر الحرب العالمية الثانية على مسافة قصيرة بالسيارة.",
+            "يوليو وأغسطس أكثر الشهور ازدحامًا، فأرسل طلبك مبكرًا."
+          ]
+        },
+        "faq": [
+          {
+            "q": {
+              "en": "What’s the difference between El Alamein and the North Coast?",
+              "ar": "إيه الفرق بين العلمين والساحل الشمالي؟"
+            },
+            "a": {
+              "en": "El Alamein is part of the North Coast, but New Alamein is a city planned to be lived in all year, while most of the coast is holiday compounds that fill up in summer and go quiet in winter.",
+              "ar": "العلمين جزء من الساحل الشمالي، بس العلمين الجديدة مدينة متخططة للعيش طول السنة، أما أغلب الساحل فقرى وكمبوندات للإجازات بتتملي في الصيف وتهدى في الشتا."
+            }
+          },
+          {
+            "q": {
+              "en": "How far is El Alamein from Cairo?",
+              "ar": "العلمين بعيدة قد إيه عن القاهرة؟"
+            },
+            "a": {
+              "en": "About 260 km, or around 3 hours by car in normal traffic. Summer weekends can take much longer.",
+              "ar": "حوالي 260 كم، يعني تقريبًا 3 ساعات بالسيارة في المرور العادي، وممكن تطول كتير في عطلات الصيف."
+            }
+          },
+          {
+            "q": {
+              "en": "Which airport is closest to El Alamein?",
+              "ar": "إيه أقرب مطار للعلمين؟"
+            },
+            "a": {
+              "en": "El Alamein International Airport is the nearest. Borg El Arab, Alexandria’s airport, is the other choice.",
+              "ar": "مطار العلمين الدولي هو الأقرب، ومطار برج العرب في إسكندرية هو الاختيار التاني."
+            }
+          }
+        ],
+        "owners": {
+          "en": "Own an apartment in El Alamein?",
+          "ar": "عندك شقة في العلمين؟"
+        }
+      }
+    },
+    {
+      "slug": "gouna",
+      "name": {
+        "en": "Gouna",
+        "ar": "الجونة"
+      },
+      "aliases": [
+        "el gouna",
+        "red sea",
+        "الجونة",
+        "البحر الأحمر"
+      ],
+      "intro": {
+        "en": "Seaside holiday stays on the Red Sea: studios, apartments and villas around the lagoons.",
+        "ar": "إقامات صيفية على البحر الأحمر: استوديوهات وشقق وفيلات حول البحيرات."
+      },
+      "center": {
+        "lat": 27.39,
+        "lng": 33.68
+      },
+      "zoom": 12,
+      "photo": "dest-gouna",
+      "guide": {
+        "updated": "2026-11-20",
+        "title": {
+          "en": "El Gouna holiday homes on the Red Sea lagoons",
+          "ar": "بيوت للإجازة في الجونة على بحيرات البحر الأحمر"
+        },
+        "description": {
+          "en": "Studios, apartments and villas in El Gouna on the Red Sea, run by Escape Away. Mild winters, about 40 minutes from Hurghada airport.",
+          "ar": "استوديوهات وشقق وفيلات في الجونة على البحر الأحمر، تديرها Escape\u00a0Away. شتاء معتدل، وعلى بعد حوالي 40 دقيقة من مطار الغردقة."
+        },
+        "heading": {
+          "en": ["Stays in", "El Gouna"],
+          "ar": ["إقامات في", "الجونة"]
+        },
+        "answer": {
+          "en": "El Gouna is a resort town on the Red Sea, about 25 km north of Hurghada, built around lagoons and small islands. Escape Away’s homes there are studios, apartments and villas for holiday stays, and the mild winters keep the town busy all year.",
+          "ar": "الجونة مدينة سياحية على البحر الأحمر، على بعد حوالي 25 كم شمال الغردقة، مبنية حول بحيرات وجزر صغيرة. بيوت Escape\u00a0Away فيها استوديوهات وشقق وفيلات لإقامات الإجازة، والشتاء المعتدل يُبقي المدينة نشيطة طوال العام."
+        },
+        "glance": [
+          {
+            "key": "bestFor",
+            "en": "Beach holidays, kitesurfing, diving and winter sun",
+            "ar": "إجازات البحر والكايت سيرف والغوص وشمس الشتاء"
+          },
+          {
+            "key": "season",
+            "en": "All year; winters are mild and summers hot",
+            "ar": "طوال العام، الشتاء معتدل والصيف حار"
+          },
+          {
+            "key": "access",
+            "en": "About 40 minutes by road from Hurghada International Airport",
+            "ar": "حوالي 40 دقيقة بالطريق من مطار الغردقة الدولي"
+          },
+          {
+            "key": "homes",
+            "en": "Studios, apartments with one to six bedrooms and villas, 25 to 600 m²",
+            "ar": "استوديوهات وشقق من غرفة إلى 6 غرف وفيلات، من 25 إلى 600 م²"
+          },
+          {
+            "key": "length",
+            "en": "Short holiday stays",
+            "ar": "إقامات إجازة قصيرة"
+          }
+        ],
+        "know": {
+          "en": [
+            "Inside El Gouna, most places are a short tuk-tuk, bike, shuttle bus or boat ride apart.",
+            "Downtown and Abu Tig Marina are the liveliest spots for restaurants and cafés.",
+            "From Cairo, it’s about an hour’s flight to Hurghada, or five to six hours by road."
+          ],
+          "ar": [
+            "داخل الجونة، أغلب الأماكن قريبة بالتوك توك أو الدراجة أو أتوبيس الشاتل أو القارب.",
+            "داون تاون الجونة ومارينا أبو تيج أكثر الأماكن حيوية بالمطاعم والمقاهي.",
+            "من القاهرة، رحلة طيران حوالي ساعة إلى الغردقة، أو من 5 إلى 6 ساعات بالطريق."
+          ]
+        },
+        "faq": [
+          {
+            "q": {
+              "en": "Is El Gouna good in winter?",
+              "ar": "الجونة حلوة في الشتا؟"
+            },
+            "a": {
+              "en": "Yes. Winter days are mild and mostly sunny, which is why El Gouna stays busy all year, especially with visitors escaping the cold.",
+              "ar": "أيوه. أيام الشتا معتدلة ومشمسة غالبًا، وعشان كده الجونة بتفضل نشيطة طول السنة، خصوصًا مع الزوار اللي بيهربوا من البرد."
+            }
+          },
+          {
+            "q": {
+              "en": "How far is El Gouna from Hurghada airport?",
+              "ar": "الجونة بعيدة قد إيه عن مطار الغردقة؟"
+            },
+            "a": {
+              "en": "About 40 km by road, usually 35 to 45 minutes by car.",
+              "ar": "حوالي 40 كم بالطريق، يعني من 35 إلى 45 دقيقة بالسيارة عادةً."
+            }
+          },
+          {
+            "q": {
+              "en": "Do I need a car in El Gouna?",
+              "ar": "محتاج عربية في الجونة؟"
+            },
+            "a": {
+              "en": "Not usually. Most places are a short tuk-tuk, bike or shuttle ride apart; a car mainly helps for trips outside the town.",
+              "ar": "غالبًا لا. أغلب الأماكن قريبة بالتوك توك أو العجلة أو الشاتل، والعربية بتفيد أكتر في المشاوير برّه الجونة."
+            }
+          }
+        ],
+        "owners": {
+          "en": "Own a home in El Gouna?",
+          "ar": "عندك بيت في الجونة؟"
+        }
+      }
+    }
+  ]
+}

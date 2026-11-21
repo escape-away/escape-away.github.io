@@ -1,0 +1,434 @@
+{
+  "_about": "One slot, one ID. Every image slot with its current source, credit, licence and status. Stock stand-ins are replaced slot by slot with Escape Away's originals before go-live; never present a stock photo as a real unit.",
+  "slots": [
+    {
+      "slot": "hero-01",
+      "status": "stock",
+      "stands_in_for": "North Coast beach compound",
+      "src": "https://images.unsplash.com/photo-1600541205201-ee96f8c639f8",
+      "page": "https://unsplash.com/photos/fDo_EgwFnG8",
+      "photographer": "Dimitris Kiriakakis",
+      "licence": "Unsplash License",
+      "alt": {
+        "en": "White low-rise beach houses above turquoise water in late-afternoon light",
+        "ar": "بيوت بيضاء منخفضة تطل على مياه فيروزية في ضوء العصر"
+      },
+      "note": "Ornos beach, Mykonos. A mood stand-in only."
+    },
+    {
+      "slot": "interior-01",
+      "status": "stock",
+      "stands_in_for": "Cairo or Sheikh Zayed apartment living room",
+      "src": "https://images.unsplash.com/photo-1634822929277-0c51ca0e8846",
+      "page": "https://unsplash.com/photos/9iljaLpo9uw",
+      "photographer": "Jonathan Borba",
+      "licence": "Unsplash License",
+      "alt": {
+        "en": "A tall, bright living room with a cream sofa and sheer curtains",
+        "ar": "صالة واسعة ومضيئة بكنبة بلون كريمي وستائر خفيفة"
+      }
+    },
+    {
+      "slot": "bedroom-01",
+      "status": "stock",
+      "stands_in_for": "Listing card bedroom",
+      "src": "https://images.unsplash.com/photo-1776761363365-ad83248b93df",
+      "page": "https://unsplash.com/photos/uZoA9WaygLQ",
+      "photographer": "Antonio Araujo",
+      "licence": "Unsplash License",
+      "alt": {
+        "en": "A calm bedroom with white linens and glass doors to a garden",
+        "ar": "غرفة نوم هادئة بمفروشات بيضاء وأبواب زجاجية على حديقة"
+      }
+    },
+    {
+      "slot": "dest-gouna",
+      "status": "stock",
+      "stands_in_for": "Gouna, Red Sea",
+      "src": "https://images.unsplash.com/photo-1722264222007-3e4f1808db3e",
+      "page": "https://unsplash.com/photos/4wB6TZFvMHQ",
+      "photographer": "Bahaa Mourad",
+      "licence": "Unsplash License",
+      "alt": {
+        "en": "White low-rise buildings along a curved Red Sea shore with turquoise water",
+        "ar": "مبانٍ بيضاء منخفضة على شاطئ منحنٍ للبحر الأحمر بمياه فيروزية"
+      },
+      "note": "Hurghada. Alternate with real El Gouna villas: https://unsplash.com/photos/FNtJEqWVZMI (Levi Morsy)."
+    },
+    {
+      "slot": "dest-cairo",
+      "status": "stock",
+      "stands_in_for": "New Cairo compound",
+      "src": "https://images.unsplash.com/photo-1791744891344-89e680f16ea2",
+      "page": "https://unsplash.com/photos/tClLefDFGfM",
+      "photographer": "Nejc Soklič",
+      "licence": "Unsplash License",
+      "alt": {
+        "en": "Sand-coloured apartment buildings behind date palms in evening light",
+        "ar": "عمارات سكنية بلون الرمل خلف نخيل في ضوء المساء"
+      },
+      "note": "The Greens, Dubai. A mood stand-in only."
+    },
+    {
+      "slot": "dest-north-coast",
+      "status": "stock",
+      "stands_in_for": "North Coast (Sahel) beach compound",
+      "src": "https://images.unsplash.com/photo-1765288116127-3c5a76fa2ba6",
+      "page": "https://unsplash.com/photos/qoHtVc-U-Ec",
+      "photographer": "Joris Beugels",
+      "licence": "Unsplash License",
+      "alt": {
+        "en": "White low-rise buildings along a sandy beach on a turquoise bay under a clear blue sky",
+        "ar": "مبانٍ بيضاء منخفضة على شاطئ رملي بجوار خليج فيروزي تحت سماء زرقاء صافية"
+      },
+      "note": "Karpathos, Greece. A mood stand-in only; free photos of the real North Coast compounds were not found."
+    },
+    {
+      "slot": "dest-el-alamein",
+      "status": "stock",
+      "stands_in_for": "El Alamein",
+      "src": "https://images.unsplash.com/photo-1722264310337-92c342c9bfe3",
+      "page": "https://unsplash.com/photos/hx83ehBDWRE",
+      "photographer": "Bahaa Mourad",
+      "licence": "Unsplash License",
+      "alt": {
+        "en": "Aerial view of seaside chalets around turquoise lagoons, with high-rise towers on the Mediterranean coast behind",
+        "ar": "منظر جوي لشاليهات ساحلية حول بحيرات فيروزية، وخلفها أبراج شاهقة على ساحل البحر المتوسط"
+      },
+      "note": "Marina Al Alamein with the New Alamein towers behind: the real place."
+    },
+    {
+      "slot": "dest-sheikh-zayed",
+      "status": "stock",
+      "stands_in_for": "Sheikh Zayed compound",
+      "src": "https://images.unsplash.com/photo-1640877268187-2fa6b2ed7a5f",
+      "page": "https://unsplash.com/photos/TqouW9u0qmk",
+      "photographer": "Eslam Tawakol",
+      "licence": "Unsplash License",
+      "alt": {
+        "en": "Aerial view of a green residential compound with villas, lawns, palm trees and private pools in warm golden light",
+        "ar": "منظر جوي لمجمع سكني أخضر يضم فيلات ومسطحات خضراء وأشجار نخيل ومسابح خاصة في ضوء ذهبي دافئ"
+      },
+      "note": "Tagged Dubai. A mood stand-in only."
+    },
+    {
+      "slot": "coll-city",
+      "status": "stock",
+      "stands_in_for": "City stays collection",
+      "src": "https://images.unsplash.com/photo-1761330439180-2bba3bbb8eb2",
+      "page": "https://unsplash.com/photos/DhVAndFPb3k",
+      "photographer": "Caroline Badran",
+      "licence": "Unsplash License",
+      "alt": {
+        "en": "Bright modern apartment living room with a soft sofa and wide windows overlooking the city",
+        "ar": "غرفة معيشة مشرقة في شقة عصرية بها أريكة مريحة ونوافذ واسعة تطل على المدينة"
+      }
+    },
+    {
+      "slot": "coll-seaside",
+      "status": "stock",
+      "stands_in_for": "Seaside collection",
+      "src": "https://images.unsplash.com/photo-1785013045428-d7c3d9535239",
+      "page": "https://unsplash.com/photos/iTWlAiik7IY",
+      "photographer": "Aliaksei Liohenki",
+      "licence": "Unsplash License",
+      "alt": {
+        "en": "Edge of a turquoise swimming pool looking out over the sea and a sandy beach on a sunny day",
+        "ar": "حافة مسبح فيروزي تطل على البحر وشاطئ رملي في يوم مشمس"
+      }
+    },
+    {
+      "slot": "coll-family",
+      "status": "stock",
+      "stands_in_for": "Family stays collection",
+      "src": "https://images.unsplash.com/photo-1785535573610-c81a06ddfea7",
+      "page": "https://unsplash.com/photos/2l3NfJS-Zp0",
+      "photographer": "Franco Debartolo",
+      "licence": "Unsplash License",
+      "alt": {
+        "en": "Spacious dining area with a round wooden table for six and glass doors opening onto a green garden",
+        "ar": "منطقة طعام واسعة بها طاولة خشبية مستديرة لستة أشخاص وأبواب زجاجية تطل على حديقة خضراء"
+      }
+    },
+    {
+      "slot": "owner-design",
+      "status": "stock",
+      "stands_in_for": "Owner journey: design",
+      "src": "https://images.unsplash.com/photo-1667400104764-a5fd01a919b0",
+      "page": "https://unsplash.com/photos/pdCTX1harH4",
+      "photographer": "Karolina Grabowska",
+      "licence": "Unsplash License",
+      "alt": {
+        "en": "Hand holding a fan of colour and material swatches over a floor plan on a wooden desk",
+        "ar": "يد تمسك بمجموعة من عينات الألوان والخامات فوق مخطط هندسي على مكتب خشبي"
+      }
+    },
+    {
+      "slot": "owner-prepare",
+      "status": "stock",
+      "stands_in_for": "Owner journey: prepare",
+      "src": "https://images.unsplash.com/photo-1631015108968-ba3b87f89005",
+      "page": "https://unsplash.com/photos/COp-kDF4RWs",
+      "photographer": "Vije Vijendranath",
+      "licence": "Unsplash License",
+      "alt": {
+        "en": "Neatly folded white towels on a made bed in a warm, wood-panelled bedroom",
+        "ar": "مناشف بيضاء مطوية بعناية على سرير مرتب في غرفة نوم دافئة بجدار خشبي"
+      }
+    },
+    {
+      "slot": "unit-NC-MRS-014-01",
+      "status": "stock",
+      "stands_in_for": "Marassi chalet: sea-view terrace",
+      "src": "https://images.unsplash.com/photo-1790276319448-628568d49421",
+      "page": "https://unsplash.com/photos/patio-lounge-chairs-overlooking-turquoise-sea-FJl1ux7-kjk",
+      "photographer": "Rosemary Media",
+      "licence": "Unsplash License",
+      "alt": {
+        "en": "A white parasol and woven outdoor chairs on a terrace above a calm turquoise sea, with a low island on the horizon.",
+        "ar": "مظلة بيضاء ومقاعد خارجية منسوجة على تراس يطل على بحر فيروزي هادئ، وفي الأفق جزيرة منخفضة."
+      },
+      "note": "Shot on a coast outside Egypt (low islets on the horizon). A mood stand-in only. Cropped: a dark pillar ran down its right edge.",
+      "crop": {
+        "right": 0.095
+      }
+    },
+    {
+      "slot": "unit-NC-MRS-014-02",
+      "status": "stock",
+      "stands_in_for": "Marassi chalet: living room",
+      "src": "https://images.unsplash.com/photo-1747336754870-ca7b10cc75f5",
+      "page": "https://unsplash.com/photos/a-stylish-neutral-toned-living-room-is-shown-bJGBQj5cf6w",
+      "photographer": "Luis J. Corniel",
+      "licence": "Unsplash License",
+      "alt": {
+        "en": "A bright living room with a linen sofa, rustic wooden tables, woven wall mirrors and glass doors to a terrace.",
+        "ar": "غرفة معيشة مشرقة فيها أريكة من الكتان وطاولات خشبية ريفية ومرايا جدارية بإطارات منسوجة وأبواب زجاجية تفتح على تراس."
+      }
+    },
+    {
+      "slot": "unit-NC-MRS-014-04",
+      "status": "stock",
+      "stands_in_for": "Marassi chalet: shared compound pool",
+      "src": "https://images.unsplash.com/photo-1737234546197-6263a8adb9b7",
+      "page": "https://unsplash.com/photos/a-swimming-pool-in-front-of-a-white-building-gNdT5NU0hwM",
+      "photographer": "Matthew",
+      "licence": "Unsplash License",
+      "alt": {
+        "en": "A shared swimming pool in front of white low-rise apartment buildings, with palm trees and green hedges under a blue sky.",
+        "ar": "حمام سباحة مشترك أمام مبانٍ سكنية بيضاء منخفضة الارتفاع، تحيط بها أشجار النخيل والأسيجة الخضراء تحت سماء زرقاء."
+      }
+    },
+    {
+      "slot": "unit-NC-MRS-014-05",
+      "status": "stock",
+      "stands_in_for": "Marassi chalet: dining area",
+      "src": "https://images.unsplash.com/photo-1617048400527-e6ab223281e1",
+      "page": "https://unsplash.com/photos/white-chairs-and-table-in-white-room-ZrHt5qCudQE",
+      "photographer": "mike liu",
+      "licence": "Unsplash License",
+      "alt": {
+        "en": "A white room with curved arches, a built-in counter, and a table with white chairs with woven seats under a rattan pendant lamp.",
+        "ar": "غرفة بيضاء بأقواس منحنية فيها سطح مدمج، وطاولة وكراسٍ بيضاء بمقاعد منسوجة تحت مصباح معلق من الخيزران."
+      },
+      "note": "Pipes under the built-in counter are visible; swap first when real photos arrive."
+    },
+    {
+      "slot": "unit-AL-ATW-007-02",
+      "status": "stock",
+      "stands_in_for": "Alamein Towers apartment: high-floor sea-view balcony",
+      "src": "https://images.unsplash.com/photo-1732817204732-04a6ea44cdee",
+      "page": "https://unsplash.com/photos/a-balcony-overlooking-the-ocean-with-chairs-and-tables-73HEIvEOL4k",
+      "photographer": "Steve Adams",
+      "licence": "Unsplash License",
+      "alt": {
+        "en": "Two lounge chairs and a small glass table on a white-walled balcony overlooking a turquoise sea under scattered clouds.",
+        "ar": "كرسيا استرخاء وطاولة زجاجية صغيرة على شرفة ذات جدار أبيض تطل على بحر فيروزي تحت سحب متفرقة."
+      }
+    },
+    {
+      "slot": "unit-AL-ATW-007-03",
+      "status": "stock",
+      "stands_in_for": "Alamein Towers apartment: bedroom",
+      "src": "https://images.unsplash.com/photo-1658218729615-167c32d70537",
+      "page": "https://unsplash.com/photos/a-bedroom-with-a-bed-and-a-chair-08ZgZuUwy2o",
+      "photographer": "Cytonn Photography",
+      "licence": "Unsplash License",
+      "alt": {
+        "en": "A bright bedroom with a wooden double bed and folded towels, two armchairs and a small table by the window, and a herringbone wood floor.",
+        "ar": "غرفة نوم مشرقة فيها سرير مزدوج خشبي عليه مناشف مطوية، وكرسيان وطاولة صغيرة بجوار النافذة، وأرضية خشبية بنقشة عظم السمكة."
+      }
+    },
+    {
+      "slot": "unit-AL-ATW-007-04",
+      "status": "stock",
+      "stands_in_for": "Alamein Towers apartment: fitted kitchen",
+      "src": "https://images.unsplash.com/photo-1781249144275-c04daed37031",
+      "page": "https://unsplash.com/photos/modern-kitchen-with-dark-wood-cabinets-and-speckled-countertops-xLEQEF3cC1s",
+      "photographer": "Irena Oze",
+      "licence": "Unsplash License",
+      "alt": {
+        "en": "A fitted modern kitchen with dark wood cabinets, a speckled stone counter and three white bar stools.",
+        "ar": "مطبخ حديث مجهّز بخزائن من الخشب الداكن وسطح عمل من الحجر المرقّط وثلاثة مقاعد بار بيضاء."
+      }
+    },
+    {
+      "slot": "unit-AL-ATW-007-05",
+      "status": "stock",
+      "stands_in_for": "Alamein Towers apartment: bathroom",
+      "src": "https://images.unsplash.com/photo-1781344334947-60c704bafd51",
+      "page": "https://unsplash.com/photos/modern-bathroom-with-double-sinks-freestanding-tub-and-wooden-accents-M6a_MWnHJd4",
+      "photographer": "Ibrar Tariq",
+      "licence": "Unsplash License",
+      "alt": {
+        "en": "A modern bathroom with two basins on a wooden vanity, round backlit mirrors and a freestanding bathtub.",
+        "ar": "حمام حديث فيه حوضان على وحدة خشبية ومرآتان دائريتان بإضاءة خلفية وحوض استحمام قائم بذاته."
+      }
+    },
+    {
+      "slot": "unit-GN-ATM-021-01",
+      "status": "stock",
+      "stands_in_for": "Abu Tig Marina apartment: balcony over the lagoon",
+      "src": "https://images.unsplash.com/photo-1766997249333-308fe0d24b8a",
+      "page": "https://unsplash.com/photos/balcony-view-of-tropical-beach-and-turquoise-ocean-eA8cCPN7u1A",
+      "photographer": "Braden Wagner",
+      "licence": "Unsplash License",
+      "alt": {
+        "en": "A curved balcony railing on an upper floor overlooking palm trees, a white beach and turquoise shallows with a reef.",
+        "ar": "درابزين شرفة منحنٍ في طابق مرتفع يطل على أشجار النخيل وشاطئ أبيض ومياه فيروزية ضحلة تتخللها شعاب مرجانية."
+      },
+      "note": "A tropical coast outside Egypt. A mood stand-in for the lagoon view."
+    },
+    {
+      "slot": "unit-GN-ATM-021-03",
+      "status": "stock",
+      "stands_in_for": "Abu Tig Marina apartment: bedroom",
+      "src": "https://images.unsplash.com/photo-1750271334785-4f6008035021",
+      "page": "https://unsplash.com/photos/a-clean-bright-bedroom-with-a-large-bed-L9GsIbPCXKU",
+      "photographer": "sidath vimukthi",
+      "licence": "Unsplash License",
+      "alt": {
+        "en": "A light, calm bedroom with a double bed in white linen, a turquoise wooden headboard, a hanging plant and a woven basket.",
+        "ar": "غرفة نوم هادئة ومشرقة فيها سرير مزدوج بمفارش بيضاء ولوح رأس خشبي فيروزي، مع نبتة معلقة وسلة منسوجة."
+      }
+    },
+    {
+      "slot": "unit-GN-ATM-021-04",
+      "status": "stock",
+      "stands_in_for": "Abu Tig Marina apartment: shared pool",
+      "src": "https://images.unsplash.com/photo-1671056434397-e1799d2e1c7b",
+      "page": "https://unsplash.com/photos/two-lounge-chairs-and-an-umbrella-on-a-patio-Cx0pdUNv2RM",
+      "photographer": "Ahmad Ajmi",
+      "licence": "Unsplash License",
+      "alt": {
+        "en": "A parasol, lounge chairs and a side table beside an infinity pool, with sand, low stone buildings and the sea behind in warm evening light.",
+        "ar": "مظلة وكراسي استرخاء وطاولة جانبية بجوار حمام سباحة لا متناهي الحافة، وخلفها رمال ومبانٍ حجرية منخفضة والبحر في ضوء المساء الدافئ."
+      }
+    },
+    {
+      "slot": "unit-CA-MVI-003-01",
+      "status": "stock",
+      "stands_in_for": "New Cairo garden apartment: living room onto the garden",
+      "src": "https://images.unsplash.com/photo-1774437290632-f4e91d831537",
+      "page": "https://unsplash.com/photos/modern-living-room-with-courtyard-view-and-television-o08lTHSjjU8",
+      "photographer": "Wemel Wood",
+      "licence": "Unsplash License",
+      "alt": {
+        "en": "A modern living room with white upholstered sofas and a floor-to-ceiling glass wall opening onto a green courtyard garden.",
+        "ar": "غرفة معيشة حديثة فيها أرائك بيضاء منجّدة وواجهة زجاجية من الأرض حتى السقف تطل على حديقة فناء خضراء."
+      }
+    },
+    {
+      "slot": "unit-CA-MVI-003-02",
+      "status": "stock",
+      "stands_in_for": "New Cairo garden apartment: private garden",
+      "src": "https://images.unsplash.com/photo-1786654026766-8c6422fcbb84",
+      "page": "https://unsplash.com/photos/lounge-chairs-on-stone-patio-bGaG3Cfp2WA",
+      "photographer": "Arlind Photography",
+      "licence": "Unsplash License",
+      "alt": {
+        "en": "A private garden with a lawn, a stepping-stone path, an outdoor sofa, lounge chairs and a large parasol beside a stone-clad ground floor.",
+        "ar": "حديقة خاصة فيها مسطح أخضر وممر من البلاطات وأريكة خارجية وكراسي استرخاء ومظلة كبيرة بجوار طابق أرضي بواجهة حجرية."
+      }
+    },
+    {
+      "slot": "unit-CA-MVI-003-04",
+      "status": "stock",
+      "stands_in_for": "New Cairo garden apartment: bedroom",
+      "src": "https://images.unsplash.com/photo-1612320583049-eabe3c21bd94",
+      "page": "https://unsplash.com/photos/white-bed-with-white-bed-linen-i9Lp1hd5M-c",
+      "photographer": "Huy Nguyen",
+      "licence": "Unsplash License",
+      "alt": {
+        "en": "A warm modern bedroom with an upholstered bed, orange and cream cushions, a round mirror and a large window onto a green garden.",
+        "ar": "غرفة نوم حديثة دافئة فيها سرير منجّد ووسائد برتقالية وكريمية ومرآة دائرية ونافذة كبيرة تطل على حديقة خضراء."
+      }
+    },
+    {
+      "slot": "unit-CA-MVI-003-05",
+      "status": "stock",
+      "stands_in_for": "New Cairo garden apartment: kitchen",
+      "src": "https://images.unsplash.com/photo-1617228069096-4638a7ffc906",
+      "page": "https://unsplash.com/photos/modern-kitchen-with-island-and-large-window-VgyN_CWXQVM",
+      "photographer": "Cat Han",
+      "licence": "Unsplash License",
+      "alt": {
+        "en": "A tidy modern kitchen with pale cabinets, an island, a gas range and a large window onto palm trees and greenery.",
+        "ar": "مطبخ حديث مرتب بخزائن فاتحة اللون وجزيرة وموقد غاز ونافذة كبيرة تطل على أشجار النخيل والخضرة."
+      }
+    },
+    {
+      "slot": "unit-SZ-ALG-011-02",
+      "status": "stock",
+      "stands_in_for": "Sheikh Zayed villa: garden",
+      "src": "https://images.unsplash.com/photo-1721989520493-dfcaa880ceef",
+      "page": "https://unsplash.com/photos/a-patio-with-a-couch-and-a-table-in-it-LeF-gvkTuHI",
+      "photographer": "Sanju Pandita",
+      "licence": "Unsplash License",
+      "alt": {
+        "en": "A landscaped garden with a lawn, stepping stones and a built-in outdoor lounge under a pergola, framed by tropical plants.",
+        "ar": "حديقة منسقة فيها مسطح أخضر وبلاطات للمشي وجلسة خارجية مبنية تحت عريشة، تحيط بها نباتات استوائية كثيفة."
+      },
+      "note": "Planting is more tropical than a typical Sheikh Zayed garden. A mood stand-in only."
+    },
+    {
+      "slot": "unit-SZ-ALG-011-03",
+      "status": "stock",
+      "stands_in_for": "Sheikh Zayed villa: family living room",
+      "src": "https://images.unsplash.com/photo-1782939355626-8df602c595fb",
+      "page": "https://unsplash.com/photos/elegant-living-room-with-multiple-sofas-and-moroccan-inspired-decor-gQwmhH2PRqY",
+      "photographer": "AZIZ KOURI",
+      "licence": "Unsplash License",
+      "alt": {
+        "en": "A large living room with beige sofas around low tables, hanging lanterns, carved lattice screens and tall windows onto a garden.",
+        "ar": "غرفة معيشة واسعة فيها أرائك بلون البيج حول طاولات منخفضة، وفوانيس معلقة وحواجز مشربية منحوتة ونوافذ طويلة تطل على حديقة."
+      }
+    },
+    {
+      "slot": "unit-SZ-ALG-011-04",
+      "status": "stock",
+      "stands_in_for": "Sheikh Zayed villa: dining table for 8 to 10",
+      "src": "https://images.unsplash.com/photo-1777997992181-babb8f4b5480",
+      "page": "https://unsplash.com/photos/modern-dining-room-with-chairs-around-a-table-LCzQE5dOGrk",
+      "photographer": "Caroline Badran",
+      "licence": "Unsplash License",
+      "alt": {
+        "en": "Open glass doors looking into a modern dining room with a long table lined with wooden chairs under globe pendant lights.",
+        "ar": "أبواب زجاجية مفتوحة تكشف غرفة طعام حديثة فيها طاولة طويلة تصطف حولها كراسٍ خشبية تحت مصابيح معلقة كروية."
+      }
+    },
+    {
+      "slot": "unit-SZ-ALG-011-05",
+      "status": "stock",
+      "stands_in_for": "Sheikh Zayed villa: bedroom",
+      "src": "https://images.unsplash.com/photo-1631048501786-4e97f20eac71",
+      "page": "https://unsplash.com/photos/white-bed-with-white-bed-linen-AJCs3SvOzRg",
+      "photographer": "Point3D Commercial Imaging Ltd.",
+      "licence": "Unsplash License",
+      "alt": {
+        "en": "A calm, bright bedroom with an upholstered bed, a rattan pendant lamp, a wooden nightstand and a long window onto green trees.",
+        "ar": "غرفة نوم هادئة ومشرقة فيها سرير منجّد ومصباح معلق من الخيزران وطاولة خشبية بجانب السرير ونافذة طولية تطل على أشجار خضراء."
+      }
+    }
+  ]
+}

@@ -1,0 +1,232 @@
+/*
+  Escape Away design tokens
+  The single source for the demo and the live site. The Next.js app imports this file
+  and maps it into Tailwind's theme; the token preview reads it directly.
+
+  Brand colours: the company profile (cream, sand, navy, espresso).
+  Accents: the pitch deck the client liked (warm gold, ice blue), used for design only.
+  Type: Recoleta and Garet on the live site; Fraunces and Jost are the free stand-ins here.
+  Arabic: Alexandria alone (pair C), chosen Nov 19, 2026.
+*/
+
+:root {
+  /* ---------- Colour: brand (company profile) ---------- */
+  --ea-cream: #f4ecdf;
+  --ea-sand: #dbc9b3;
+  --ea-navy: #003c82;
+  --ea-espresso: #3b2d21;
+
+  /* ---------- Colour: accents (pitch deck) ---------- */
+  --ea-gold: #a8906e;          /* the short rule under section titles; never text */
+  --ea-ice: #8aa4c9;           /* rules, icons and marks on navy */
+
+  /* ---------- Colour: derived for the interface ---------- */
+  --ea-shell: #fbf7f0;         /* raised surfaces: inputs, sheets, popovers */
+  --ea-espresso-muted: #5e4d3e;/* secondary text: 6.9:1 on cream, 5.0:1 on sand */
+  --ea-control-line: #8c7a66;  /* input and control borders: 3.5:1 on cream */
+  --ea-ice-text: #c3d1e6;      /* small text on navy: 6.9:1 */
+  --ea-navy-hover: #00336f;
+  --ea-navy-deep: #002b5e;     /* pressed navy, the footer's base strip */
+  --ea-success: #3f6b3a;
+  --ea-warning: #8a5a00;
+  --ea-error: #a23b2a;
+  --ea-error-on-navy: #f3b7a6; /* errors on navy: 6.2:1 on navy, 8:1 on navy deep */
+
+  /* ---------- Colour: the stays map (read by the map at runtime; the price pins stay navy) ---------- */
+  --map-land: #efe6d6;         /* a shade under cream, so the map reads as its own panel */
+  --map-landuse: #ebe1cf;
+  --map-green: #e2dfc8;
+  --map-water: #c7d5e6;        /* ice blue, lifted towards shell */
+  --map-water-line: #b3c5dc;
+  --map-road: #fbf7f0;
+  --map-road-casing: #dccdb8;
+  --map-building: #e6dbc9;
+  --map-boundary: #b3a089;
+  --map-label: #5e4d3e;        /* espresso muted: 6.4:1 on the land */
+  --map-water-label: #4a6286;
+  --map-label-halo: #f6f0e6;
+
+  /* ---------- Colour roles: light grounds ---------- */
+  --color-ground: var(--ea-cream);
+  --color-ground-alt: var(--ea-sand);
+  --color-surface: var(--ea-shell);
+  --color-ink: var(--ea-espresso);
+  --color-ink-muted: var(--ea-espresso-muted);
+  --color-action: var(--ea-navy);
+  --color-action-hover: var(--ea-navy-hover);
+  --color-action-pressed: var(--ea-navy-deep);
+  --color-on-action: var(--ea-cream);
+  --color-rule: var(--ea-gold);
+  --color-line: var(--ea-sand);
+  --color-line-strong: var(--ea-control-line);
+  --color-focus: var(--ea-navy);
+  --color-placeholder: var(--ea-sand);
+  --color-error: var(--ea-error);
+
+  /* ---------- Colour roles: navy grounds (owner section, footer) ---------- */
+  --color-dark-ground: var(--ea-navy);
+  --color-dark-ground-deep: var(--ea-navy-deep);
+  --color-dark-ink: var(--ea-cream);
+  --color-dark-ink-muted: var(--ea-ice-text);
+  --color-dark-detail: var(--ea-ice);
+  --color-dark-line: rgb(195 209 230 / 0.3);
+  --color-dark-action: var(--ea-cream);
+  --color-dark-on-action: var(--ea-navy);
+  --color-dark-focus: var(--ea-cream);
+  --color-dark-error: var(--ea-error-on-navy);
+
+  /* ---------- Type: families ---------- */
+  --font-display-latin: "Fraunces", "Recoleta", Georgia, "Times New Roman", serif;
+  --font-text-latin: "Jost", "Garet", "Segoe UI", system-ui, sans-serif;
+  --font-display-arabic: "Alexandria", "Noto Sans Arabic", sans-serif;  /* pair C, chosen Nov 19, 2026 */
+  --font-text-arabic: "Alexandria", "Noto Sans Arabic", sans-serif;
+  --font-display: var(--font-display-latin);
+  --font-text: var(--font-text-latin);
+  --display-variation: "SOFT" 100, "WONK" 0;   /* Fraunces made soft, closer to Recoleta */
+
+  /* ---------- Type: weights ---------- */
+  --weight-display-light: 300;
+  --weight-display-bold: 700;
+  --weight-text: 400;
+  --weight-ui: 500;
+  --weight-strong: 600;
+
+  /* ---------- Type: sizes, 375px to 1440px ---------- */
+  --text-hero: clamp(2.75rem, 1.55rem + 5.1vw, 6rem);         /* 44 to 96 */
+  --text-title: clamp(2.125rem, 1.55rem + 2.45vw, 3.75rem);   /* 34 to 60, section titles */
+  --text-subtitle: clamp(1.625rem, 1.33rem + 1.31vw, 2.5rem); /* 26 to 40 */
+  --text-lead: clamp(1.125rem, 1.06rem + 0.28vw, 1.3125rem);  /* 18 to 21 */
+  --text-body: 1.0625rem;   /* 17 */
+  --text-small: 0.9375rem;  /* 15 */
+  --text-label: 0.8125rem;  /* 13 */
+
+  --display-scale: 1;       /* Arabic faces draw at different sizes; each pair sets its own */
+
+  --leading-hero: 1.02;
+  --leading-title: 1.06;
+  --leading-subtitle: 1.12;
+  --leading-lead: 1.55;
+  --leading-body: 1.6;
+  --leading-small: 1.5;
+  --leading-label: 1.35;
+  --tracking-display: -0.02em;
+  --leading-clamp: 1.375;         /* clamped card titles */
+  --clamp-room: 0px;               /* room under a clamped block for marks that hang below it */
+  --measure: 56ch;               /* ~70–75 characters a line: Jost's ch (the width of "0") is wider than its average letter, so 66ch ran to 85–93 */
+
+  /* ---------- Space: 4px base ---------- */
+  --space-1: 0.25rem;  /* 4 */
+  --space-2: 0.5rem;   /* 8 */
+  --space-3: 0.75rem;  /* 12 */
+  --space-4: 1rem;     /* 16 */
+  --space-5: 1.5rem;   /* 24 */
+  --space-6: 2rem;     /* 32 */
+  --space-7: 3rem;     /* 48 */
+  --space-8: 4rem;     /* 64 */
+  --space-9: 6rem;     /* 96 */
+  --space-10: 8rem;    /* 128 */
+  --space-section: clamp(4rem, 2.6rem + 6vw, 8rem);  /* 64 to 128 between sections */
+  --gutter: clamp(1.25rem, 0.5rem + 3.2vw, 3rem);    /* 20 to 48 page edges */
+  --container: 80rem;                                 /* 1280 */
+
+  /* ---------- Shape ---------- */
+  --radius-arch: 9999px 9999px 0 0;           /* full semicircle top on any element taller than half its width */
+  --radius-soft-arch: 50% 50% 0 0 / 18% 18% 0 0; /* shallow curved top for landscape crops */
+  --radius-pill: 9999px;
+  --radius-input: 12px;
+  --radius-card: 16px;
+  --radius-sheet: 20px;
+  --rule-width: 3rem;    /* the gold rule under section titles */
+  --rule-height: 3px;
+
+  /* ---------- Elevation (warm, offset, soft) ---------- */
+  --shadow-raise: 0 1px 2px rgb(59 45 33 / 0.06), 0 4px 12px rgb(59 45 33 / 0.07);
+  --shadow-float: 0 2px 6px rgb(59 45 33 / 0.08), 0 18px 44px rgb(59 45 33 / 0.16);
+  --shadow-pin: 0 1px 2px rgb(0 27 60 / 0.28), 0 4px 10px rgb(0 27 60 / 0.18);
+
+  /* ---------- Motion: transform and opacity only ---------- */
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+  --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);  /* sheets that slide in from an edge */
+  --duration-press: 120ms;
+  --duration-fast: 160ms;
+  --duration-base: 240ms;
+  --duration-slow: 420ms;
+  --duration-arrival: 1100ms;
+  --press-scale: 0.97;
+  --arrival-frame-from: 0.86;  /* the hero arch opens from 86% */
+  --arrival-photo-from: 1.16;  /* while the photo inside settles from 116% */
+
+  /* ---------- Sizes and layers ---------- */
+  --tap: 44px;
+  --tap-min: 24px;
+  --field-height: 48px;
+  --header-height: 64px;
+  --z-bar: 40;
+  --z-header: 50;
+  --z-sheet: 60;
+  --z-toast: 70;
+}
+
+/* Arabic: its own faces, no tracking, more room for the taller script. */
+:root:lang(ar),
+[lang="ar"] {
+  --font-display: var(--font-display-arabic);
+  --font-text: var(--font-text-arabic);
+  --weight-display-light: 200;  /* Alexandria carries both lines: 200 light, 700 bold */
+  --weight-display-bold: 700;
+  --display-scale: 0.94;        /* Alexandria draws large; ease headings down to sit with the Latin */
+  --leading-hero: 1.28;
+  --leading-title: 1.3;
+  --leading-subtitle: 1.35;
+  --leading-lead: 1.75;
+  --leading-body: 1.8;
+  --leading-small: 1.7;
+  --leading-label: 1.5;
+  --tracking-display: 0;
+  --text-label: 0.875rem;   /* 14 */
+  --leading-clamp: 1.65;    /* the dots under ي hang lower than Latin descenders; a clamp would cut them */
+  --clamp-room: 0.2em;
+}
+
+/* English inside an Arabic page (a language switch, a brand name) goes back to the Latin faces. */
+[lang="en"] {
+  --font-display: var(--font-display-latin);
+  --font-text: var(--font-text-latin);
+  --weight-display-light: 300;
+  --weight-display-bold: 700;
+  --display-scale: 1;
+  --leading-hero: 1.02;
+  --leading-title: 1.06;
+  --leading-subtitle: 1.12;
+  --leading-lead: 1.55;
+  --leading-body: 1.6;
+  --leading-small: 1.5;
+  --leading-label: 1.35;
+  --tracking-display: -0.02em;
+  --text-label: 0.8125rem;
+  --leading-clamp: 1.375;
+  --clamp-room: 0px;
+}
+
+/* A guest's English words quoted on an Arabic page keep that page's display face: Alexandria draws
+   Latin too, so Arabic pages don't download the Latin display font (118 KB) for one quote. */
+:root:lang(ar) [lang="en"] {
+  --font-display: var(--font-display-arabic);
+}
+
+/* On English pages the only Arabic is the language switch's one word, so the phone's own Arabic
+   face draws it: English pages never download the Arabic font file (31 KB), which used to compete
+   with the hero photo on slow connections. */
+:root:lang(en) .lang-switch:lang(ar) {
+  --font-text: system-ui, sans-serif;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --press-scale: 1;
+    --arrival-frame-from: 1;
+    --arrival-photo-from: 1;
+    --duration-arrival: 1ms;   /* the hero simply appears, nothing scales */
+  }
+}

@@ -1,0 +1,176 @@
+/*
+  Escape Away base layer: element defaults, browser surfaces and the shared shapes.
+  Requires tokens.css. Logical properties only (start/end, never left/right), so Arabic mirrors for free.
+*/
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html {
+  color-scheme: light;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  scroll-padding-block: calc(var(--header-height) + var(--space-4)) calc(var(--tap) + var(--space-6));
+}
+
+body {
+  margin: 0;
+  background: var(--color-ground);
+  color: var(--color-ink);
+  font-family: var(--font-text);
+  font-size: var(--text-body);
+  font-weight: var(--weight-text);
+  line-height: var(--leading-body);
+  font-optical-sizing: auto;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  caret-color: var(--color-action);
+  accent-color: var(--color-action);
+}
+
+/* Where the language changes, the text face and leading are worked out again for that language.
+   Zero specificity, so every role class still wins. */
+:where([lang]) {
+  font-family: var(--font-text);
+  line-height: var(--leading-body);
+}
+/* ---------- Browser surfaces, themed ---------- */
+::selection { background: var(--ea-navy); color: var(--ea-cream); }
+:focus { outline: none; }
+:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 3px;
+}
+::placeholder { color: var(--color-ink-muted); opacity: 1; }
+/* A photo that can't load shows its placeholder colour, never its alt text over it (screen readers still read the alt). */
+img { font-size: 0; }
+/* A photo's <picture> takes no box of its own (display: contents), so its <source> would otherwise
+   become a grid or flex item beside the photo. It is never drawn; the browser still reads it. */
+source { display: none; }
+html { scrollbar-color: var(--ea-control-line) var(--color-ground); }
+::-webkit-scrollbar { inline-size: 10px; block-size: 10px; }
+::-webkit-scrollbar-track { background: var(--color-ground); }
+::-webkit-scrollbar-thumb {
+  background: var(--ea-control-line);
+  border: 3px solid var(--color-ground);
+  border-radius: 9999px;
+}
+
+/* Navy grounds carry their own ink, focus and selection. */
+.ground-navy {
+  background: var(--color-dark-ground);
+  color: var(--color-dark-ink);
+  --color-focus: var(--color-dark-focus);
+  --color-ink-muted: var(--color-dark-ink-muted);
+  --color-line: var(--color-dark-line);
+  --color-error: var(--color-dark-error);
+  caret-color: var(--color-dark-ink);
+}
+.ground-navy ::selection { background: var(--ea-cream); color: var(--ea-navy); }
+.ground-sand { background: var(--color-ground-alt); }
+
+/* ---------- Type ---------- */
+h1, h2, h3, h4 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-variation-settings: var(--display-variation);
+  font-weight: var(--weight-display-light);
+  letter-spacing: var(--tracking-display);
+  text-wrap: balance;
+  color: inherit;
+}
+/* The brand's two-weight headline: a light line and a bold line, one colour. */
+h1 strong, h2 strong, h3 strong,
+h1 b, h2 b, h3 b { font-weight: var(--weight-display-bold); }
+
+/* Display roles carry their own face, so they work on any element. */
+.t-hero, .t-title, .t-subtitle {
+  font-family: var(--font-display);
+  font-variation-settings: var(--display-variation);
+  font-weight: var(--weight-display-light);
+  letter-spacing: var(--tracking-display);
+  text-wrap: balance;
+}
+.t-hero     { font-size: calc(var(--text-hero) * var(--display-scale));     line-height: var(--leading-hero); }
+.t-title    { font-size: calc(var(--text-title) * var(--display-scale));    line-height: var(--leading-title); }
+.t-subtitle { font-size: calc(var(--text-subtitle) * var(--display-scale)); line-height: var(--leading-subtitle); font-weight: 400; }
+.t-hero strong, .t-title strong, .t-subtitle strong { font-weight: var(--weight-display-bold); }
+/* In the hero and section titles the bold words are their own line, as in the company profile. */
+.t-hero strong, .t-title strong { display: block; }
+.t-lead     { font-size: var(--text-lead);     line-height: var(--leading-lead); max-inline-size: var(--measure); }
+.t-small    { font-size: var(--text-small);    line-height: var(--leading-small); }
+.t-label    { font-size: var(--text-label);    line-height: var(--leading-label); font-weight: var(--weight-ui); }
+.t-muted    { color: var(--color-ink-muted); }
+
+p { margin: 0; text-wrap: pretty; }
+dd { text-wrap: pretty; }
+a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.22em; }
+
+/* Prices, dates and counts: tabular figures in both languages. */
+.tabular, time, data { font-variant-numeric: tabular-nums lining-nums; }
+
+/* ---------- The gold rule under every section title ---------- */
+.title-rule::after {
+  content: "";
+  display: block;
+  inline-size: var(--rule-width);
+  block-size: var(--rule-height);
+  margin-block-start: var(--space-5);
+  background: var(--color-rule);
+}
+.title-rule.is-centred::after { margin-inline: auto; }
+
+/* ---------- The arch, the one signature shape ---------- */
+.arch {
+  border-radius: var(--radius-arch);  /* symmetric, so it needs no mirroring */
+  overflow: hidden;
+  isolation: isolate;
+  background: var(--color-placeholder);
+}
+.soft-arch {
+  border-radius: var(--radius-soft-arch);
+  overflow: hidden;
+  isolation: isolate;
+  background: var(--color-placeholder);
+}
+.arch > img, .soft-arch > img,
+.arch > picture > img, .soft-arch > picture > img,
+.arch > video, .soft-arch > video {
+  display: block;
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+}
+
+/* Hero arrival: the arch opens while the photo settles. Transitions, so it can be interrupted.
+   It starts visible (never from opacity 0, which would also delay LCP).
+   Add .is-arrived on the frame once the hero image has decoded. */
+.arch-arrival {
+  transform: scale(var(--arrival-frame-from));
+  transition: transform var(--duration-arrival) var(--ease-out);
+}
+.arch-arrival > img,
+.arch-arrival > picture > img,
+.arch-arrival > video {
+  transform: scale(var(--arrival-photo-from));
+  transition: transform calc(var(--duration-arrival) * 1.15) var(--ease-out);
+}
+.arch-arrival.is-arrived,
+.arch-arrival.is-arrived > img,
+.arch-arrival.is-arrived > picture > img,
+.arch-arrival.is-arrived > video { transform: none; opacity: 1; }
+
+/* ---------- Press feedback on everything you can press ---------- */
+.pressable {
+  transition:
+    transform var(--duration-press) var(--ease-out),
+    background-color var(--duration-fast) var(--ease-out),
+    color var(--duration-fast) var(--ease-out),
+    box-shadow var(--duration-fast) var(--ease-out);
+}
+.pressable:active { transform: scale(var(--press-scale)); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; }
+}
