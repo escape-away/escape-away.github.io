@@ -1,0 +1,57 @@
+/*
+  The owners page (/owners), on navy: the promise beside a finished home, the eight-step journey with
+  one line each, and the questions owners ask. Design / Style / Manage reuse the homepage's journey.
+  Logical properties only, so Arabic mirrors.
+*/
+
+@layer components {
+  .owners-hero {
+    display: grid;
+    gap: var(--space-8) var(--space-10);
+    align-items: center;
+    padding-block: var(--space-7) var(--space-section);
+  }
+  @media (min-width: 48rem) {
+    .owners-hero { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); }
+  }
+  .owners-hero__text { display: grid; gap: var(--space-6); align-content: start; }
+  .owners-hero__numbers { max-inline-size: var(--measure); }
+  .owners-hero__numbers strong { font-weight: var(--weight-strong); }
+  .owners-hero__note { font-size: var(--text-small); max-inline-size: var(--measure); }
+  .owners-hero__photo { display: block; aspect-ratio: 4 / 5; background: var(--ea-navy-deep); }
+  /* Phones open on the finished home, a landscape crop in the soft arch, then the promise. */
+  @media (max-width: 47.99rem) {
+    .owners-hero { padding-block-start: var(--space-5); }
+    .owners-hero__photo { order: -1; aspect-ratio: 5 / 4; border-radius: var(--radius-soft-arch); }
+  }
+
+  .owners-steps {
+    list-style: none;
+    margin: var(--space-8) 0 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 15rem), 1fr));
+    gap: var(--space-6);
+  }
+  @media (min-width: 64rem) {
+    .owners-steps { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  }
+  .owners-steps__step {
+    display: grid;
+    gap: var(--space-2);
+    align-content: start;
+    padding-block-start: var(--space-4);
+    border-block-start: 1px solid var(--color-dark-detail);
+  }
+  .owners-steps__num {
+    font-family: var(--font-display);
+    font-variation-settings: var(--display-variation);
+    font-size: var(--text-subtitle);
+    line-height: 1;
+    color: var(--color-dark-detail);
+  }
+  .owners-steps__name { font-weight: var(--weight-ui); }
+  .owners-steps__text { font-size: var(--text-small); }
+
+  .owners-faq { margin-block-start: var(--space-8); max-inline-size: 48rem; }
+}

@@ -1,0 +1,84 @@
+/*
+  Saved stays: the heart on every card and listing, and the explorer's Saved chip. The heart is navy
+  like every pressed control; pressed, it fills. On a photo it sits on a pale disc, so it reads on any
+  picture, and its focus ring carries a cream halo for the same reason.
+*/
+
+@layer components {
+  .save {
+    display: inline-grid;
+    place-items: center;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: var(--color-action);
+    font: inherit;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .save .save__icon {
+    transition:
+      fill var(--duration-fast) var(--ease-out),
+      transform var(--duration-press) var(--ease-out);
+  }
+  .save[aria-pressed="true"] .save__icon { fill: currentColor; }
+  .save:active .save__icon { transform: scale(var(--press-scale)); }
+
+  /* On a card: the photo's top corner, above the link that covers the card. */
+  .save--card {
+    position: absolute;
+    z-index: 1;
+    inset-block-start: var(--space-2);
+    inset-inline-end: var(--space-2);
+    inline-size: var(--tap);
+    block-size: var(--tap);
+    border-radius: var(--radius-pill);
+  }
+  .save--card::before {
+    content: "";
+    position: absolute;
+    inset: 4px;
+    border-radius: inherit;
+    background: color-mix(in srgb, var(--color-surface) 92%, transparent);
+    box-shadow: 0 1px 4px rgb(59 45 33 / 0.2);
+    transition: transform var(--duration-fast) var(--ease-out);
+  }
+  .save--card .save__icon { position: relative; }
+  .save--card:focus-visible {
+    outline: 2px solid var(--color-focus);
+    outline-offset: 0;
+    box-shadow: 0 0 0 4px var(--ea-cream);
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .save--card:hover::before { transform: scale(1.08); }
+  }
+
+  /* On a listing: a pill at the end of the line that names the place. */
+  .save--page {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    min-block-size: var(--tap);
+    margin-inline-start: auto;
+    padding-inline: var(--space-4) var(--space-5);
+    border: 1px solid var(--color-line-strong);
+    border-radius: var(--radius-pill);
+    background: var(--color-surface);
+    color: var(--color-ink);
+    font-size: var(--text-small);
+    font-weight: var(--weight-ui);
+    transition:
+      transform var(--duration-press) var(--ease-out),
+      border-color var(--duration-fast) var(--ease-out);
+  }
+  .save--page .save__icon { color: var(--color-action); }
+  .save--page:active { transform: scale(var(--press-scale)); }
+  @media (hover: hover) and (pointer: fine) {
+    .save--page:hover { border-color: var(--color-ink); }
+  }
+
+  /* The explorer's Saved chip keeps the heart beside its word. */
+  .chip--saved { flex: none; }
+  .chip--saved .icon { inline-size: 18px; block-size: 18px; }
+  .chip--saved[aria-pressed="true"] .icon { fill: currentColor; }
+}

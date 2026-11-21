@@ -1,0 +1,213 @@
+@import "tailwindcss";
+@import "../../design/tokens.css";
+@import "../../design/base.css" layer(base);
+@import "../styles/home.css" layer(components);
+@import "../styles/explorer.css";
+@import "../styles/listing.css";
+@import "../styles/forms.css";
+@import "../styles/destination.css";
+@import "../styles/owners.css";
+@import "../styles/saved.css";
+
+/* next/font self-hosts the faces at build; feed them into the token stacks. */
+:root {
+  --font-display-latin: var(--font-fraunces), "Recoleta", Georgia, serif;
+  --font-text-latin: var(--font-jost), "Garet", system-ui, sans-serif;
+  --font-display-arabic: var(--font-alexandria), "Noto Sans Arabic", sans-serif;
+  --font-text-arabic: var(--font-alexandria), "Noto Sans Arabic", sans-serif;
+}
+
+/* Only the brand palette exists as utilities, so off-brand colours can't creep in. */
+@theme {
+  --color-*: initial;
+}
+
+@theme inline {
+  --color-cream: var(--ea-cream);
+  --color-sand: var(--ea-sand);
+  --color-shell: var(--ea-shell);
+  --color-navy: var(--ea-navy);
+  --color-navy-hover: var(--ea-navy-hover);
+  --color-navy-deep: var(--ea-navy-deep);
+  --color-espresso: var(--ea-espresso);
+  --color-espresso-muted: var(--ea-espresso-muted);
+  --color-gold: var(--ea-gold);
+  --color-ice: var(--ea-ice);
+  --color-ice-text: var(--ea-ice-text);
+  --color-control-line: var(--ea-control-line);
+  --color-success: var(--ea-success);
+  --color-warning: var(--ea-warning);
+  --color-error: var(--ea-error);
+  /* Roles that follow their ground: espresso on cream, cream on navy. */
+  --color-fg: var(--color-ink);
+  --color-fg-muted: var(--color-ink-muted);
+  --font-heading: var(--font-display);
+  --font-body: var(--font-text);
+}
+
+@utility wrap {
+  inline-size: min(100% - 2 * var(--gutter), var(--container));
+  margin-inline: auto;
+}
+
+@utility section-y {
+  padding-block: var(--space-section);
+}
+
+@layer components {
+  .ea-mark {
+    display: block;
+    block-size: 30px;
+    aspect-ratio: 580 / 392;
+    background-color: currentColor;
+    /* A 120 px-tall copy of the client's PNG (3 KB, not the 10 KB original): sharp at 4x for 30 px. */
+    -webkit-mask: url("/brand/ea-mark-mask.webp") center / contain no-repeat;
+    mask: url("/brand/ea-mark-mask.webp") center / contain no-repeat;
+  }
+
+  /* The footer closes every page, so it lays out when the reader nears it rather than in the first
+     paint, and only then fetches the extended-Latin glyphs its photo credits need. Nothing above it
+     measures it. The sizes are its real heights, so the scrollbar barely moves when it renders. */
+  .site-footer {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 1050px;
+  }
+  @media (min-width: 48rem) {
+    .site-footer { contain-intrinsic-size: auto 560px; }
+  }
+
+  /* The header's middle: empty on most pages; past the home hero, the compact search sits here. */
+  .header-search {
+    flex: 1;
+    min-inline-size: 0;
+    display: flex;
+    justify-content: center;
+    container-type: inline-size;
+  }
+
+  /* The phone menu: the whole screen in cream, the header's row on top, the pages as large links. */
+  .menu-sheet {
+    position: fixed;
+    inset: 0;
+    inline-size: 100%;
+    block-size: 100dvh;
+    max-inline-size: none;
+    max-block-size: none;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: var(--ea-cream);
+    color: var(--color-ink);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+  .menu-sheet::backdrop { background: var(--ea-cream); }
+  .menu-sheet[open] { animation: menu-in 220ms var(--ease-out); }
+  @keyframes menu-in {
+    from { opacity: 0; transform: translateY(-8px); }
+  }
+  .menu-sheet__inner {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    gap: var(--space-6);
+    min-block-size: 100%;
+    padding-block-end: calc(var(--space-6) + env(safe-area-inset-bottom, 0px));
+  }
+  .menu-sheet__head { display: flex; align-items: center; justify-content: space-between; min-block-size: 4rem; }
+  .menu-sheet__close {
+    display: grid;
+    place-items: center;
+    inline-size: var(--tap);
+    block-size: var(--tap);
+    margin-inline-end: calc(-1 * var(--space-2));
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: none;
+    color: var(--color-ink);
+    cursor: pointer;
+  }
+  .menu-sheet__list { margin: 0; padding: 0; list-style: none; }
+  .menu-sheet__link {
+    display: flex;
+    align-items: center;
+    min-block-size: 3.75rem;
+    border-block-end: 1px solid var(--color-line);
+    font-family: var(--font-display);
+    font-variation-settings: var(--display-variation);
+    font-size: calc(var(--text-subtitle) * var(--display-scale));
+    line-height: 1.2;
+    text-decoration: none;
+  }
+  .menu-sheet__foot { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-4); }
+  @media (prefers-reduced-motion: reduce) {
+    .menu-sheet[open] { animation: none; }
+  }
+
+  .skip-link {
+    position: absolute;
+    inset-inline-start: var(--space-4);
+    inset-block-start: calc(-1 * var(--space-10));
+    z-index: var(--z-toast);
+    padding: var(--space-3) var(--space-5);
+    border-radius: var(--radius-pill);
+    background: var(--color-action);
+    color: var(--color-on-action);
+    font-weight: var(--weight-ui);
+    text-decoration: none;
+  }
+  .skip-link:focus-visible { inset-block-start: var(--space-3); }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    min-block-size: var(--field-height);
+    max-inline-size: 100%;
+    padding: 6px 28px;
+    border: 1px solid transparent;
+    border-radius: var(--radius-pill);
+    font: inherit;
+    font-size: var(--text-body);
+    font-weight: var(--weight-ui);
+    line-height: 1.2;
+    text-align: center;
+    text-decoration: none;
+    /* One line when it fits; a long label (Arabic or English) on a small phone takes a balanced second line. */
+    text-wrap: balance;
+    cursor: pointer;
+    transition:
+      transform var(--duration-press) var(--ease-out),
+      background-color var(--duration-fast) var(--ease-out),
+      color var(--duration-fast) var(--ease-out);
+  }
+  .btn:active { transform: scale(var(--press-scale)); }
+  .btn--primary { background: var(--color-action); color: var(--color-on-action); }
+  .btn--primary:hover { background: var(--color-action-hover); }
+  .btn--primary:active { background: var(--color-action-pressed); }
+  .btn--secondary { background: transparent; color: var(--color-action); border-color: var(--color-action); padding-inline: 24px; }
+  .btn--secondary:hover { background: rgb(0 60 130 / 0.07); }
+  .btn--on-navy { background: var(--color-dark-action); color: var(--color-dark-on-action); }
+  .btn--on-navy:hover { background: var(--ea-shell); }
+
+  .link-underline {
+    text-decoration: none;
+    background: none;
+    position: relative;
+  }
+  .link-underline::after {
+    content: "";
+    position: absolute;
+    inset-inline: 0;
+    inset-block-end: -2px;
+    block-size: 1px;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform var(--duration-base) var(--ease-out);
+  }
+  [dir="rtl"] .link-underline::after { transform-origin: right; }
+  .link-underline:hover::after,
+  .link-underline[aria-current="page"]::after { transform: scaleX(1); }
+}

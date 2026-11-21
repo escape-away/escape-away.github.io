@@ -1,0 +1,42 @@
+import slotsRaw from '@data/images.json';
+import generated from '@/generated/images.json';
+import type { Locale } from '@/i18n/routing';
+
+type SlotRecord = {
+  slot: string;
+  status: 'stock' | 'original';
+  src?: string;
+  page?: string;
+  photographer?: string;
+  licence?: string;
+  alt: Record<Locale, string>;
+};
+
+type Generated = Record<string, { width: number; height: number; color: string }>;
+
+const slots = (slotsRaw as { slots: SlotRecord[] }).slots;
+const sizes = generated as Generated;
+
+export type ImageSlot = SlotRecord & { width: number; height: number; color: string };
+
+/** A photo slot with its pre-resized size and placeholder colour, or undefined if it has no file yet. */
+export function imageSlot(slot: string): ImageSlot | undefined {
+  const record = slots.find((s) => s.slot === slot);
+  const size = sizes[slot];
+  if (!record || !size) return undefined;
+  return { ...record, ...size };
+}
+
+/** Photographers of the stock photos in use, for the one footer credits line. */
+export function stockCredits() {
+  const names = slots.filter((s) => s.status === 'stock' && s.photographer && sizes[s.slot]).map((s) => s.photographer!);
+  return [...new Set(names)];
+}
+
+/**
+ * The first of a unit's photo slots that has a file, so a card or a gallery leads with a real
+ * photograph even while a newer slot is still waiting to be downloaded.
+ */
+export function firstPhoto(slots: string[]) {
+  return slots.find((slot) => imageSlot(slot)) ?? slots[0] ?? '';
+}

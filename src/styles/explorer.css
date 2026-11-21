@@ -1,0 +1,680 @@
+/*
+  The stays explorer (step 4): the bar of filters and areas, the list beside the map, the price pins
+  and clusters, the stay's card on the map, and the filter panel (a sheet on phones).
+  Logical properties throughout, so Arabic mirrors; the map itself keeps its direction.
+  Motion is transform and opacity only, and every press answers.
+
+  Imported without a layer: the explorer's own rules sit in the components layer below, and the few
+  rules after it restyle the map library's controls, whose stylesheet is unlayered.
+*/
+
+@layer components {
+  .explorer { margin-block-start: var(--space-7); }
+
+  /* ---------- The bar: filters first, then the five areas ---------- */
+  .explorer__bar {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-3);
+  }
+  .filters-anchor { position: relative; flex: none; }
+  .explorer__areas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    min-inline-size: 0;
+  }
+  @media (max-width: 47.99rem) {
+    /* One row under the thumb that runs to the page edge, so it reads as more to come. */
+    .explorer__areas {
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      overscroll-behavior-x: contain;
+      scrollbar-width: none;
+      margin: -6px;
+      margin-inline-end: calc(-1 * var(--gutter));
+      padding: 6px;
+      padding-inline-end: var(--gutter);
+    }
+    .explorer__areas::-webkit-scrollbar { display: none; }
+  }
+
+  /* ---------- Chips: the areas, and every choice in the filters ---------- */
+  .chip {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    min-block-size: var(--tap);
+    padding-inline: var(--space-4);
+    border: 1px solid var(--color-line-strong);
+    border-radius: var(--radius-pill);
+    background: var(--color-surface);
+    color: var(--color-ink);
+    font: inherit;
+    font-size: var(--text-small);
+    font-weight: var(--weight-ui);
+    line-height: 1.2;
+    white-space: nowrap;
+    cursor: pointer;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    transition:
+      transform var(--duration-press) var(--ease-out),
+      background-color var(--duration-fast) var(--ease-out),
+      border-color var(--duration-fast) var(--ease-out),
+      color var(--duration-fast) var(--ease-out);
+  }
+  .chip:active { transform: scale(var(--press-scale)); }
+  .chip[aria-pressed="true"],
+  .chip:has(> input:checked) {
+    background: var(--color-action);
+    border-color: var(--color-action);
+    color: var(--color-on-action);
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .chip:hover { border-color: var(--color-ink); }
+    .chip[aria-pressed="true"]:hover,
+    .chip:has(> input:checked):hover { background: var(--color-action-hover); border-color: var(--color-action-hover); }
+  }
+  /* The real checkbox or radio covers its chip, invisible, so taps and screen readers both reach it. */
+  .chip > input {
+    position: absolute;
+    inset: 0;
+    margin: 0;
+    opacity: 0;
+    cursor: pointer;
+  }
+  .chip:has(> input:focus-visible) { outline: 2px solid var(--color-focus); outline-offset: 3px; }
+  .chip--short { min-inline-size: 3.75rem; }
+  .chip--filters { padding-inline: var(--space-4) var(--space-5); }
+  .chip__count {
+    display: inline-grid;
+    place-items: center;
+    min-inline-size: 22px;
+    block-size: 22px;
+    padding-inline: 6px;
+    border-radius: var(--radius-pill);
+    background: var(--color-action);
+    color: var(--color-on-action);
+    font-size: var(--text-label);
+    line-height: 1;
+  }
+  .chip__text { max-inline-size: 16ch; overflow: hidden; text-overflow: ellipsis; }
+  /* How many stays a filter choice leaves; a choice that leaves none is drawn quieter. */
+  .chip__n { font-weight: 400; font-size: var(--text-label); color: var(--color-ink-muted); }
+  .chip[aria-pressed="true"] .chip__n,
+  .chip:has(> input:checked) .chip__n { color: inherit; }
+  .chip[data-none]:not(:has(> input:checked)) { border-style: dashed; color: var(--color-ink-muted); }
+  .chip__x { inline-size: 16px; block-size: 16px; margin-inline-end: -4px; }
+  .chips { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+  .icon { inline-size: 20px; block-size: 20px; flex: none; }
+
+  /* ---------- The count, and the note on dates ---------- */
+  .explorer__status {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: var(--space-2) var(--space-5);
+    margin-block-start: var(--space-5);
+  }
+  .explorer__note { margin-block-start: var(--space-1); font-size: var(--text-small); color: var(--color-ink-muted); }
+
+  /* ---------- The list ---------- */
+  .explorer__body { margin-block-start: var(--space-6); }
+  .explorer__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-7) var(--space-5);
+  }
+  @media (min-width: 40rem) {
+    .explorer__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  .explorer__card {
+    padding: var(--space-3);
+    margin: calc(-1 * var(--space-3));
+    border-radius: calc(var(--radius-card) + 4px);
+    transition:
+      background-color var(--duration-fast) var(--ease-out),
+      box-shadow var(--duration-fast) var(--ease-out);
+  }
+  .explorer__card[hidden] { display: none; }
+  /* The card whose pin is hovered or chosen on the map lifts with it. */
+  .explorer__card[data-lit] { background: var(--color-surface); box-shadow: var(--shadow-raise); }
+  .explorer__card[data-lit] img { scale: 1.03; }
+  .explorer__more { margin-block-start: var(--space-8); }
+
+  .explorer__empty {
+    display: grid;
+    justify-items: start;
+    gap: var(--space-3);
+    max-inline-size: 40rem;
+    padding: var(--space-7) var(--space-6);
+    border-radius: var(--radius-card);
+    background: var(--color-ground-alt);
+  }
+  .explorer__empty-title {
+    font-family: var(--font-display);
+    font-variation-settings: var(--display-variation);
+    font-weight: var(--weight-display-light);
+    font-size: calc(var(--text-subtitle) * var(--display-scale));
+    line-height: var(--leading-subtitle);
+    letter-spacing: var(--tracking-display);
+    text-wrap: balance;
+  }
+  .explorer__empty-text { max-inline-size: var(--measure); }
+  .explorer__empty-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-3) var(--space-5);
+    margin-block-start: var(--space-3);
+  }
+
+  /* ---------- List beside the map from laptops up; one or the other on phones ---------- */
+  @media (min-width: 64rem) {
+    .explorer__body {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+      gap: var(--space-7);
+      align-items: start;
+    }
+    .explorer__map {
+      position: sticky;
+      inset-block-start: calc(var(--header-height) + var(--space-4));
+      block-size: clamp(28rem, calc(100svh - var(--header-height) - 2 * var(--space-4)), 52rem);
+    }
+    .explorer__to-list { display: none; }
+  }
+  @media (max-width: 63.99rem) {
+    /* Fills the screen under the bar and ends just above the floating switch, so nothing on it hides. */
+    .explorer__map { block-size: clamp(20rem, calc(100svh - var(--header-height) - 15rem), 44rem); }
+    .explorer[data-view="list"] .explorer__map,
+    .explorer[data-view="map"] .explorer__list { display: none; }
+  }
+
+  /* The one floating switch between the list and the map, while either is on screen. */
+  .explorer__switch.btn {
+    position: fixed;
+    z-index: var(--z-bar);
+    inset-block-end: calc(var(--space-5) + env(safe-area-inset-bottom, 0px));
+    left: 50%;
+    translate: -50% calc(100% + var(--space-7));
+    opacity: 0;
+    pointer-events: none;
+    box-shadow: var(--shadow-float);
+    transition:
+      translate var(--duration-base) var(--ease-out),
+      opacity var(--duration-base) var(--ease-out),
+      transform var(--duration-press) var(--ease-out),
+      background-color var(--duration-fast) var(--ease-out);
+  }
+  .explorer__switch.btn[data-shown] { translate: -50% 0; opacity: 1; pointer-events: auto; }
+  @media (min-width: 64rem) {
+    .explorer__switch.btn { display: none; }
+  }
+
+  /* Without JavaScript the list still shows every stay; the parts that need it stay out of the way. */
+  @media not (scripting: enabled) {
+    .explorer__bar,
+    .explorer__map,
+    .explorer__switch { display: none; }
+  }
+
+  /* ---------- The map's frame and its states ---------- */
+  .map-frame {
+    position: relative;
+    block-size: 100%;
+    overflow: hidden;
+    isolation: isolate;
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-card);
+    background: var(--map-land);
+  }
+  .map-canvas { inline-size: 100%; block-size: 100%; }
+
+  .map-state {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    display: grid;
+    place-content: center;
+    justify-items: center;
+    gap: var(--space-4);
+    padding: var(--space-6);
+    text-align: center;
+  }
+  .map-frame[data-status="error"],
+  .map-frame[data-status="unsupported"] { background: var(--color-ground-alt); }
+  .map-state__mark.ea-mark { block-size: 34px; color: var(--color-action); }
+  .map-frame[data-status="loading"] .map-state__mark { animation: map-breathe 1.4s var(--ease-in-out) infinite alternate; }
+  @keyframes map-breathe {
+    from { opacity: 0.3; }
+    to { opacity: 1; }
+  }
+  .map-state__text { max-inline-size: 28ch; text-wrap: balance; }
+  .map-state__actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-3) var(--space-5);
+  }
+
+  .map-hint {
+    position: absolute;
+    z-index: 2;
+    inset-block-start: var(--space-3);
+    inset-inline-start: var(--space-3);
+    max-inline-size: calc(100% - var(--tap) - 3 * var(--space-3));
+    padding: 6px 12px;
+    border-radius: var(--radius-pill);
+    background: var(--color-surface);
+    color: var(--color-ink-muted);
+    font-size: var(--text-label);
+    line-height: var(--leading-label);
+    box-shadow: 0 1px 2px rgb(59 45 33 / 0.08);
+    pointer-events: none;
+  }
+
+  /* ---------- Zoom buttons: the map works without dragging ---------- */
+  .map-controls {
+    position: absolute;
+    z-index: 3;
+    inset-block-start: var(--space-3);
+    inset-inline-end: var(--space-3);
+    display: grid;
+    gap: var(--space-2);
+  }
+  .map-ctrl-group {
+    display: grid;
+    overflow: hidden;
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-input);
+    background: var(--color-surface);
+    box-shadow: var(--shadow-raise);
+  }
+  .map-ctrl {
+    display: grid;
+    place-items: center;
+    inline-size: var(--tap);
+    block-size: var(--tap);
+    padding: 0;
+    border: 0;
+    background: none;
+    color: var(--color-ink);
+    cursor: pointer;
+    transition: background-color var(--duration-fast) var(--ease-out);
+  }
+  .map-ctrl + .map-ctrl { border-block-start: 1px solid var(--color-line); }
+  .map-ctrl:active:not(:disabled) { background: var(--color-ground-alt); }
+  .map-ctrl:disabled { color: var(--color-line-strong); cursor: default; }
+  .map-ctrl:focus-visible { outline-offset: -5px; }
+  @media (hover: hover) and (pointer: fine) {
+    .map-ctrl:hover:not(:disabled) { background: var(--color-ground); }
+  }
+
+  /* ---------- Price pins and EA clusters (the signature) ---------- */
+  .map-pin,
+  .map-cluster {
+    font-family: var(--font-text);
+    color: var(--color-on-action);
+    background: var(--color-action);
+    box-shadow: var(--shadow-pin);
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    transition:
+      transform var(--duration-fast) var(--ease-out),
+      background-color var(--duration-fast) var(--ease-out),
+      color var(--duration-fast) var(--ease-out);
+  }
+  .map-pin {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    block-size: 32px;
+    padding-inline: 12px;
+    border: 1.5px solid var(--color-action);
+    border-radius: var(--radius-pill);
+    font-size: var(--text-small);
+    font-weight: var(--weight-strong);
+    line-height: 1;
+    white-space: nowrap;
+  }
+  .map-pin[data-raised] { transform: scale(1.08); }
+  .map-pin[aria-pressed="true"] {
+    background: var(--ea-cream);
+    color: var(--color-action);
+    transform: scale(1.12);
+  }
+  .map-cluster {
+    display: grid;
+    place-content: center;
+    justify-items: center;
+    gap: 3px;
+    inline-size: 52px;
+    block-size: 52px;
+    padding: 0;
+    border: 2px solid var(--ea-cream);
+    border-radius: 50%;
+  }
+  .map-cluster[data-size="m"] { inline-size: 60px; block-size: 60px; }
+  .map-cluster[data-size="l"] { inline-size: 68px; block-size: 68px; }
+  .map-cluster__mark.ea-mark { block-size: 11px; }
+  .map-cluster__count { font-size: var(--text-small); font-weight: var(--weight-strong); line-height: 1; }
+  .map-cluster[data-raised] { transform: scale(1.1); background: var(--color-action-hover); }
+  @media (hover: hover) and (pointer: fine) {
+    .map-pin:hover,
+    .map-cluster:hover { transform: scale(1.08); }
+    .map-pin[aria-pressed="true"]:hover { transform: scale(1.12); }
+  }
+  .map-pin:active,
+  .map-cluster:active { transform: scale(var(--press-scale)); }
+
+  /* ---------- Nothing matches: a card on the map that says so ---------- */
+  .map-empty {
+    position: absolute;
+    z-index: 3;
+    inset-inline: var(--space-4);
+    inset-block-start: 50%;
+    translate: 0 -50%;
+    margin-inline: auto;
+    max-inline-size: 22rem;
+    display: grid;
+    justify-items: center;
+    gap: var(--space-4);
+    padding: var(--space-5);
+    text-align: center;
+    border-radius: var(--radius-card);
+    background: var(--color-surface);
+    box-shadow: var(--shadow-float);
+  }
+  .map-empty__text { text-wrap: balance; }
+
+  /* ---------- The chosen stay, on the map ---------- */
+  .map-preview {
+    position: absolute;
+    z-index: 4;
+    inset-inline: var(--space-3);
+    /* Clear of the map's credits line along the bottom. */
+    inset-block-end: calc(var(--space-3) + 1.75rem);
+    display: grid;
+    grid-template-columns: 6rem minmax(0, 1fr);
+    align-items: start;
+    gap: var(--space-4);
+    padding: var(--space-3);
+    padding-inline-end: calc(var(--tap) + var(--space-1));
+    border-radius: var(--radius-card);
+    background: var(--color-surface);
+    box-shadow: var(--shadow-float);
+    transition:
+      opacity var(--duration-base) var(--ease-out),
+      translate var(--duration-base) var(--ease-out);
+  }
+  @starting-style {
+    .map-preview { opacity: 0; translate: 0 12px; }
+  }
+  @media (min-width: 40rem) {
+    .map-preview { grid-template-columns: 7.5rem minmax(0, 1fr); }
+  }
+  @media (min-width: 64rem) {
+    .map-preview { inset-inline-end: auto; inline-size: min(25rem, calc(100% - 2 * var(--space-3))); }
+  }
+  @media (max-width: 39.99rem) {
+    .map-preview { gap: var(--space-3); }
+  }
+  .map-preview:has(.map-preview__link:focus-visible) { outline: 2px solid var(--color-focus); outline-offset: 3px; }
+  .map-preview__photo { display: block; aspect-ratio: 4 / 3; }
+  .map-preview__text { display: grid; gap: 2px; min-inline-size: 0; }
+  .map-preview__name {
+    font-weight: var(--weight-ui);
+    line-height: var(--leading-small);
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    padding-block-end: var(--clamp-room);
+  }
+  .map-preview__link { color: inherit; text-decoration: none; }
+  .map-preview__link:focus-visible { outline: none; }
+  /* The whole card opens the stay; the close button sits above that. */
+  .map-preview__link::after { content: ""; position: absolute; inset: 0; border-radius: inherit; }
+  .map-preview__area {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    padding-block-end: var(--clamp-room);
+    font-size: var(--text-small);
+    color: var(--color-ink-muted);
+  }
+  .map-preview__facts,
+  .map-preview__price { font-size: var(--text-small); }
+  .map-preview__sample { font-size: var(--text-label); color: var(--color-ink-muted); }
+  .map-preview__close {
+    position: absolute;
+    z-index: 1;
+    inset-block-start: var(--space-1);
+    inset-inline-end: var(--space-1);
+    display: grid;
+    place-items: center;
+    inline-size: var(--tap);
+    block-size: var(--tap);
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: none;
+    color: var(--color-ink);
+    cursor: pointer;
+    transition: background-color var(--duration-fast) var(--ease-out);
+  }
+  .map-preview__close:active { background: var(--color-ground-alt); }
+  @media (hover: hover) and (pointer: fine) {
+    .map-preview__close:hover { background: var(--color-ground); }
+  }
+
+  /* ---------- Filters: a panel from its button; a sheet from the bottom on phones ---------- */
+  .filters {
+    position: absolute;
+    z-index: var(--z-sheet);
+    inset: auto;
+    inset-block-start: calc(100% + var(--space-2));
+    inset-inline-start: 0;
+    margin: 0;
+    padding: 0;
+    inline-size: min(26rem, calc(100vw - 2 * var(--gutter)));
+    max-inline-size: none;
+    max-block-size: min(38rem, calc(100svh - var(--header-height) - 7rem));
+    overflow: hidden;
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-sheet);
+    background: var(--color-surface);
+    color: var(--color-ink);
+    box-shadow: var(--shadow-float);
+    transform-origin: top left;
+    opacity: 0;
+    transform: scale(0.96);
+    transition:
+      opacity 150ms var(--ease-out),
+      transform 150ms var(--ease-out),
+      display 150ms allow-discrete,
+      overlay 150ms allow-discrete;
+  }
+  [dir="rtl"] .filters { transform-origin: top right; }
+  .filters[open] {
+    opacity: 1;
+    transform: none;
+    transition-duration: 200ms;
+  }
+  @starting-style {
+    .filters[open] { opacity: 0; transform: scale(0.96); }
+  }
+
+  /* Laid out once, out of sight, while the page is idle (FilterSheet), so the first opening is quick. */
+  .filters[data-warm]:not([open]) {
+    display: block;
+    position: fixed;
+    inset-inline-start: -200vw;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  .filters[data-sheet] {
+    position: fixed;
+    inset: auto 0 0;
+    inline-size: 100%;
+    max-block-size: min(88svh, 46rem);
+    border-inline: 0;
+    border-block-end: 0;
+    border-radius: var(--radius-sheet) var(--radius-sheet) 0 0;
+    opacity: 1;
+    transform: translateY(100%);
+    transition:
+      transform 280ms var(--ease-drawer),
+      display 280ms allow-discrete,
+      overlay 280ms allow-discrete;
+  }
+  .filters[data-sheet][open] { transform: none; transition-duration: 420ms; }
+  @starting-style {
+    .filters[data-sheet][open] { transform: translateY(100%); }
+  }
+  .filters::backdrop {
+    background: rgb(59 45 33 / 0.36);
+    opacity: 0;
+    transition:
+      opacity 280ms var(--ease-out),
+      display 280ms allow-discrete,
+      overlay 280ms allow-discrete;
+  }
+  .filters[open]::backdrop { opacity: 1; }
+  @starting-style {
+    .filters[open]::backdrop { opacity: 0; }
+  }
+
+  .filters__inner {
+    display: flex;
+    flex-direction: column;
+    max-block-size: inherit;
+  }
+  .filters__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+    padding: var(--space-3) var(--space-5);
+    padding-inline-end: var(--space-3);
+    border-block-end: 1px solid var(--color-line);
+  }
+  .filters__title {
+    font-family: var(--font-display);
+    font-variation-settings: var(--display-variation);
+    font-weight: var(--weight-display-light);
+    font-size: calc(1.625rem * var(--display-scale));
+    line-height: var(--leading-subtitle);
+    letter-spacing: var(--tracking-display);
+  }
+  .filters__close {
+    display: grid;
+    place-items: center;
+    inline-size: var(--tap);
+    block-size: var(--tap);
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: none;
+    color: var(--color-ink);
+    cursor: pointer;
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .filters__close:hover { background: var(--color-ground); }
+  }
+  .filters__body {
+    display: grid;
+    gap: var(--space-6);
+    padding: var(--space-5);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    flex: 1 1 auto;
+    min-block-size: 0;
+  }
+  .filters__group { min-inline-size: 0; margin: 0; padding: 0; border: 0; }
+  .filters__legend {
+    padding: 0;
+    margin-block-end: var(--space-3);
+    font-weight: var(--weight-strong);
+  }
+  .filters__prices { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-3); }
+  .filters__field { display: grid; gap: var(--space-1); }
+  .filters__label { font-size: var(--text-label); font-weight: var(--weight-ui); color: var(--color-ink-muted); }
+  .filters__select {
+    min-block-size: var(--field-height);
+    padding-inline: var(--space-3);
+    border: 1px solid var(--color-line-strong);
+    border-radius: var(--radius-input);
+    background: var(--color-surface);
+    color: var(--color-ink);
+    font: inherit;
+    font-size: var(--text-body);  /* 16px or more, so phones don't zoom into the field */
+  }
+  .filters__note { margin-block-start: var(--space-3); font-size: var(--text-small); color: var(--color-ink-muted); }
+  .filters__foot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+    padding: var(--space-3) var(--space-5);
+    border-block-start: 1px solid var(--color-line);
+  }
+  .filters[data-sheet] .filters__foot { padding-block-end: calc(var(--space-3) + env(safe-area-inset-bottom, 0px)); }
+  .filters__none { margin: 0; font-size: var(--text-small); color: var(--color-ink-muted); }
+  .link-btn:disabled { color: var(--color-ink-muted); text-decoration: none; cursor: default; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .filters,
+    .filters[data-sheet] { transform: none; }
+    .map-frame[data-status="loading"] .map-state__mark { animation: none; }
+    .explorer__switch.btn { translate: -50% 0; }
+    .explorer__switch.btn:not([data-shown]) { opacity: 0; }
+  }
+}
+
+/* ---------- The map library's own pieces, in the house style (its stylesheet is unlayered) ---------- */
+.map-frame .maplibregl-map,
+.map-frame .mapboxgl-map {
+  font: 400 var(--text-label) / 1.4 var(--font-text);
+}
+.map-frame .maplibregl-cooperative-gesture-screen,
+.map-frame .mapboxgl-scroll-zoom-blocker,
+.map-frame .mapboxgl-touch-pan-blocker {
+  background: rgb(59 45 33 / 0.55);
+  color: var(--ea-cream);
+  font: 500 var(--text-body) / 1.4 var(--font-text);
+}
+/* The credits stay readable but small: one quiet line on shell, so they don't cover a small map. */
+.map-frame .maplibregl-ctrl-attrib,
+.map-frame .mapboxgl-ctrl-attrib {
+  background: color-mix(in srgb, var(--ea-shell) 86%, transparent);
+  color: var(--color-ink-muted);
+  font-size: 11px;
+  line-height: 1.35;
+}
+/*
+  The open credits card: room above and below the text, so it doesn't sit flush on its edge. Named
+  with its corner, because the library's own corner rules load later (bottom left is Arabic's).
+*/
+.map-frame .maplibregl-ctrl-bottom-left .maplibregl-ctrl-attrib.maplibregl-compact-show,
+.map-frame .maplibregl-ctrl-bottom-right .maplibregl-ctrl-attrib.maplibregl-compact-show,
+.map-frame .mapboxgl-ctrl-bottom-left .mapboxgl-ctrl-attrib.mapboxgl-compact-show,
+.map-frame .mapboxgl-ctrl-bottom-right .mapboxgl-ctrl-attrib.mapboxgl-compact-show {
+  padding-block: 6px;
+}
+.map-frame .maplibregl-ctrl-attrib a,
+.map-frame .mapboxgl-ctrl-attrib a {
+  color: inherit;
+  /* The credit links sit in one line of small text; the padding lifts each tap area to 24 px+
+     (WCAG 2.2 target size) without moving the line. */
+  padding-block: 3px;
+}
+.map-frame .maplibregl-ctrl-bottom-left,
+.map-frame .maplibregl-ctrl-bottom-right { z-index: 3; }

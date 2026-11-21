@@ -1,0 +1,149 @@
+/*
+  Destination pages (step 8): the answer beside the area's photograph, the facts at a glance, the
+  area's stays on the map and as cards, what to know and the questions people ask, more
+  destinations, and one owner band before the footer. Logical properties only, so Arabic mirrors.
+*/
+
+@layer components {
+  /* ---------- The answer, beside the place ---------- */
+  .area-hero {
+    display: grid;
+    gap: var(--space-8) var(--space-10);
+    align-items: center;
+    padding-block: var(--space-6) var(--space-section);
+  }
+  @media (min-width: 48rem) {
+    .area-hero { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); }
+  }
+  .area-hero__text { display: grid; gap: var(--space-5); align-content: start; }
+  .area-hero__meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0 var(--space-6);
+    font-size: var(--text-small);
+    color: var(--color-ink-muted);
+  }
+  .area-hero__meta a {
+    display: inline-flex;
+    align-items: center;
+    min-block-size: var(--tap);
+    color: var(--color-action);
+    font-weight: var(--weight-ui);
+  }
+  .area-hero__photo { display: block; aspect-ratio: 4 / 5; }
+  /* Phones see a landscape crop in the soft arch, so the answer and the facts stay close to the top. */
+  @media (max-width: 47.99rem) {
+    .area-hero__photo { aspect-ratio: 5 / 4; border-radius: var(--radius-soft-arch); }
+  }
+
+  /* ---------- At a glance: label and value, one row each, on sand hairlines ---------- */
+  .area-glance { display: grid; gap: var(--space-5); padding-block-end: var(--space-section); }
+  .area-h2 {
+    font-family: var(--font-display);
+    font-variation-settings: var(--display-variation);
+    font-size: calc(var(--text-subtitle) * var(--display-scale));
+    line-height: var(--leading-subtitle);
+    font-weight: 400;
+  }
+  .glance { margin: 0; max-inline-size: 56rem; border-block-start: 1px solid var(--color-line); }
+  .glance > div {
+    display: grid;
+    gap: var(--space-1) var(--space-6);
+    padding-block: var(--space-4);
+    border-block-end: 1px solid var(--color-line);
+  }
+  @media (min-width: 40rem) {
+    .glance > div { grid-template-columns: minmax(9rem, 13rem) minmax(0, 1fr); align-items: baseline; }
+  }
+  .glance dt { font-size: var(--text-label); line-height: var(--leading-label); font-weight: var(--weight-ui); color: var(--color-ink-muted); }
+  .glance dd { margin: 0; text-wrap: pretty; }
+  .area-note { font-size: var(--text-small); line-height: var(--leading-small); color: var(--color-ink-muted); max-inline-size: var(--measure); }
+
+  /* ---------- The stays: the area on the map, then the same stays as cards ---------- */
+  .area-stays { padding-block-end: var(--space-section); }
+  .area-map {
+    block-size: clamp(22rem, 58svh, 34rem);
+    margin-block-start: var(--space-8);
+  }
+  /* The map needs JavaScript; without it the cards below still show every stay. */
+  @media not (scripting: enabled) {
+    .area-map { display: none; }
+  }
+  .area-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 18rem), 1fr));
+    gap: var(--space-10) var(--space-6);
+    margin-block-start: var(--space-10);
+  }
+  .area-ask {
+    display: grid;
+    align-content: center;
+    justify-items: start;
+    gap: var(--space-4);
+    padding: var(--space-8);
+    border-radius: var(--radius-card);
+    background: var(--color-ground-alt);
+  }
+  .area-ask p { max-inline-size: var(--measure); }
+  @media (min-width: 64rem) {
+    /* One stay: its card keeps a third of the row, as in a full row; the note takes the rest. */
+    .area-cards[data-count="1"] { grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); }
+  }
+  .area-stays__more { margin-block-start: var(--space-8); }
+  .area-stays__more a { display: inline-flex; align-items: center; min-block-size: var(--tap); color: var(--color-action); font-weight: var(--weight-ui); }
+
+  /* ---------- What to know, and the questions people ask ---------- */
+  .area-guide {
+    display: grid;
+    gap: var(--space-section) var(--space-10);
+    padding-block-end: var(--space-section);
+  }
+  @media (min-width: 64rem) {
+    .area-guide { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); }
+  }
+  .area-know { margin-block-start: var(--space-8); }
+  .area-faq { display: grid; gap: var(--space-6); margin: var(--space-8) 0 0; }
+  .area-faq dt { font-size: var(--text-lead); line-height: var(--leading-lead); font-weight: var(--weight-ui); text-wrap: balance; }
+  .area-faq dd { margin: var(--space-2) 0 0; max-inline-size: var(--measure); color: var(--color-ink-muted); text-wrap: pretty; }
+
+  /* ---------- More destinations ---------- */
+  .area-more { padding-block-end: var(--space-section); }
+  .area-more__list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-8) var(--space-5);
+    margin: var(--space-8) 0 0;
+    padding: 0;
+    list-style: none;
+  }
+  @media (min-width: 48rem) {
+    .area-more__list { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-8) var(--space-6); }
+  }
+  .area-more__link { display: grid; gap: var(--space-2); color: inherit; text-decoration: none; }
+  .area-more__photo { display: block; aspect-ratio: 4 / 5; margin-block-end: var(--space-2); }
+  .area-more__photo img { transition: transform var(--duration-slow) var(--ease-out); }
+  @media (hover: hover) and (prefers-reduced-motion: no-preference) {
+    .area-more__link:hover .area-more__photo img { transform: scale(1.03); }
+  }
+  .area-more__name {
+    font-family: var(--font-display);
+    font-variation-settings: var(--display-variation);
+    font-size: var(--text-lead);
+    line-height: var(--leading-lead);
+  }
+  .area-more__link:hover .area-more__name { text-decoration: underline; text-underline-offset: 0.2em; }
+  .area-more__link:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 4px; border-radius: var(--radius-card); }
+  .area-more__count { font-size: var(--text-small); color: var(--color-ink-muted); }
+
+  /* ---------- One owner band, on navy, right before the navy footer ---------- */
+  .area-owners { padding-block: var(--space-section); }
+  .area-owners__inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-6) var(--space-10);
+  }
+  .area-owners__text { display: grid; gap: var(--space-3); max-inline-size: 42rem; }
+}
