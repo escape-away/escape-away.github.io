@@ -1,0 +1,82 @@
+name: Deploy the demo to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - uses: actions/configure-pages@v6
+
+      - name: Reuse downloaded stock photos
+        uses: actions/cache@v6
+        with:
+          path: .cache/images
+          key: images-${{ hashFiles('data/images.json') }}
+          restore-keys: images-
+
+      # Encoding every width in AVIF and WebP takes a few minutes, so the resized files are kept too.
+      # No fallback key: new widths or quality settings in scripts/images.mjs must re-encode everything.
+      - name: Reuse resized photos
+        uses: actions/cache@v6
+        with:
+          path: public/img
+          key: resized-${{ hashFiles('data/images.json', 'scripts/images.mjs') }}
+
+      - run: npm ci
+
+      - name: Build the static export
+        run: npm run build
+        env:
+          # A user site (<account>.github.io) needs no basePath.
+          NEXT_PUBLIC_SITE_URL: https://${{ github.repository_owner }}.github.io
+          NEXT_PUBLIC_NOINDEX: 'true'
+          NEXT_PUBLIC_WHATSAPP: ${{ vars.WHATSAPP_NUMBER }}
+          NEXT_PUBLIC_OWNER_WHATSAPP: ${{ vars.OWNER_WHATSAPP_NUMBER }}
+          NEXT_PUBLIC_MAPBOX_TOKEN: ${{ vars.MAPBOX_TOKEN }}
+          NEXT_PUBLIC_FORM_ENDPOINT: ${{ vars.FORM_ENDPOINT }}
+          NEXT_PUBLIC_GBP_URL: ${{ vars.GBP_URL }}
+
+      - name: Check Arabic search and both message files
+        run: npm run test:arabic
+
+      - name: Check the forms' sheet script
+        run: npm run test:forms
+
+      - name: Check every page in both languages
+        run: npm run check:export
+        env:
+          NEXT_PUBLIC_NOINDEX: 'true'
+
+      - uses: actions/upload-pages-artifact@v5
+        with:
+          path: out
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v5
