@@ -1,6 +1,6 @@
 {
-  "_about": "Prices on the site are set in US dollars (fromPriceUsd in data/units.json, whole dollars a night). The Egyptian pound figure shown beside each price is that dollar amount at this rate, rounded to the nearest EGP 10 and marked as approximate. To change the rate, edit egpPerUsd and asOf and redeploy; nothing else needs to change. src/lib/pricing.ts is the one place that converts and formats money.",
-  "egpPerUsd": 54.33,
+  "_about": "Prices on the site are set in US dollars (fromPriceUsd in data/units.json, whole dollars a night). The Egyptian pound figure shown beside each price is that dollar amount at this rate, rounded to the nearest EGP 10 and marked as approximate. The deploy refreshes this rate every morning before it builds (scripts/update-rate.mjs; `npm run rate` by hand). The refreshed rate goes only into that day's build, so the value here is the fallback the build keeps when no rate source answers. src/lib/pricing.ts is the one place that converts and formats money.",
+  "egpPerUsd": 54.19,
   "asOf": "2026-11-24",
-  "source": "ExchangeRate-API (open.er-api.com), USD base, updated 24 Nov 2026 00:02 UTC: 54.330891"
+  "source": "exchange-api by Fawaz Ahmed (latest.currency-api.pages.dev), 2026-11-24: 54.19204071"
 }

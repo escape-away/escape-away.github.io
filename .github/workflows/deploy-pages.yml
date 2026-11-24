@@ -3,6 +3,11 @@ name: Deploy the website to GitHub Pages
 on:
   push:
     branches: [main]
+  # Every morning, so the pound figures beside the dollar prices follow the day's exchange rate.
+  # 03:30 UTC is 05:30 in Cairo (06:30 in summer time). GitHub pauses schedules in a public repository
+  # after 60 days without a commit and emails the owner first; one click on the Actions tab restarts it.
+  schedule:
+    - cron: '30 3 * * *'
   workflow_dispatch:
 
 permissions:
@@ -46,6 +51,12 @@ jobs:
           restore-keys: resized-
 
       - run: npm ci
+
+      # The day's dollar-to-pound rate for the pound figures (scripts/update-rate.mjs). It is used for
+      # this build only, not committed. If no source answers, the build keeps the rate in
+      # data/currency.json and this run shows a warning.
+      - name: Fetch today's exchange rate
+        run: npm run rate
 
       - name: Build the static export
         run: npm run build

@@ -8,6 +8,7 @@
   },
   "scripts": {
     "images": "node scripts/images.mjs",
+    "rate": "node scripts/update-rate.mjs",
     "predev": "node scripts/images.mjs",
     "dev": "next dev",
     "prebuild": "node scripts/images.mjs",
