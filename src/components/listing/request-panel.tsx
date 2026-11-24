@@ -5,9 +5,11 @@ import { useLocale, useTranslations } from 'next-intl';
 import type { Locale } from '@/i18n/routing';
 import { calendarFormat, fromISO, nightsBetween, shortDate } from '@/lib/dates';
 import { formatNumber } from '@/lib/format';
+import type { PriceText } from '@/lib/pricing';
 import { lenis, setSearch, updateSearch, useSearch } from '@/lib/search-state';
 import { whatsappLink } from '@/lib/site';
 import { CloseIcon } from '../explorer/icons';
+import { PriceLine } from '../price-line';
 import { DateRange } from '../search/date-range';
 import { GuestsPanel, type Guests } from '../search/guests-panel';
 import { useDismiss } from '../search/use-dismiss';
@@ -16,8 +18,8 @@ import { RequestDialog, type RequestDialogHandle } from './request-dialog';
 type Props = {
   code: string;
   name: string;
-  /** "From EGP 4,500 a night", or "Price on request" until there is a price. */
-  price: string;
+  /** "From $118 a night" and "≈ EGP 6,410", or "Price on request" until there is a price. */
+  price: PriceText;
   /** How many guests the home sleeps. */
   capacity: number;
 };
@@ -170,7 +172,7 @@ export function RequestPanel({ code, name, price, capacity }: Props) {
     <>
       <div ref={card} className="request-card" aria-labelledby={`${id}-price`} role="group">
         <p id={`${id}-price`} className="request__price tabular">
-          {price}
+          <PriceLine price={price} />
         </p>
 
         <div className="request__fields">
@@ -266,7 +268,9 @@ export function RequestPanel({ code, name, price, capacity }: Props) {
       {/* Phones: the bar pinned to the bottom, and the sheet it opens. */}
       <div className="request-bar">
         <button ref={barSummary} type="button" className="request-bar__summary" onClick={(e) => openSheet(e.currentTarget)}>
-          <span className="request-bar__price tabular">{price}</span>
+          <span className="request-bar__price tabular">
+            <PriceLine price={price} />
+          </span>
           <span className="request-bar__when tabular">
             {hasDates ? [datesText, party ? guestsText : ''].filter(Boolean).join(' · ') : t('addYourDates')}
           </span>

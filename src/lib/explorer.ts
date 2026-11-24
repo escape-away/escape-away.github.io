@@ -1,5 +1,6 @@
 import type { AmenityKey } from './amenities';
 import { matchesAll } from './normalize';
+import type { PriceText } from './pricing';
 import type { SearchState } from './search-state';
 import type { UnitType } from './unit-types';
 
@@ -18,8 +19,8 @@ export type ExplorerItem = {
   area: string;
   /** "7 guests · 3 bedrooms · 2 baths" */
   facts: string;
-  /** "From EGP 4,500 a night", or "Price on request" until the price is in */
-  price: string;
+  /** "From $118 a night" and "≈ EGP 6,410", or "Price on request" until the price is in */
+  price: PriceText;
   /** What the map pin says: the starting price, or the kind of home until there is one. */
   pin: string;
   photo: ExplorerPhoto | null;
@@ -31,7 +32,8 @@ export type ExplorerItem = {
   guests: number;
   amenities: AmenityKey[];
   collections: string[];
-  priceEgp: number | null;
+  /** The nightly "from" price in US dollars, for the price filter. */
+  priceUsd: number | null;
   /** [lng, lat] of the approximate pin, or null for a stay with no pin yet. */
   lngLat: [number, number] | null;
   /** Names, compound, destination and code in both languages, folded for search. */
@@ -92,8 +94,8 @@ export function matches(item: ExplorerItem, s: SearchState, kind: WhereKind, que
   if (s.types.length && !s.types.includes(item.type)) return false;
   if (s.bedrooms && item.bedrooms < s.bedrooms) return false;
   if (s.amenities.length && !s.amenities.every((a) => item.amenities.includes(a))) return false;
-  if (s.priceMin && (item.priceEgp == null || item.priceEgp < s.priceMin)) return false;
-  if (s.priceMax && (item.priceEgp == null || item.priceEgp > s.priceMax)) return false;
+  if (s.priceMin && (item.priceUsd == null || item.priceUsd < s.priceMin)) return false;
+  if (s.priceMax && (item.priceUsd == null || item.priceUsd > s.priceMax)) return false;
   switch (kind) {
     case 'destination':
       return item.destination === s.where;

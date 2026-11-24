@@ -28,7 +28,7 @@ export async function StaysSection({ locale }: { locale: Locale }) {
     amenities: filterAmenities
       .filter((a) => units.some((u) => u.amenities.includes(a)))
       .map((value) => ({ value, label: amenityLabels[value][locale] })),
-    prices: priceSteps(units.flatMap((u) => (u.fromPriceEgp ? [u.fromPriceEgp] : []))),
+    prices: priceSteps(units.flatMap((u) => (u.fromPriceUsd ? [u.fromPriceUsd] : []))),
   };
 
   const areas = destinations.map((d) => ({

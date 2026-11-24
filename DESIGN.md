@@ -254,6 +254,7 @@ Flat by default. Depth comes from the ground changing (cream, sand, navy), not f
 
 ### Cards / Containers
 - **Listing card:** the lead photograph in a soft arch (no carousel), then name (up to three lines, then an ellipsis; the full name is on its page), compound and destination, facts and the price in tabular figures. Demo cards say "Sample listing".
+- **Prices:** in US dollars ("From $118 a night"), followed by the pound equivalent ("≈ EGP 6,410") at 80% of the line's size (never under 12 px), regular weight, in muted ink. The same pair appears on cards, the map's card, and the booking panel and bar. Pins and the price filter show dollars only.
 - **Save heart:** a navy heart on a pale disc in the photo's top end corner (a 44 px target above the card's link), filled once saved. On a listing it is a small "Save" pill at the end of the line under the name. Saved stays live on the guest's device only.
 - **Panels:** sand or shell, 16 px corners, no shadow at rest.
 - **Fewer stays than a row holds:** on a destination page, the rest of the row is a sand panel saying more homes are coming, with "Ask what's free" on WhatsApp.

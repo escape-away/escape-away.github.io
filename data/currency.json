@@ -1,0 +1,6 @@
+{
+  "_about": "Prices on the site are set in US dollars (fromPriceUsd in data/units.json, whole dollars a night). The Egyptian pound figure shown beside each price is that dollar amount at this rate, rounded to the nearest EGP 10 and marked as approximate. To change the rate, edit egpPerUsd and asOf and redeploy; nothing else needs to change. src/lib/pricing.ts is the one place that converts and formats money.",
+  "egpPerUsd": 54.33,
+  "asOf": "2026-11-24",
+  "source": "ExchangeRate-API (open.er-api.com), USD base, updated 24 Nov 2026 00:02 UTC: 54.330891"
+}

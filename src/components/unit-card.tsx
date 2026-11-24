@@ -2,14 +2,20 @@ import { getTranslations } from 'next-intl/server';
 import type { Locale } from '@/i18n/routing';
 import { getDestination } from '@/lib/destinations';
 import { CarryLink } from './carry-link';
-import { formatEgp, formatNumber } from '@/lib/format';
+import { formatNumber } from '@/lib/format';
 import { firstPhoto } from '@/lib/images';
+import { formatMoney, toEgp, usd, type PriceText } from '@/lib/pricing';
 import { compoundName, type Unit } from '@/lib/units';
 import { Photo } from './photo';
+import { PriceLine } from './price-line';
 import { SaveButton } from './save-button';
 
 export async function unitFacts(unit: Unit, locale: Locale) {
   const t = await getTranslations({ locale, namespace: 'stays' });
+  const from = unit.fromPriceUsd ? usd(unit.fromPriceUsd) : null;
+  const price: PriceText = from
+    ? { text: t('from', { price: formatMoney(locale, from) }), equivalent: t('equivalent', { price: formatMoney(locale, toEgp(from)) }) }
+    : { text: t('priceOnRequest'), equivalent: null };
   return {
     facts: t('facts', {
       guests: unit.guests,
@@ -19,7 +25,7 @@ export async function unitFacts(unit: Unit, locale: Locale) {
       bedroomsText: formatNumber(locale, unit.bedrooms),
       bathsText: formatNumber(locale, unit.baths),
     }),
-    price: unit.fromPriceEgp ? t('from', { price: formatEgp(locale, unit.fromPriceEgp) }) : t('priceOnRequest'),
+    price,
     sample: unit.sample ? t('sample') : null,
   };
 }
@@ -61,7 +67,9 @@ export async function UnitCard({
         {compoundName(unit, locale)} · {destination?.name[locale]}
       </p>
       <p className="tabular text-[length:var(--text-small)]">{facts}</p>
-      <p className="tabular">{price}</p>
+      <p className="tabular">
+        <PriceLine price={price} />
+      </p>
       {sample ? <p className="text-[length:var(--text-label)] text-fg-muted">{sample}</p> : null}
     </article>
   );

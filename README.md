@@ -46,7 +46,8 @@ The explorer on the homepage (list, map with price pins and EA clusters, filters
 - **Without a Mapbox token** (the default): the map runs on MapLibre GL JS, Mapbox GL's open-source twin, with OpenFreeMap's free tiles. No account, no key, no usage limit; the map credits OpenFreeMap, OpenMapTiles and OpenStreetMap in its corner.
 - **With a token**: set `NEXT_PUBLIC_MAPBOX_TOKEN` to a public `pk.` token (in Mapbox, limit it to the site's address) and rebuild. The same explorer then uses Mapbox GL JS on Mapbox's light style, recoloured to the brand palette. This path has not been tried with a real token yet; check it once one exists.
 - The map library, its stylesheet and its worker load only when the map is about to be seen. Clustering is Supercluster. The basemap colours are the `--map-*` tokens in `design/tokens.css`.
-- Pins are approximate on purpose (`pinApprox` in `data/units.json`). A pin shows the starting price once `fromPriceEgp` is set, and the kind of home until then. The price filter appears once two or more units have a price.
+- Pins are approximate on purpose (`pinApprox` in `data/units.json`). A pin shows the starting price once `fromPriceUsd` is set, and the kind of home until then. The price filter appears once two or more units have a price.
+- Prices are set in US dollars only (`fromPriceUsd`, whole dollars a night). The pound figure beside each price is derived from it at the rate in `data/currency.json`; change the rate there. `src/lib/pricing.ts` is the one place that converts and formats money, and the payment gateway should charge from it too.
 - Any server for the static export must send `.mjs` files as JavaScript (GitHub Pages and `next start` do; `npm run serve:out` does too), or the map's worker can't start and the map shows its "didn't load" state.
 
 ## Saved stays and the header search

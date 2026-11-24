@@ -15,6 +15,11 @@ export function formatEgp(locale: Locale, amount: number) {
   return locale === 'ar' ? `${n} ج.م` : `EGP ${n}`;
 }
 
+export function formatUsd(locale: Locale, amount: number) {
+  const n = formatNumber(locale, amount);
+  return locale === 'ar' ? `${n} دولار` : `$${n}`;
+}
+
 export function formatDate(
   locale: Locale,
   date: Date | string,

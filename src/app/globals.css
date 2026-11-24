@@ -65,6 +65,15 @@
     mask: url("/brand/ea-mark-mask.webp") center / contain no-repeat;
   }
 
+  /* A price's pound equivalent ("≈ EGP 6,410"), after the dollar price: smaller, lighter and in the
+     muted ink, sized from whatever price line it sits in, never under 12 px. */
+  .price-equivalent {
+    font-size: max(0.8em, 0.75rem);
+    font-weight: var(--weight-text);
+    color: var(--color-fg-muted);
+    white-space: nowrap;
+  }
+
   /* The footer closes every page, so it lays out when the reader nears it rather than in the first
      paint. Nothing above it
      measures it. The sizes are its real heights, so the scrollbar barely moves when it renders. */

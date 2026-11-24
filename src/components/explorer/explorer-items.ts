@@ -2,9 +2,9 @@ import compoundsRaw from '@data/compounds.json';
 import type { Locale } from '@/i18n/routing';
 import { getDestination } from '@/lib/destinations';
 import type { ExplorerItem } from '@/lib/explorer';
-import { formatEgp } from '@/lib/format';
 import { firstPhoto, imageSlot } from '@/lib/images';
 import { normalize } from '@/lib/normalize';
+import { formatMoney, usd } from '@/lib/pricing';
 import { unitTypeLabels } from '@/lib/unit-types';
 import { compoundName, type Unit } from '@/lib/units';
 import { unitFacts } from '../unit-card';
@@ -29,7 +29,7 @@ export function explorerItems(list: Unit[], locale: Locale): Promise<ExplorerIte
         area: `${compoundName(u, locale)} · ${d.name[locale]}`,
         facts,
         price,
-        pin: u.fromPriceEgp ? formatEgp(locale, u.fromPriceEgp) : unitTypeLabels[u.type][locale],
+        pin: u.fromPriceUsd ? formatMoney(locale, usd(u.fromPriceUsd)) : unitTypeLabels[u.type][locale],
         photo: image
           ? { slot: image.slot, alt: image.alt[locale], width: image.width, height: image.height, color: image.color }
           : null,
@@ -41,7 +41,7 @@ export function explorerItems(list: Unit[], locale: Locale): Promise<ExplorerIte
         guests: u.guests,
         amenities: u.amenities,
         collections: u.collections,
-        priceEgp: u.fromPriceEgp,
+        priceUsd: u.fromPriceUsd,
         lngLat: lat != null && lng != null ? ([lng, lat] as [number, number]) : null,
         keys: normalize(
           [u.name.en, u.name.ar, u.compound, compounds[u.compound]?.ar ?? '', d.name.en, d.name.ar, ...d.aliases, u.code].join(' '),

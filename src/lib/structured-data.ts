@@ -2,7 +2,7 @@ import type { Locale } from '@/i18n/routing';
 import { routing } from '@/i18n/routing';
 import { amenities } from './amenities';
 import { destinations, type Destination } from './destinations';
-import { formatEgp } from './format';
+import { formatMoney, usd } from './pricing';
 import { ratingOf, type Review } from './reviews';
 import { localePath } from './seo';
 import { site } from './site';
@@ -261,7 +261,7 @@ export function listingStructuredData({
   };
   // Approximate on purpose: the same area the page's map shows.
   if (lat != null && lng != null) listing.geo = { '@type': 'GeoCoordinates', latitude: lat, longitude: lng };
-  if (unit.fromPriceEgp) listing.priceRange = formatEgp(locale, unit.fromPriceEgp);
+  if (unit.fromPriceUsd) listing.priceRange = formatMoney(locale, usd(unit.fromPriceUsd));
   if (rating) {
     listing.aggregateRating = { '@type': 'AggregateRating', ratingValue: rating.value, ratingCount: rating.count, bestRating: 5, worstRating: 1 };
     listing.review = reviews

@@ -23,7 +23,8 @@ export type Unit = {
   baths: number;
   guests: number;
   amenities: AmenityKey[];
-  fromPriceEgp: number | null;
+  /** The nightly "from" price in whole US dollars; pounds are derived from it (lib/pricing.ts). */
+  fromPriceUsd: number | null;
   pinApprox: { lat: number | null; lng: number | null };
   photos: string[];
   collections: CollectionKey[];
@@ -49,7 +50,9 @@ function validate(list: Unit[]) {
     if (lat != null && lng != null && (lat < 21 || lat > 32 || lng < 24 || lng > 37)) {
       throw new Error(`${where}: pinApprox (${lat}, ${lng}) is outside Egypt; check the order of lat and lng`);
     }
-    if (u.fromPriceEgp != null && !(u.fromPriceEgp > 0)) throw new Error(`${where}: fromPriceEgp must be a positive number or null`);
+    if (u.fromPriceUsd != null && !(Number.isInteger(u.fromPriceUsd) && u.fromPriceUsd > 0)) {
+      throw new Error(`${where}: fromPriceUsd must be a whole number of dollars above 0, or null`);
+    }
     if (!u.name?.en || !u.name?.ar) throw new Error(`${where}: name needs both English and Arabic`);
     for (const a of u.amenities) if (!isAmenity(a)) throw new Error(`${where}: unknown amenity "${a}"`);
     if (!compounds[u.compound]) throw new Error(`${where}: add an Arabic name for "${u.compound}" in data/compounds.json`);

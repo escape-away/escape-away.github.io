@@ -1,5 +1,5 @@
 {
-  "_about": "Units shown on the site: Escape Away’s homes listed on Airbnb, from the host profile (gathered 23 Nov 2026). Each lists its gallery in order, the lead first; the photos are the listings’ own, in photos/units/. Pins are rounded to about 1 km on purpose (homes in one building sit on a small ring set away from it, so each has its own pin and none is within 400 m of the address): exact addresses never enter the website files. fromPriceEgp is Airbnb's nightly price less 15%, rounded down to the nearest EGP 10. The Airbnb price is the one Airbnb showed on 24 Nov 2026 for 2 guests and a 3-night midweek stay, all fees included. It is null where Airbnb's calendar was fully blocked, and the site then says \"Price on request\".",
+  "_about": "Units shown on the site: Escape Away’s homes listed on Airbnb, from the host profile (gathered 23 Nov 2026). Each lists its gallery in order, the lead first; the photos are the listings’ own, in photos/units/. Pins are rounded to about 1 km on purpose (homes in one building sit on a small ring set away from it, so each has its own pin and none is within 400 m of the address): exact addresses never enter the website files. fromPriceUsd is the nightly price in whole US dollars: Airbnb's nightly price less 15%, converted at the rate in data/currency.json and rounded down to the dollar. The Airbnb price is the one Airbnb showed on 24 Nov 2026 for 2 guests and a 3-night midweek stay, all fees included (sources in real-data/pricing.json). Five homes whose Airbnb calendars were fully blocked (CA-AND-S01, CA-AND-R01, CA-AND-G01, CA-MDN-001, CA-RHB-001) carry final dollar prices set by Escape Away on 24 Nov 2026, with no discount applied. A unit with no price (null) shows \"Price on request\". The pound figure on the site is always derived from the dollar price.",
   "units": [
     {
       "code": "CA-NC1-001",
@@ -28,7 +28,7 @@
         "washer",
         "workspace"
       ],
-      "fromPriceEgp": 6450,
+      "fromPriceUsd": 118,
       "pinApprox": {
         "lat": 30.03,
         "lng": 31.44
@@ -78,7 +78,7 @@
         "kitchen",
         "washer"
       ],
-      "fromPriceEgp": 4760,
+      "fromPriceUsd": 87,
       "pinApprox": {
         "lat": 30.02,
         "lng": 31.54
@@ -128,7 +128,7 @@
         "kitchen",
         "washer"
       ],
-      "fromPriceEgp": 4790,
+      "fromPriceUsd": 88,
       "pinApprox": {
         "lat": 27.39,
         "lng": 33.66
@@ -177,7 +177,7 @@
         "wifi",
         "air-conditioning"
       ],
-      "fromPriceEgp": 2520,
+      "fromPriceUsd": 46,
       "pinApprox": {
         "lat": 29.12,
         "lng": 34.68
@@ -225,7 +225,7 @@
         "kitchen",
         "washer"
       ],
-      "fromPriceEgp": null,
+      "fromPriceUsd": 70,
       "pinApprox": {
         "lat": 30.06,
         "lng": 31.48
@@ -274,7 +274,7 @@
         "kitchen",
         "washer"
       ],
-      "fromPriceEgp": null,
+      "fromPriceUsd": 70,
       "pinApprox": {
         "lat": 30.09,
         "lng": 31.66
@@ -324,7 +324,7 @@
         "washer",
         "workspace"
       ],
-      "fromPriceEgp": 5990,
+      "fromPriceUsd": 110,
       "pinApprox": {
         "lat": 30.02,
         "lng": 31.42
@@ -374,7 +374,7 @@
         "washer",
         "workspace"
       ],
-      "fromPriceEgp": 4870,
+      "fromPriceUsd": 89,
       "pinApprox": {
         "lat": 30.02,
         "lng": 31.43
@@ -421,7 +421,7 @@
         "air-conditioning",
         "kitchen"
       ],
-      "fromPriceEgp": null,
+      "fromPriceUsd": 80,
       "pinApprox": {
         "lat": 30.0019,
         "lng": 31.5158
@@ -470,7 +470,7 @@
         "kitchen",
         "washer"
       ],
-      "fromPriceEgp": null,
+      "fromPriceUsd": 50,
       "pinApprox": {
         "lat": 30.0015,
         "lng": 31.5178
@@ -516,7 +516,7 @@
         "air-conditioning",
         "kitchen"
       ],
-      "fromPriceEgp": 2690,
+      "fromPriceUsd": 49,
       "pinApprox": {
         "lat": 30.0003,
         "lng": 31.5193
@@ -563,7 +563,7 @@
         "air-conditioning",
         "kitchen"
       ],
-      "fromPriceEgp": null,
+      "fromPriceUsd": 60,
       "pinApprox": {
         "lat": 29.9987,
         "lng": 31.52
@@ -611,7 +611,7 @@
         "kitchen",
         "washer"
       ],
-      "fromPriceEgp": 1840,
+      "fromPriceUsd": 33,
       "pinApprox": {
         "lat": 29.997,
         "lng": 31.5197
@@ -656,7 +656,7 @@
         "air-conditioning",
         "kitchen"
       ],
-      "fromPriceEgp": 1920,
+      "fromPriceUsd": 35,
       "pinApprox": {
         "lat": 29.9956,
         "lng": 31.5186
@@ -703,7 +703,7 @@
         "air-conditioning",
         "kitchen"
       ],
-      "fromPriceEgp": 1840,
+      "fromPriceUsd": 33,
       "pinApprox": {
         "lat": 29.9948,
         "lng": 31.5168
@@ -750,7 +750,7 @@
         "air-conditioning",
         "kitchen"
       ],
-      "fromPriceEgp": 1840,
+      "fromPriceUsd": 33,
       "pinApprox": {
         "lat": 29.9948,
         "lng": 31.5148
@@ -797,7 +797,7 @@
         "air-conditioning",
         "kitchen"
       ],
-      "fromPriceEgp": 1840,
+      "fromPriceUsd": 33,
       "pinApprox": {
         "lat": 29.9956,
         "lng": 31.5131
@@ -845,7 +845,7 @@
         "kitchen",
         "washer"
       ],
-      "fromPriceEgp": 1660,
+      "fromPriceUsd": 30,
       "pinApprox": {
         "lat": 29.997,
         "lng": 31.512
@@ -890,7 +890,7 @@
         "air-conditioning",
         "kitchen"
       ],
-      "fromPriceEgp": 2070,
+      "fromPriceUsd": 38,
       "pinApprox": {
         "lat": 29.9987,
         "lng": 31.5117
@@ -937,7 +937,7 @@
         "air-conditioning",
         "kitchen"
       ],
-      "fromPriceEgp": 1620,
+      "fromPriceUsd": 29,
       "pinApprox": {
         "lat": 30.0003,
         "lng": 31.5124
@@ -984,7 +984,7 @@
         "air-conditioning",
         "kitchen"
       ],
-      "fromPriceEgp": 1840,
+      "fromPriceUsd": 33,
       "pinApprox": {
         "lat": 30.0015,
         "lng": 31.5139

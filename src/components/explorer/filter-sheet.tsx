@@ -4,7 +4,7 @@ import { memo, useCallback, useEffect, useId, useMemo, useRef, useState, type Ch
 import { useLocale, useTranslations } from 'next-intl';
 import type { Locale } from '@/i18n/routing';
 import type { FilterOptions } from '@/lib/explorer';
-import { formatEgp, formatNumber } from '@/lib/format';
+import { formatNumber, formatUsd } from '@/lib/format';
 import { clearFilters, filterCount, lenis, setSearch, useSearch, type SearchState } from '@/lib/search-state';
 import { useDismiss } from '../search/use-dismiss';
 import { CloseIcon, FiltersIcon } from './icons';
@@ -281,7 +281,7 @@ export const FilterSheet = memo(function FilterSheet({ options, count, countWith
                         .filter((p) => !s.priceMax || p <= s.priceMax)
                         .map((p) => (
                           <option key={p} value={p}>
-                            {formatEgp(locale, p)}
+                            {formatUsd(locale, p)}
                           </option>
                         ))}
                     </select>
@@ -294,7 +294,7 @@ export const FilterSheet = memo(function FilterSheet({ options, count, countWith
                         .filter((p) => !s.priceMin || p >= s.priceMin)
                         .map((p) => (
                           <option key={p} value={p}>
-                            {formatEgp(locale, p)}
+                            {formatUsd(locale, p)}
                           </option>
                         ))}
                     </select>

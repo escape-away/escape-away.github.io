@@ -9,6 +9,7 @@ import type { ExplorerItem } from '@/lib/explorer';
 import { formatNumber } from '@/lib/format';
 import { CarryLink } from '../carry-link';
 import { EaMark } from '../ea-mark';
+import { PriceLine } from '../price-line';
 import { SlotImage } from '../slot-image';
 import { CloseIcon, FitIcon, MinusIcon, PlusIcon } from './icons';
 import {
@@ -542,7 +543,9 @@ export function StaysMap({ items, fitKey, area, selected, linked, onSelect, onHo
                 </p>
                 <p className="map-preview__area">{chosen.area}</p>
                 <p className="map-preview__facts tabular">{chosen.facts}</p>
-                <p className="map-preview__price tabular">{chosen.price}</p>
+                <p className="map-preview__price tabular">
+                  <PriceLine price={chosen.price} />
+                </p>
                 {chosen.sample ? <p className="map-preview__sample">{tStays('sample')}</p> : null}
               </div>
               <button
