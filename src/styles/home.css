@@ -612,6 +612,23 @@
   letter-spacing: -0.01em;
 }
 .trust__quote figcaption { margin-block-start: var(--space-4); font-size: var(--text-small); color: var(--color-ink-muted); }
+.trust__side { display: grid; gap: var(--space-6); align-content: center; }
+.trust__rating {
+  margin: 0;
+  padding-block-start: var(--space-5);
+  border-block-start: 1px solid rgb(59 45 33 / 0.15);
+  color: var(--color-ink-muted);
+  text-wrap: pretty;
+}
+.trust__rating strong { color: var(--color-ink); font-weight: 600; }
+.trust__rating-link {
+  color: var(--color-ink);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+  white-space: nowrap;
+}
+.trust__rating-link:hover { text-decoration-thickness: 2px; }
 .trust__listed {
   grid-column: 1 / -1;
   display: grid;
@@ -623,6 +640,44 @@
 }
 @media (max-width: 53.75rem) {
   .trust__grid { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* ---------- Partners in success ----------
+   One quiet row of logos in a single ink, so no brand shouts over the others; each logo gets its
+   own colours back on hover. Logos keep their shapes inside a common box. */
+.partners__head {
+  display: grid;
+  gap: var(--space-4) var(--space-8);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 26rem);
+  align-items: last baseline;
+}
+.partners__lead { margin: 0; color: var(--color-ink-muted); text-wrap: pretty; }
+.partners__list {
+  list-style: none;
+  margin: var(--space-8) 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(8.5rem, 1fr));
+  gap: var(--space-6) var(--space-5);
+  align-items: center;
+}
+.partners__item { display: grid; place-items: center; min-block-size: 4.5rem; }
+.partners__item img {
+  inline-size: auto;
+  block-size: auto;
+  max-inline-size: min(100%, 9rem);
+  max-block-size: 3.25rem;
+  filter: grayscale(1) contrast(1.1);
+  opacity: 0.72;
+  mix-blend-mode: multiply;
+  transition: filter 0.25s ease, opacity 0.25s ease;
+}
+.partners__item:hover img { filter: none; opacity: 1; }
+@media (max-width: 53.75rem) {
+  .partners__head { grid-template-columns: minmax(0, 1fr); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .partners__item img { transition: none; }
 }
 
 /* ---------- Act 3: the turn to navy ----------

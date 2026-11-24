@@ -1,4 +1,4 @@
-name: Deploy the demo to GitHub Pages
+name: Deploy the website to GitHub Pages
 
 on:
   push:
@@ -31,16 +31,18 @@ jobs:
         uses: actions/cache@v6
         with:
           path: .cache/images
-          key: images-${{ hashFiles('data/images.json') }}
+          key: images-${{ hashFiles('data/images.json', 'scripts/images.mjs', 'photos/**') }}
           restore-keys: images-
 
-      # Encoding every width in AVIF and WebP takes a few minutes, so the resized files are kept too.
-      # No fallback key: new widths or quality settings in scripts/images.mjs must re-encode everything.
+      # Encoding every width in AVIF and WebP takes a while (200+ photos), so the resized files are kept
+      # too. The fallback key is safe: scripts/images.mjs stamps each slot with its photo's content hash
+      # and the encoder settings (kept in .cache/images, above), and makes again only what changed.
       - name: Reuse resized photos
         uses: actions/cache@v6
         with:
           path: public/img
-          key: resized-${{ hashFiles('data/images.json', 'scripts/images.mjs') }}
+          key: resized-${{ hashFiles('data/images.json', 'scripts/images.mjs', 'photos/**') }}
+          restore-keys: resized-
 
       - run: npm ci
 
@@ -49,7 +51,7 @@ jobs:
         env:
           # A user site (<account>.github.io) needs no basePath.
           NEXT_PUBLIC_SITE_URL: https://${{ github.repository_owner }}.github.io
-          NEXT_PUBLIC_NOINDEX: 'true'
+          NEXT_PUBLIC_NOINDEX: 'false'
           NEXT_PUBLIC_WHATSAPP: ${{ vars.WHATSAPP_NUMBER }}
           NEXT_PUBLIC_OWNER_WHATSAPP: ${{ vars.OWNER_WHATSAPP_NUMBER }}
           NEXT_PUBLIC_MAPBOX_TOKEN: ${{ vars.MAPBOX_TOKEN }}
@@ -65,7 +67,7 @@ jobs:
       - name: Check every page in both languages
         run: npm run check:export
         env:
-          NEXT_PUBLIC_NOINDEX: 'true'
+          NEXT_PUBLIC_NOINDEX: 'false'
 
       - uses: actions/upload-pages-artifact@v5
         with:

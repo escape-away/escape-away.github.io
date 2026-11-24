@@ -59,7 +59,8 @@ export async function ListingReviews({ code, locale, titleId }: { code: string; 
     );
   }
 
-  const company = companyReviews();
+  // A few of what guests say about Escape Away, never a wall of them.
+  const company = companyReviews().slice(0, 4);
   return (
     <>
       <h2 id={titleId} className="listing__h2">

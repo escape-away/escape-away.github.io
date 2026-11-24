@@ -33,9 +33,9 @@ export const site = {
   name: 'Escape Away',
   legalName: office.name,
   // `||`, not `??`: CI passes an unset repository variable as an empty string.
-  url: (process.env.NEXT_PUBLIC_SITE_URL || 'https://escapeaway-demo.github.io').replace(/\/+$/, ''),
-  /** The demo stays out of search engines until go-live. */
-  noindex: process.env.NEXT_PUBLIC_NOINDEX !== 'false',
+  url: (process.env.NEXT_PUBLIC_SITE_URL || 'https://escape-away.github.io').replace(/\/+$/, ''),
+  /** Search engines may list the site unless a build says otherwise (NEXT_PUBLIC_NOINDEX=true). */
+  noindex: process.env.NEXT_PUBLIC_NOINDEX === 'true',
   /** Digits only, with the country code. Stand-in: the company number, until the request line is confirmed. */
   whatsapp: process.env.NEXT_PUBLIC_WHATSAPP || '201007009505',
   /** Where owner leads continue on WhatsApp. The request line until Escape Away names who takes them. */
@@ -47,6 +47,16 @@ export const site = {
   email: 'escapeawayhospitality@gmail.com',
   instagram: 'https://www.instagram.com/escapeawayhospitality/',
   instagramHandle: '@escapeawayhospitality',
+  /**
+   * The Airbnb host profile's own figures, as Airbnb showed them when checked. Update them with the
+   * date when the profile changes; the homepage links to the profile so guests can read every review.
+   */
+  airbnb: {
+    profileUrl: 'https://www.airbnb.com/users/profile/1470128624272015931',
+    rating: 5,
+    reviews: 11,
+    checked: '2026-11-23',
+  },
   office,
   mapboxToken: process.env.NEXT_PUBLIC_MAPBOX_TOKEN || '',
   /** The Google Apps Script web app (apps-script/Code.gs). Empty: requests go on WhatsApp alone. */

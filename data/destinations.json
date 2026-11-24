@@ -1,5 +1,5 @@
 {
-  "_about": "The five destinations. Intros feed the homepage tiles. Each guide is written separately in Arabic and English, from the company profile (unit types, sizes, who the stays suit, 24/7 support) and public facts about the area (distances and drive times are typical, rounded, and outside rush hour). The team should read each guide before go-live and update the date when they change it. Centres are approximate map views, never addresses. Aliases are other names people type for an area, in either language; the search folds Arabic letter variants itself.",
+  "_about": "The destinations. Intros feed the homepage tiles. Each guide is written separately in Arabic and English, from the company profile, the homes' own listings and public facts about the area (distances and drive times are typical, rounded, and outside rush hour). The team should read each guide and update the date when they change it. Centres are approximate map views, never addresses. Aliases are other names people type for an area, in either language; the search folds Arabic letter variants itself. A destination with \"hidden\": true has no page, tile or search option until it has homes on the site; the owner form still offers it.",
   "destinations": [
     {
       "slug": "cairo",
@@ -17,11 +17,17 @@
         "التجمع",
         "التجمع الخامس",
         "القطامية",
-        "مدينتي"
+        "مدينتي",
+        "rehab",
+        "al rehab",
+        "andalus",
+        "lake view",
+        "الرحاب",
+        "الأندلس"
       ],
       "intro": {
-        "en": "City living in New Cairo: studios and one- or two-bedroom apartments, 35 to 100 m², for short and monthly stays.",
-        "ar": "سكن في القاهرة الجديدة: استوديوهات وشقق بغرفة أو غرفتي نوم، من 35 إلى 100 م²، لإقامات قصيرة وشهرية."
+        "en": "City living in New Cairo, Madinaty and Rehab: studios and apartments with one to three bedrooms, for short and monthly stays.",
+        "ar": "سكن في القاهرة الجديدة ومدينتي والرحاب: استوديوهات وشقق من غرفة إلى ثلاث غرف نوم، لإقامات قصيرة وشهرية."
       },
       "center": {
         "lat": 30.03,
@@ -30,28 +36,34 @@
       "zoom": 11,
       "photo": "dest-cairo",
       "guide": {
-        "updated": "2026-11-20",
+        "updated": "2026-11-24",
         "title": {
           "en": "New Cairo apartments for short and monthly stays",
           "ar": "شقق مفروشة في القاهرة الجديدة لإقامات قصيرة وشهرية"
         },
         "description": {
-          "en": "Furnished studios and one- or two-bedroom apartments in New Cairo, run by Escape Away for short and monthly stays, with guest support 24/7.",
-          "ar": "استوديوهات وشقق مفروشة بغرفة أو غرفتين في القاهرة الجديدة، تديرها Escape\u00a0Away لإقامات قصيرة وشهرية، مع دعم للضيوف على مدار الساعة."
+          "en": "Furnished studios and apartments with one to three bedrooms in New Cairo, Madinaty and Rehab, run by Escape Away for short and monthly stays, with guest support 24/7.",
+          "ar": "استوديوهات وشقق مفروشة من غرفة إلى ثلاث غرف نوم في القاهرة الجديدة ومدينتي والرحاب، تديرها Escape\u00a0Away لإقامات قصيرة وشهرية، مع دعم للضيوف على مدار الساعة."
         },
         "heading": {
-          "en": ["Stays in", "Cairo"],
-          "ar": ["إقامات في", "القاهرة"]
+          "en": [
+            "Stays in",
+            "Cairo"
+          ],
+          "ar": [
+            "إقامات في",
+            "القاهرة"
+          ]
         },
         "answer": {
-          "en": "Escape Away’s city stays are in New Cairo, on the east side of Cairo: furnished studios and one- or two-bedroom apartments of 35 to 100 m², ready for a few nights or a few months, with guest support around the clock. They suit students, young professionals and anyone in Cairo for work.",
-          "ar": "إقامات Escape\u00a0Away في المدينة موجودة في القاهرة الجديدة، شرق القاهرة: استوديوهات وشقق مفروشة بغرفة أو غرفتين، من 35 إلى 100 م²، جاهزة لليالٍ قليلة أو لعدة أشهر، مع دعم للضيوف على مدار الساعة. وهي تناسب الطلاب والشباب العاملين وكل من يزور القاهرة للعمل."
+          "en": "Escape Away’s city stays are on the east side of Cairo, in New Cairo, Madinaty and Rehab: furnished studios and apartments with one to three bedrooms, ready for a few nights or a few months, with guest support around the clock. They suit students, young professionals, families and anyone in Cairo for work.",
+          "ar": "إقامات Escape\u00a0Away في المدينة موجودة شرق القاهرة، في القاهرة الجديدة ومدينتي والرحاب: استوديوهات وشقق مفروشة من غرفة إلى ثلاث غرف نوم، جاهزة لليالٍ قليلة أو لعدة أشهر، مع دعم للضيوف على مدار الساعة. وهي تناسب الطلاب والشباب العاملين والعائلات وكل من يزور القاهرة للعمل."
         },
         "glance": [
           {
             "key": "bestFor",
-            "en": "Students, young professionals and work trips",
-            "ar": "الطلاب والشباب العاملون ورحلات العمل"
+            "en": "Students, young professionals, families and work trips",
+            "ar": "الطلاب والشباب العاملون والعائلات ورحلات العمل"
           },
           {
             "key": "season",
@@ -65,8 +77,8 @@
           },
           {
             "key": "homes",
-            "en": "Studios and one- or two-bedroom apartments, 35 to 100 m²",
-            "ar": "استوديوهات وشقق بغرفة أو غرفتين، من 35 إلى 100 م²"
+            "en": "Studios and apartments with one to three bedrooms, one with a private pool",
+            "ar": "استوديوهات وشقق من غرفة إلى ثلاث غرف نوم، منها شقة بحمام سباحة خاص"
           },
           {
             "key": "length",
@@ -159,8 +171,14 @@
           "ar": "بيوت مفروشة في مدينة الشيخ زايد غرب القاهرة، تديرها Escape\u00a0Away، وعلى مسافة قصيرة بالسيارة من المتحف المصري الكبير وأهرامات الجيزة."
         },
         "heading": {
-          "en": ["Stays in", "Sheikh Zayed"],
-          "ar": ["إقامات في", "الشيخ زايد"]
+          "en": [
+            "Stays in",
+            "Sheikh Zayed"
+          ],
+          "ar": [
+            "إقامات في",
+            "الشيخ زايد"
+          ]
         },
         "answer": {
           "en": "Sheikh Zayed City is a newer city west of Cairo, in Giza Governorate, beside 6th of October City. Escape Away runs furnished homes there in gated compounds: a calm base for families and groups, a short drive from the Grand Egyptian Museum and the Giza Pyramids, with guest support around the clock.",
@@ -236,7 +254,8 @@
           "en": "Own a home in Sheikh Zayed?",
           "ar": "عندك بيت في الشيخ زايد؟"
         }
-      }
+      },
+      "hidden": true
     },
     {
       "slug": "north-coast",
@@ -273,8 +292,14 @@
           "ar": "استوديوهات وشقق وفيلات على البحر في الساحل الشمالي، تديرها Escape\u00a0Away لإجازات الصيف مع العائلة أو الأصدقاء أو لشخصين."
         },
         "heading": {
-          "en": ["Stays on the", "North Coast"],
-          "ar": ["إقامات في", "الساحل الشمالي"]
+          "en": [
+            "Stays on the",
+            "North Coast"
+          ],
+          "ar": [
+            "إقامات في",
+            "الساحل الشمالي"
+          ]
         },
         "answer": {
           "en": "Egypt’s North Coast, the Sahel, is the Mediterranean shore west of Alexandria, lined with gated resort compounds. Escape Away’s homes there are studios, apartments with one to six bedrooms and villas, 25 to 600 m², for holiday stays. The season runs from June to September, when the coast is at its liveliest.",
@@ -357,7 +382,8 @@
           "en": "Own a chalet or villa on the North Coast?",
           "ar": "عندك شاليه أو فيلا في الساحل؟"
         }
-      }
+      },
+      "hidden": true
     },
     {
       "slug": "el-alamein",
@@ -392,8 +418,14 @@
           "ar": "بيوت على البحر في العلمين الجديدة، منها أبراج العلمين، تديرها Escape\u00a0Away مع دعم للضيوف على مدار الساعة."
         },
         "heading": {
-          "en": ["Stays in", "El Alamein"],
-          "ar": ["إقامات في", "العلمين"]
+          "en": [
+            "Stays in",
+            "El Alamein"
+          ],
+          "ar": [
+            "إقامات في",
+            "العلمين"
+          ]
         },
         "answer": {
           "en": "El Alamein is on Egypt’s Mediterranean coast, about 100 km west of Alexandria. New Alamein, the city built there, was planned to be lived in all year, with towers on the seafront, long beaches and a busy summer. Escape Away manages homes in the Alamein Towers, with guest support around the clock.",
@@ -469,7 +501,8 @@
           "en": "Own an apartment in El Alamein?",
           "ar": "عندك شقة في العلمين؟"
         }
-      }
+      },
+      "hidden": true
     },
     {
       "slug": "gouna",
@@ -504,8 +537,14 @@
           "ar": "استوديوهات وشقق وفيلات في الجونة على البحر الأحمر، تديرها Escape\u00a0Away. شتاء معتدل، وعلى بعد حوالي 40 دقيقة من مطار الغردقة."
         },
         "heading": {
-          "en": ["Stays in", "El Gouna"],
-          "ar": ["إقامات في", "الجونة"]
+          "en": [
+            "Stays in",
+            "El Gouna"
+          ],
+          "ar": [
+            "إقامات في",
+            "الجونة"
+          ]
         },
         "answer": {
           "en": "El Gouna is a resort town on the Red Sea, about 25 km north of Hurghada, built around lagoons and small islands. Escape Away’s homes there are studios, apartments and villas for holiday stays, and the mild winters keep the town busy all year.",
@@ -585,6 +624,136 @@
         "owners": {
           "en": "Own a home in El Gouna?",
           "ar": "عندك بيت في الجونة؟"
+        }
+      }
+    },
+    {
+      "slug": "taba",
+      "name": {
+        "en": "Taba",
+        "ar": "طابا"
+      },
+      "aliases": [
+        "nuweiba",
+        "sinai",
+        "south sinai",
+        "gulf of aqaba",
+        "aqaba",
+        "نويبع",
+        "سيناء",
+        "جنوب سيناء",
+        "خليج العقبة"
+      ],
+      "intro": {
+        "en": "A beach cabin on the Gulf of Aqaba, between the sea and the Sinai mountains.",
+        "ar": "كابينة على شاطئ خليج العقبة، بين البحر وجبال سيناء."
+      },
+      "center": {
+        "lat": 29.25,
+        "lng": 34.75
+      },
+      "zoom": 9,
+      "photo": "dest-taba",
+      "guide": {
+        "updated": "2026-11-24",
+        "title": {
+          "en": "Taba beach cabin on the Gulf of Aqaba",
+          "ar": "كابينة على البحر في طابا على خليج العقبة"
+        },
+        "description": {
+          "en": "A sea and mountain view cabin at a beach camp on the Sinai coast between Taba and Nuweiba, run by Escape Away, with guest support 24/7.",
+          "ar": "كابينة بإطلالة على البحر والجبل في مخيم على ساحل سيناء بين طابا ونويبع، تديرها Escape\u00a0Away، مع دعم للضيوف على مدار الساعة."
+        },
+        "heading": {
+          "en": [
+            "Stays in",
+            "Taba"
+          ],
+          "ar": [
+            "إقامات في",
+            "طابا"
+          ]
+        },
+        "answer": {
+          "en": "Escape Away’s stay on the Sinai coast is a simple cabin at Laila, a beach camp on the Gulf of Aqaba between Taba and Nuweiba. The sea is in front and the mountains are behind, and the camp has a bar and restaurant and seating by the water. It suits couples and friends who want quiet days by the sea, with guest support around the clock.",
+          "ar": "إقامة Escape\u00a0Away على ساحل سيناء كابينة بسيطة في ليلى، مخيم على شاطئ خليج العقبة بين طابا ونويبع. البحر أمامها والجبال خلفها، وفي المخيم بار ومطعم وجلسات على البحر. وهي تناسب الأزواج والأصدقاء الباحثين عن أيام هادئة على البحر، مع دعم للضيوف على مدار الساعة."
+        },
+        "glance": [
+          {
+            "key": "bestFor",
+            "en": "Couples and friends after quiet days by the sea",
+            "ar": "الأزواج والأصدقاء الباحثون عن أيام هادئة على البحر"
+          },
+          {
+            "key": "season",
+            "en": "All year; spring and autumn are mildest, and summer days are hot",
+            "ar": "طوال العام، والربيع والخريف أكثر اعتدالًا، وأيام الصيف حارة"
+          },
+          {
+            "key": "access",
+            "en": "About 6 hours by car from Cairo, or about 2½ hours from Sharm El Sheikh International Airport",
+            "ar": "حوالي 6 ساعات بالسيارة من القاهرة، أو حوالي ساعتين ونصف من مطار شرم الشيخ الدولي"
+          },
+          {
+            "key": "homes",
+            "en": "A beach cabin for up to three guests",
+            "ar": "كابينة على البحر لثلاثة ضيوف"
+          },
+          {
+            "key": "length",
+            "en": "A weekend to a week",
+            "ar": "من عطلة نهاية الأسبوع إلى أسبوع"
+          }
+        ],
+        "know": {
+          "en": [
+            "The coast between Taba and Nuweiba is lined with small beach camps: simple cabins, shared lounges by the sea and a camp restaurant.",
+            "Carry your passport or national ID: there are security checkpoints on the roads in South Sinai.",
+            "Shops are few along the coast; Nuweiba town has supermarkets and cash machines.",
+            "The cabin has air conditioning and Wi-Fi, and one pet is welcome."
+          ],
+          "ar": [
+            "الساحل بين طابا ونويبع تنتشر عليه مخيمات صغيرة على البحر: كبائن بسيطة وجلسات مشتركة على الشاطئ ومطعم في المخيم.",
+            "احمل جواز سفرك أو بطاقتك الشخصية: توجد نقاط تفتيش أمنية على طرق جنوب سيناء.",
+            "المحلات قليلة على الساحل، وفي مدينة نويبع سوبرماركت وماكينات صرف.",
+            "الكابينة فيها تكييف وواي فاي، ومسموح بحيوان أليف واحد."
+          ]
+        },
+        "faq": [
+          {
+            "q": {
+              "en": "How do I get to Taba from Cairo?",
+              "ar": "أروح طابا من القاهرة إزاي؟"
+            },
+            "a": {
+              "en": "By car it takes about six hours, through the Ahmed Hamdi Tunnel under the Suez Canal and across Sinai. Buses also run from Cairo to Nuweiba and Taba.",
+              "ar": "بالعربية حوالي 6 ساعات، من نفق أحمد حمدي تحت قناة السويس وعبر سيناء. وفيه كمان أتوبيسات من القاهرة لنويبع وطابا."
+            }
+          },
+          {
+            "q": {
+              "en": "Is the cabin air-conditioned?",
+              "ar": "الكابينة فيها تكييف؟"
+            },
+            "a": {
+              "en": "Yes. The cabin has air conditioning and heating, Wi-Fi and its own bathroom.",
+              "ar": "أيوه. الكابينة فيها تكييف وتدفئة وواي فاي وحمّام خاص بيها."
+            }
+          },
+          {
+            "q": {
+              "en": "Can I bring my pet?",
+              "ar": "ينفع أجيب حيواني الأليف؟"
+            },
+            "a": {
+              "en": "Yes, one pet is welcome. Mention it in your request so the team knows.",
+              "ar": "أيوه، مسموح بحيوان أليف واحد. اذكره في طلبك عشان الفريق يكون عارف."
+            }
+          }
+        ],
+        "owners": {
+          "en": "Own a chalet or a camp on the Sinai coast?",
+          "ar": "عندك شاليه أو مخيم على ساحل سيناء؟"
         }
       }
     }

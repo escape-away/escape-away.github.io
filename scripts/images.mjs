@@ -10,6 +10,7 @@
  * shows the sand placeholder for it. An optional "crop" trims edges, as fractions of the photo
  * ({ "right": 0.095 } drops the right 9.5%); changing it re-encodes that slot.
  */
+import { createHash } from 'node:crypto';
 import { access, mkdir, readFile, stat, writeFile } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -18,9 +19,11 @@ import sharp from 'sharp';
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const WIDTHS = [320, 480, 640, 768, 1080, 1440, 1920];
 const FORMATS = [
-  { ext: 'avif', encode: (image) => image.avif({ quality: 50, effort: 3 }) },
-  { ext: 'webp', encode: (image) => image.webp({ quality: 72, effort: 5 }) },
+  { ext: 'avif', options: { quality: 50, effort: 3 } },
+  { ext: 'webp', options: { quality: 72, effort: 5 } },
 ];
+/** Part of every slot's stamp: new widths or encoder settings make every slot encode again. */
+const SETTINGS = JSON.stringify({ WIDTHS, FORMATS });
 
 const exists = (p) => access(p).then(() => true, () => false);
 
@@ -88,17 +91,25 @@ for (const slot of slots) {
   const sourceHeight = region.height;
   const photo = () => (cropped ? sharp(file).rotate().extract(region) : sharp(file).rotate());
 
-  // Files made from a different crop are made again.
+  // A slot's stamp records what its files were made from: the photo's content, the crop and the
+  // encoder settings. Files whose stamp still matches are kept, whatever their dates; a fresh checkout
+  // (as in CI, where every photo looks new) doesn't make them all again. Anything different is made again.
   const stampFile = join(root, '.cache', 'images', `${slot.slot}.crop.json`);
-  const stamp = JSON.stringify(cropped ? region : null);
-  const sameCrop = (await exists(stampFile)) ? (await readFile(stampFile, 'utf8')) === stamp : !cropped;
+  const sourceHash = createHash('sha1').update(await readFile(file)).digest('hex');
+  const stamp = JSON.stringify({ source: sourceHash, crop: cropped ? region : null, settings: SETTINGS });
+  const oldStamp = (await exists(stampFile)) ? await readFile(stampFile, 'utf8') : null;
+  // Stamps from before content hashes held only the crop: trust those files if they're newer than the photo.
+  const oldFormatFresh = oldStamp === JSON.stringify(cropped ? region : null);
 
   for (const width of WIDTHS) {
     for (const format of FORMATS) {
       const out = join(outDir, `${width}.${format.ext}`);
-      if (sameCrop && (await exists(out)) && (await stat(out)).mtimeMs >= sourceTime) continue;
+      if (await exists(out)) {
+        if (oldStamp === stamp) continue;
+        if (oldFormatFresh && (await stat(out)).mtimeMs >= sourceTime) continue;
+      }
       const resized = photo().resize({ width: Math.min(width, sourceWidth), withoutEnlargement: true });
-      await format.encode(resized).toFile(out);
+      await resized[format.ext](format.options).toFile(out);
       written += 1;
     }
   }

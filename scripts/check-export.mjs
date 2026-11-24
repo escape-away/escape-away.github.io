@@ -6,7 +6,7 @@
  * a title and a description of its own at a length search results show, one h1, structured data that
  * parses and says what the page is (the company and its Katameya office on the home page, the office
  * on the contact page, each destination guide with its date), the footer's name, address and phone
- * matching the structured data, a share image that exists, noindex while the site is a demo, every
+ * matching the structured data, a share image that exists, noindex only on a NEXT_PUBLIC_NOINDEX=true build, every
  * pre-resized photo the pages rely on, and destination guides that don't read alike.
  * Exits 1 on any problem.
  */
@@ -20,9 +20,10 @@ const readJson = async (p) => JSON.parse(await readFile(join(root, p), 'utf8'));
 const exists = (p) => access(p).then(() => true, () => false);
 
 const units = (await readJson('data/units.json')).units.map((u) => u.slug);
-const destinations = (await readJson('data/destinations.json')).destinations.map((d) => d.slug);
+// Hidden destinations have no page until they have homes to show.
+const destinations = (await readJson('data/destinations.json')).destinations.filter((d) => !d.hidden).map((d) => d.slug);
 const generated = await readJson('src/generated/images.json').catch(() => ({}));
-const noindex = process.env.NEXT_PUBLIC_NOINDEX !== 'false';
+const noindex = process.env.NEXT_PUBLIC_NOINDEX === 'true';
 
 const paths = [
   '',
@@ -76,7 +77,7 @@ function structuredData(rel, html) {
   }
   return nodes;
 }
-const destinationData = (await readJson('data/destinations.json')).destinations;
+const destinationData = (await readJson('data/destinations.json')).destinations.filter((d) => !d.hidden);
 /** Filled from the home page's Organization, then checked against every page's footer. */
 const nap = {};
 const pageTexts = new Map();
@@ -134,7 +135,7 @@ for (const locale of ['en', 'ar']) {
     if (ogAlt !== ogLocale[locale === 'en' ? 'ar' : 'en']) problems.push(`${rel}: og:locale:alternate should name the other language`);
 
     const robots = html.match(/<meta[^>]*name="robots"[^>]*>/i)?.[0] ?? '';
-    if (noindex && !/noindex/i.test(robots)) problems.push(`${rel}: missing noindex while the site is a demo`);
+    if (noindex && !/noindex/i.test(robots)) problems.push(`${rel}: missing noindex on a noindex build`);
     if (!noindex && /noindex/i.test(robots)) problems.push(`${rel}: still noindex on the live site`);
 
     const title = decode(html.match(/<title>([^<]*)<\/title>/i)?.[1]?.trim() ?? '');

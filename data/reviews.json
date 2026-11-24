@@ -1,6 +1,136 @@
 {
-  "_about": "Real guest reviews only, typed in from what Escape Away shares. A review of a home names its unit code; a review of the company has unit null. Ratings appear on the site, and in its structured data, only from these entries. Keep each text in the language the guest wrote it in.",
+  "_about": "Real guest reviews only. Airbnb reviews (from the host profile, gathered 23 Nov 2026) name their home's unit code; where Airbnb doesn't show which home a review is for, or the quote comes from the old website or the company profile, unit is null and it shows as a review of Escape Away. Ratings appear on the site, and in its structured data, only from these entries. Each text stays in the language the guest wrote it in, in their words; only spacing is tidied. The Airbnb profile's own figure (5.0 from 11 reviews) is in src/lib/site.ts.",
   "reviews": [
+    {
+      "id": "ab-mansour",
+      "unit": "CA-LVR-001",
+      "name": {
+        "en": "Mansour",
+        "ar": "منصور"
+      },
+      "date": "2026-11",
+      "rating": 5,
+      "lang": "ar",
+      "text": "كانت اقامة ممتعة والمكان نظيف جداً، يستحق الزيارة مرة اخرى، الدخول كان بشكل سريع، شكر خاص للاستاذ ايمن على اهتمامه ومتابعته المستمرة.",
+      "source": "Airbnb"
+    },
+    {
+      "id": "ab-hady",
+      "unit": "CA-LVR-001",
+      "name": {
+        "en": "Hady",
+        "ar": "هادي"
+      },
+      "date": "2026-11",
+      "rating": 5,
+      "lang": "en",
+      "text": "The host was very nice and welcoming, and check-in was easy. We really enjoyed our stay. The compound is beautiful, and the location is great, with Lake Town Mall just a short walk away, where you can find plenty of restaurants, cafés, and supermarkets. Everything was convenient, and we had a great experience.",
+      "source": "Airbnb"
+    },
+    {
+      "id": "ab-mohamed-lakeview",
+      "unit": "CA-LVR-001",
+      "name": {
+        "en": "Mohamed",
+        "ar": "محمد"
+      },
+      "date": "2026-11",
+      "rating": 5,
+      "lang": "en",
+      "text": "I had a great stay! The apartment was very clean, comfortable, and well-maintained. The host was extremely kind, respectful, and helpful. He is a very trustworthy person, and I felt completely safe and comfortable throughout my stay. I highly recommend this place and would definitely stay here again!",
+      "source": "Airbnb"
+    },
+    {
+      "id": "ab-saeed-lakeview",
+      "unit": "CA-LVR-001",
+      "name": {
+        "en": "Saeed",
+        "ar": "سعيد"
+      },
+      "date": "2026-11",
+      "rating": 5,
+      "lang": "en",
+      "text": "Clean, as described",
+      "source": "Airbnb"
+    },
+    {
+      "id": "ab-abdulhakim",
+      "unit": "CA-LVR-001",
+      "name": {
+        "en": "Abdulhakim",
+        "ar": "عبد الحكيم"
+      },
+      "date": "2026-10",
+      "rating": 5,
+      "lang": "en",
+      "text": "I love the place, great surroundings, and privacy. A few tweaks here and there and Ayman responded with speed to address all issues. He is very responsive, humble and kind. He listens and he is always available to respond to any quarry.",
+      "source": "Airbnb"
+    },
+    {
+      "id": "ab-saeed-101",
+      "unit": "CA-AND-101",
+      "name": {
+        "en": "Saeed",
+        "ar": "سعيد"
+      },
+      "date": "2026-11",
+      "rating": 5,
+      "lang": "en",
+      "text": "Great stay",
+      "source": "Airbnb"
+    },
+    {
+      "id": "ab-mohamed-105",
+      "unit": "CA-AND-105",
+      "name": {
+        "en": "Mohamed",
+        "ar": "محمد"
+      },
+      "date": "2026-11",
+      "rating": 5,
+      "lang": "en",
+      "text": "Cozy, comfortable and cleanliness place to stay, I felt like I am in my home 🤍",
+      "source": "Airbnb"
+    },
+    {
+      "id": "ab-fatimah",
+      "unit": null,
+      "name": {
+        "en": "Fatimah",
+        "ar": "فاطمة"
+      },
+      "date": "2026-10",
+      "rating": 5,
+      "lang": "en",
+      "text": "Thank you, Ayman, for everything. The stay was wonderful, the place is quiet and equipped with everything I needed. The area itself is very peaceful, and Ayman was incredibly helpful and friendly. This will definitely be my choice again next time. 🌹🌹",
+      "source": "Airbnb"
+    },
+    {
+      "id": "ab-claudia",
+      "unit": null,
+      "name": {
+        "en": "Claudia",
+        "ar": "كلوديا"
+      },
+      "date": "2026-11",
+      "rating": 5,
+      "lang": "ar",
+      "text": "البيت جميل جدااااا و مريح. نفسيا واسع و هادي. غرف كلها ماستر vantage جداااا و فيه كل حاجه ممكن نحتاجها زي بيوتنا ❤️☺️",
+      "source": "Airbnb"
+    },
+    {
+      "id": "old-michael",
+      "unit": null,
+      "name": {
+        "en": "Michael",
+        "ar": "مايكل"
+      },
+      "date": null,
+      "rating": null,
+      "lang": "en",
+      "text": "Staying at this Airbnb was an absolute delight; the home was immaculate, cozy, and well-equipped, and our host, Mohamed, went above and beyond to ensure we had everything we needed for a memorable stay.",
+      "source": "escape-away.com (earlier guest reviews)"
+    },
     {
       "id": "profile-abdallah",
       "unit": null,
@@ -13,6 +143,84 @@
       "lang": "en",
       "text": "A truly exceptional stay. The attention to detail was unparalleled, making us feel special from the moment we arrived. Highly recommend!",
       "source": "Escape Away company profile"
+    },
+    {
+      "id": "old-ruby",
+      "unit": null,
+      "name": {
+        "en": "Ruby",
+        "ar": "روبي"
+      },
+      "date": null,
+      "rating": null,
+      "lang": "en",
+      "text": "The host is responsive and easy to communicate. He always tries to help us to see if we need anything. It is highly appreciated. Thank you.",
+      "source": "escape-away.com (earlier guest reviews)"
+    },
+    {
+      "id": "old-abdulrahman",
+      "unit": null,
+      "name": {
+        "en": "Abdulrahman",
+        "ar": "عبد الرحمن"
+      },
+      "date": null,
+      "rating": null,
+      "lang": "en",
+      "text": "The place is very beautiful and clean, and interested in the details, thank you from the heart of the residence.",
+      "source": "escape-away.com (earlier guest reviews)"
+    },
+    {
+      "id": "old-mostafa",
+      "unit": null,
+      "name": {
+        "en": "Mostafa",
+        "ar": "مصطفى"
+      },
+      "date": null,
+      "rating": null,
+      "lang": "en",
+      "text": "The place was beautiful and comfortable, and everything was great",
+      "source": "escape-away.com (earlier guest reviews)"
+    },
+    {
+      "id": "old-fares",
+      "unit": null,
+      "name": {
+        "en": "Fares",
+        "ar": "فارس"
+      },
+      "date": null,
+      "rating": null,
+      "lang": "en",
+      "text": "Mohamed was helpful and the place was good in good location, easy to reach. I think i will go again",
+      "source": "escape-away.com (earlier guest reviews)"
+    },
+    {
+      "id": "old-rani",
+      "unit": null,
+      "name": {
+        "en": "Rani",
+        "ar": "راني"
+      },
+      "date": null,
+      "rating": null,
+      "lang": "en",
+      "text": "He's very respectful and the apartment is so good",
+      "source": "escape-away.com (earlier guest reviews)"
+    },
+    {
+      "id": "old-saif",
+      "unit": null,
+      "name": {
+        "en": "Saif",
+        "ar": "سيف"
+      },
+      "date": null,
+      "rating": null,
+      "lang": "en",
+      "text": "Five stars for the owner on good reception, good creation and assistance",
+      "source": "escape-away.com (earlier guest reviews)"
     }
   ]
 }

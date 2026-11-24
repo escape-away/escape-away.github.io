@@ -1,0 +1,95 @@
+{
+  "_about": "Partners in success: the developers and communities shown on the homepage, in the old escape-away.com strip's order. Logos are those the old site used, trimmed and resized into public/partners/. They are other companies' trademarks; Escape Away confirmed the 'Partners in success' title on 24 Nov 2026.",
+  "partners": [
+    {
+      "slug": "hassan-allam",
+      "name": {
+        "en": "Hassan Allam Properties",
+        "ar": "حسن علام العقارية"
+      },
+      "logo": "/partners/hassan-allam.webp",
+      "width": 320,
+      "height": 144
+    },
+    {
+      "slug": "al-futtaim",
+      "name": {
+        "en": "Al-Futtaim (Cairo Festival City)",
+        "ar": "الفطيم (كايرو فستيفال سيتي)"
+      },
+      "logo": "/partners/al-futtaim.webp",
+      "width": 185,
+      "height": 57
+    },
+    {
+      "slug": "lake-view",
+      "name": {
+        "en": "Lake View Residence",
+        "ar": "ليك فيو ريزيدنس"
+      },
+      "logo": "/partners/lake-view.webp",
+      "width": 185,
+      "height": 97
+    },
+    {
+      "slug": "mivida",
+      "name": {
+        "en": "Mivida (Emaar Misr)",
+        "ar": "ميفيدا (إعمار مصر)"
+      },
+      "logo": "/partners/mivida.webp",
+      "width": 167,
+      "height": 144
+    },
+    {
+      "slug": "orascom",
+      "name": {
+        "en": "Orascom Development",
+        "ar": "أوراسكوم للتنمية"
+      },
+      "logo": "/partners/orascom.webp",
+      "width": 360,
+      "height": 76
+    },
+    {
+      "slug": "talaat-moustafa",
+      "name": {
+        "en": "Talaat Moustafa Group",
+        "ar": "مجموعة طلعت مصطفى"
+      },
+      "logo": "/partners/talaat-moustafa.webp",
+      "width": 113,
+      "height": 144
+    },
+    {
+      "slug": "emaar",
+      "name": {
+        "en": "Emaar Misr",
+        "ar": "إعمار مصر"
+      },
+      "logo": "/partners/emaar.webp",
+      "width": 144,
+      "height": 144
+    },
+    {
+      "slug": "palm-hills",
+      "name": {
+        "en": "Palm Hills Developments",
+        "ar": "بالم هيلز للتعمير"
+      },
+      "logo": "/partners/palm-hills.webp",
+      "width": 103,
+      "height": 144
+    },
+    {
+      "slug": "sodic",
+      "name": {
+        "en": "SODIC",
+        "ar": "سوديك"
+      },
+      "logo": "/partners/sodic.webp",
+      "width": 360,
+      "height": 93
+    }
+  ]
+}

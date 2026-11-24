@@ -2,7 +2,7 @@
   "meta": {
     "siteName": "Escape Away",
     "homeTitle": "Escape Away · Managed stays in Egypt",
-    "description": "Book a managed stay in Cairo, Sheikh Zayed, the North Coast, El Alamein or Gouna directly with Escape Away. 400+ homes, one team, support around the clock.",
+    "description": "Book a managed stay in Cairo, El Gouna or Taba directly with Escape Away. 400+ homes, one team, support around the clock.",
     "about": "Escape Away Hospitality is a hospitality company based in New Cairo, Egypt. It turns apartments, chalets and villas into furnished homes for short and medium stays, and runs 400+ of them across Cairo, Sheikh Zayed, the North Coast, El Alamein and Gouna, from design and furnishing to guest support around the clock."
   },
   "nav": {
@@ -20,13 +20,13 @@
   "home": {
     "h1Light": "Stays across Egypt,",
     "h1Bold": "booked direct.",
-    "lead": "400+ homes in Cairo, Sheikh Zayed, the North Coast, El Alamein and Gouna, prepared and run by one team."
+    "lead": "Homes in Cairo, El Gouna and Taba, prepared and run by the team behind 400+ stays across Egypt."
   },
   "search": {
     "label": "Find a stay",
     "where": "Where",
     "wherePlaceholder": "Area or compound",
-    "whereEmpty": "No area or compound by that name. Try North Coast, Gouna or Cairo.",
+    "whereEmpty": "No area or compound by that name. Try Cairo, El Gouna or Taba.",
     "destination": "Destination",
     "compoundIn": "Compound in {area}",
     "when": "When",
@@ -61,21 +61,21 @@
     "titleLight": "Stays for every",
     "titleBold": "story.",
     "city": "City Escapes",
-    "cityLine": "Cairo and Sheikh Zayed",
+    "cityLine": "New Cairo, Madinaty and Rehab",
     "seaside": "Seaside Stays",
     "seasideLine": "Wake up to the sea",
     "family": "Family & Group Stays",
     "familyLine": "Room for everyone"
   },
   "destinationsSection": {
-    "titleLight": "Five places,",
+    "titleLight": "Three places,",
     "titleBold": "one team.",
-    "lead": "From New Cairo to the Red Sea, the same Escape Away team prepares and runs every home."
+    "lead": "From New Cairo to the Red Sea and the Sinai coast, the same Escape Away team prepares and runs every home."
   },
   "staysSection": {
     "titleLight": "Find your",
     "titleBold": "stay.",
-    "all": "{count, plural, one {# stay} other {# stays}}, all sample listings until the real units arrive.",
+    "all": "{count, plural, one {# stay} other {# stays}}, each run by the Escape Away team.",
     "matching": "{count, plural, =0 {No stays match this search.} one {# stay matches this search.} other {# stays match this search.}}",
     "clear": "Clear search",
     "empty": "Clear the search to see every stay, or ask us on WhatsApp what’s free.",
@@ -136,7 +136,14 @@
     "promise4": "Support around the clock",
     "quoteBy": "{name}, guest",
     "platforms": "Escape Away homes are also listed on Airbnb, Booking.com, Google, Agoda and Property Finder.",
-    "communities": "Homes in Emaar, SODIC, El Safwa, Al-Futtaim, Swan Lake and Al-Alamein Towers communities."
+    "airbnb": "Rated <b>{value}</b> out of 5 on Airbnb, from {count, plural, one {# guest review} other {# guest reviews}}.",
+    "airbnbLink": "Read them on Airbnb"
+  },
+  "partners": {
+    "titleLight": "Partners",
+    "titleBold": "in success.",
+    "lead": "The developers and communities whose homes Escape Away has prepared and run.",
+    "list": "Partners in success"
   },
   "forms": {
     "optional": "(optional)",
@@ -386,7 +393,7 @@
   },
   "owners": {
     "title": "List your unit",
-    "description": "Escape Away designs, furnishes and manages apartments, chalets and villas for short and medium stays in Cairo, Sheikh Zayed, the North Coast, El Alamein and Gouna.",
+    "description": "Escape Away designs, furnishes and manages apartments, chalets and villas for short and medium stays in Cairo, Sheikh Zayed, the North Coast, El Alamein, Gouna and Taba.",
     "h1Light": "More than a stay.",
     "h1Bold": "A better way to host.",
     "lead": "We design, furnish and manage your unit, from 2D and 3D planning to guests, housekeeping and reporting.",
@@ -404,7 +411,7 @@
     "cta": "Talk to us on WhatsApp",
     "ctaEstimate": "Ask for an estimate",
     "listTitle": "List your unit",
-    "listLead": "Escape Away manages 400+ homes in Cairo, Sheikh Zayed, the North Coast, El Alamein and Gouna. Tell us about yours.",
+    "listLead": "Escape Away manages 400+ homes in Cairo, Sheikh Zayed, the North Coast, El Alamein, El Gouna and Taba. Tell us about yours.",
     "whatsappText": "Hello Escape Away, I have a unit I’d like you to manage.",
     "metaTitle": "List your unit: short-stay management in Egypt",
     "reassure": "Takes about a minute. Phone photos are fine, and if you live abroad the team can see the unit on a video call.",
@@ -435,7 +442,7 @@
       "title": "Cancellation and refund policy",
       "description": "How cancellations and refunds work for stays booked with Escape Away."
     },
-    "pending": "Escape Away publishes this policy here before the website goes live. Until then, ask us on WhatsApp or by email.",
+    "pending": "Escape Away is finalising this policy and will publish it here soon. Until then, ask us on WhatsApp or by email.",
     "contact": {
       "title": "Contact Escape Away",
       "metaTitle": "Contact Escape Away · office in Katameya Dunes, New Cairo",

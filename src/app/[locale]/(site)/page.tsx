@@ -9,6 +9,7 @@ import { DestinationsScroll } from '@/components/home/destinations-scroll';
 import { Faq } from '@/components/home/faq';
 import { Hero } from '@/components/home/hero';
 import { OwnerAct } from '@/components/home/owner-act';
+import { Partners } from '@/components/home/partners';
 import { StaysSection } from '@/components/home/stays-section';
 import { Trust } from '@/components/home/trust';
 import { CompactSearch } from '@/components/search/compact-search';
@@ -46,6 +47,7 @@ export default async function HomePage({ params }: Props) {
       <DestinationsScroll locale={locale} />
       <StaysSection locale={locale} />
       <Trust locale={locale} />
+      <Partners locale={locale} />
       <OwnerAct locale={locale} />
       <Faq locale={locale} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(homeStructuredData(locale, t('about'))) }} />

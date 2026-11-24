@@ -1,16 +1,22 @@
 import { getTranslations } from 'next-intl/server';
 import type { Locale } from '@/i18n/routing';
+import { formatNumber, intlLocale } from '@/lib/format';
 import { companyReviews } from '@/lib/reviews';
+import { site } from '@/lib/site';
 import { SectionTitle } from '../section-title';
 
 /**
  * Proof, told plainly: the company profile's three real figures in one sentence (never a stat strip),
- * its guest promises, the one guest quote on hand, and where else the homes are listed.
+ * its guest promises, one short quote from a guest (in the page's language when a guest wrote in it), the
+ * Airbnb rating with a link to read every review there, and where else the homes are listed.
  */
 export async function Trust({ locale }: { locale: Locale }) {
   const t = await getTranslations({ locale, namespace: 'trust' });
-  // The one real guest quote on hand, from the company profile (data/reviews.json).
-  const quote = companyReviews()[0];
+  const company = companyReviews();
+  // The quote is set large, so it is a short one: the first in the page's language that fits.
+  const fits = (r: (typeof company)[number]) => r.text.length <= 160;
+  const quote = company.find((r) => r.lang === locale && fits(r)) ?? company.find(fits) ?? company[0];
+  const { airbnb } = site;
 
   return (
     <section className="section bg-sand trust" aria-labelledby="trust-title">
@@ -24,17 +30,29 @@ export async function Trust({ locale }: { locale: Locale }) {
             ))}
           </ul>
         </div>
-        {quote ? (
-          <figure className="trust__quote">
-            <blockquote lang={quote.lang} dir={quote.lang === 'ar' ? 'rtl' : 'ltr'}>
-              <p>&ldquo;{quote.text}&rdquo;</p>
-            </blockquote>
-            <figcaption>{t('quoteBy', { name: quote.name[locale] })}</figcaption>
-          </figure>
-        ) : null}
+        <div className="trust__side">
+          {quote ? (
+            <figure className="trust__quote">
+              <blockquote lang={quote.lang} dir={quote.lang === 'ar' ? 'rtl' : 'ltr'}>
+                <p>&ldquo;{quote.text}&rdquo;</p>
+              </blockquote>
+              <figcaption>{t('quoteBy', { name: quote.name[locale] })}</figcaption>
+            </figure>
+          ) : null}
+          <p className="trust__rating">
+            {t.rich('airbnb', {
+              value: new Intl.NumberFormat(intlLocale(locale), { minimumFractionDigits: 1, maximumFractionDigits: 1 }).format(airbnb.rating),
+              count: airbnb.reviews,
+              countText: formatNumber(locale, airbnb.reviews),
+              b: (chunks) => <strong>{chunks}</strong>,
+            })}{' '}
+            <a href={airbnb.profileUrl} target="_blank" rel="noopener" className="trust__rating-link">
+              {t('airbnbLink')}
+            </a>
+          </p>
+        </div>
         <div className="trust__listed">
           <p>{t('platforms')}</p>
-          <p>{t('communities')}</p>
         </div>
       </div>
     </section>

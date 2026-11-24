@@ -39,7 +39,8 @@ for (const group of same) {
 }
 
 // ---------- Place search, built from the data the way src/lib/search-options.ts builds it ----------
-const { destinations } = read('data/destinations.json');
+// The search offers only the destinations the site shows; hidden ones wait until they have homes.
+const destinations = read('data/destinations.json').destinations.filter((d) => !d.hidden);
 const { units } = read('data/units.json');
 const { compounds } = read('data/compounds.json');
 const options = destinations.map((d) => ({ id: d.slug, keys: normalize([d.name.en, d.name.ar, ...d.aliases].join(' ')) }));
@@ -53,29 +54,26 @@ for (const u of units) {
 const find = (typed) => options.filter((o) => matchesAll(o.keys, normalize(typed))).map((o) => o.id);
 
 const searches = [
-  ['الساحل الشمالي', 'north-coast'],
-  ['الساحل الشمالى', 'north-coast'],
-  ['ساحل', 'north-coast'],
-  ['الشمالی', 'north-coast'],
-  ['north coast', 'north-coast'],
-  ['Sahel', 'north-coast'],
   ['القاهره', 'cairo'],
   ['التجمع الخامس', 'cairo'],
   ['new cairo', 'cairo'],
-  ['الشيخ زايد', 'sheikh-zayed'],
-  ['زايد', 'sheikh-zayed'],
-  ['العلمين', 'el-alamein'],
-  ['علمين', 'el-alamein'],
   ['الجونه', 'gouna'],
   ['جونة', 'gouna'],
   ['El Gouna', 'gouna'],
-  ['مراسى', 'Marassi'],
-  ['marassi', 'Marassi'],
-  ['ابراج العلمين', 'Alamein Towers'],
-  ['أبراج', 'Alamein Towers'],
-  ['مارينا ابو تيج', 'Abu Tig Marina'],
-  ['ماونتن فيو', 'Mountain View iCity'],
-  ['اليجريا', 'Allegria'],
+  ['طابا', 'taba'],
+  ['جنوب سينا', 'taba'],
+  ['Taba', 'taba'],
+  ['نويبع', 'taba'],
+  ['سيناء', 'taba'],
+  ['الاندلس', 'Al Andalus'],
+  ['اندلس', 'Al Andalus'],
+  ['andalus', 'Al Andalus'],
+  ['ليك فيو', 'Lake View Residence'],
+  ['مدينتى', 'Madinaty'],
+  ['الرحاب', 'Al Rehab'],
+  ['rehab', 'Al Rehab'],
+  ['جي كريبس', 'G Cribs'],
+  ['ليلى', 'Laila Camp'],
 ];
 for (const [typed, expected] of searches) {
   check(`"${typed}" finds ${expected}`, () => {
@@ -84,6 +82,7 @@ for (const [typed, expected] of searches) {
   });
 }
 check('a place that isn\'t there finds nothing', () => assert.deepEqual(find('الأقصر'), []));
+check('a hidden destination isn\'t offered', () => assert.deepEqual(find('الساحل الشمالي'), []));
 
 // ---------- The message files ----------
 const en = read('src/messages/en.json');

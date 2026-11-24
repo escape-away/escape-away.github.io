@@ -1,160 +1,322 @@
 {
-  "_about": "Units shown on the site. Generated from the team's Google Sheet at build once it is connected; until then these five are sample listings (sample: true) with stock photos, one per destination; each lists its gallery in order, the lead first. Pins are approximate on purpose: exact addresses never enter the website files. Prices stay null until Escape Away gives real starting prices.",
+  "_about": "Units shown on the site: Escape Away’s homes listed on Airbnb, from the host profile (gathered 23 Nov 2026). Each lists its gallery in order, the lead first; the photos are the listings’ own, in photos/units/. Pins are rounded to about 1 km on purpose (homes in one building sit on a small ring set away from it, so each has its own pin and none is within 400 m of the address): exact addresses never enter the website files. Prices stay null until Escape Away gives real starting prices.",
   "units": [
     {
-      "code": "NC-MRS-014",
-      "slug": "marassi-sea-view-chalet",
-      "sample": true,
+      "code": "CA-NC1-001",
+      "slug": "new-cairo-3br-private-pool",
       "name": {
-        "en": "Sea-view chalet in Marassi",
-        "ar": "شاليه بإطلالة على البحر في مراسي"
+        "en": "Three-bedroom home with a private pool in New Cairo",
+        "ar": "شقة بثلاث غرف نوم وحمام سباحة خاص في القاهرة الجديدة"
       },
       "description": {
-        "en": "A three-bedroom chalet that looks out to the sea, with a shared pool, set up for families and groups of friends.",
-        "ar": "شاليه بثلاث غرف نوم مطل على البحر، مع حمام سباحة مشترك، مجهّز للعائلات ومجموعات الأصدقاء."
-      },
-      "type": "chalet",
-      "destination": "north-coast",
-      "compound": "Marassi",
-      "bedrooms": 3,
-      "beds": 4,
-      "baths": 2,
-      "guests": 7,
-      "amenities": [
-        "sea-view",
-        "shared-pool",
-        "parking",
-        "wifi",
-        "air-conditioning",
-        "kitchen"
-      ],
-      "fromPriceEgp": null,
-      "pinApprox": {
-        "lat": 30.98,
-        "lng": 28.75
-      },
-      "photos": [
-        "unit-NC-MRS-014-01",
-        "unit-NC-MRS-014-02",
-        "bedroom-01",
-        "unit-NC-MRS-014-04",
-        "unit-NC-MRS-014-05"
-      ],
-      "collections": [
-        "seaside",
-        "family"
-      ],
-      "airbnbUrl": null,
-      "bookingUrl": null
-    },
-    {
-      "code": "AL-ATW-007",
-      "slug": "alamein-towers-sea-apartment",
-      "sample": true,
-      "name": {
-        "en": "Sea-facing apartment in the Alamein Towers",
-        "ar": "شقة مطلة على البحر في أبراج العلمين"
-      },
-      "description": {
-        "en": "A two-bedroom apartment high above the Mediterranean, with a lift and a fitted kitchen.",
-        "ar": "شقة بغرفتي نوم في الأدوار العليا فوق البحر المتوسط، مع مصعد ومطبخ مجهّز."
-      },
-      "type": "apartment",
-      "destination": "el-alamein",
-      "compound": "Alamein Towers",
-      "bedrooms": 2,
-      "beds": 2,
-      "baths": 2,
-      "guests": 5,
-      "amenities": [
-        "sea-view",
-        "lift",
-        "wifi",
-        "air-conditioning",
-        "kitchen"
-      ],
-      "fromPriceEgp": null,
-      "pinApprox": {
-        "lat": 30.83,
-        "lng": 28.95
-      },
-      "photos": [
-        "interior-01",
-        "unit-AL-ATW-007-02",
-        "unit-AL-ATW-007-03",
-        "unit-AL-ATW-007-04",
-        "unit-AL-ATW-007-05"
-      ],
-      "collections": [
-        "seaside"
-      ],
-      "airbnbUrl": null,
-      "bookingUrl": null
-    },
-    {
-      "code": "GN-ATM-021",
-      "slug": "gouna-lagoon-apartment",
-      "sample": true,
-      "name": {
-        "en": "Lagoon-view apartment in Abu Tig Marina, Gouna",
-        "ar": "شقة بإطلالة على البحيرة في مارينا أبو تيج، الجونة"
-      },
-      "description": {
-        "en": "A one-bedroom apartment beside the lagoon, for couples and short Red Sea breaks.",
-        "ar": "شقة بغرفة نوم بجوار البحيرة، مناسبة للأزواج والإجازات القصيرة على البحر الأحمر."
-      },
-      "type": "apartment",
-      "destination": "gouna",
-      "compound": "Abu Tig Marina",
-      "bedrooms": 1,
-      "beds": 1,
-      "baths": 1,
-      "guests": 2,
-      "amenities": [
-        "sea-view",
-        "shared-pool",
-        "wifi",
-        "air-conditioning",
-        "kitchen"
-      ],
-      "fromPriceEgp": null,
-      "pinApprox": {
-        "lat": 27.4,
-        "lng": 33.68
-      },
-      "photos": [
-        "unit-GN-ATM-021-01",
-        "unit-GN-ATM-021-03",
-        "unit-GN-ATM-021-04",
-        "dest-gouna"
-      ],
-      "collections": [
-        "seaside"
-      ],
-      "airbnbUrl": null,
-      "bookingUrl": null
-    },
-    {
-      "code": "CA-MVI-003",
-      "slug": "new-cairo-garden-apartment",
-      "sample": true,
-      "name": {
-        "en": "Garden apartment in Mountain View iCity, New Cairo",
-        "ar": "شقة بحديقة في ماونتن فيو آي سيتي، القاهرة الجديدة"
-      },
-      "description": {
-        "en": "A two-bedroom apartment opening onto a private garden, with a workspace for longer city stays.",
-        "ar": "شقة بغرفتي نوم تطل على حديقة خاصة، مع مكان للعمل لإقامات أطول في المدينة."
+        "en": "Three master bedrooms, each with its own bathroom, and a private swimming pool, for up to six guests. Close to New Cairo’s shopping, restaurants and cafés.",
+        "ar": "ثلاث غرف نوم ماستر، لكل منها حمّامها الخاص، وحمام سباحة خاص، لستة ضيوف. قريبة من محلات ومطاعم ومقاهي القاهرة الجديدة."
       },
       "type": "apartment",
       "destination": "cairo",
-      "compound": "Mountain View iCity",
+      "compound": "New Cairo",
+      "bedrooms": 3,
+      "beds": 3,
+      "baths": 3,
+      "guests": 6,
+      "amenities": [
+        "private-pool",
+        "parking",
+        "wifi",
+        "air-conditioning",
+        "kitchen",
+        "washer",
+        "workspace"
+      ],
+      "fromPriceEgp": null,
+      "pinApprox": {
+        "lat": 30.03,
+        "lng": 31.44
+      },
+      "photos": [
+        "unit-CA-NC1-001-01",
+        "unit-CA-NC1-001-02",
+        "unit-CA-NC1-001-03",
+        "unit-CA-NC1-001-04",
+        "unit-CA-NC1-001-05",
+        "unit-CA-NC1-001-06",
+        "unit-CA-NC1-001-07",
+        "unit-CA-NC1-001-08",
+        "unit-CA-NC1-001-09",
+        "unit-CA-NC1-001-10",
+        "unit-CA-NC1-001-11"
+      ],
+      "collections": [
+        "city",
+        "family"
+      ],
+      "airbnbUrl": "https://www.airbnb.com/rooms/1803635713320975841",
+      "bookingUrl": null
+    },
+    {
+      "code": "CA-LVR-001",
+      "slug": "lake-view-residence-2br",
+      "name": {
+        "en": "Two-bedroom apartment in Lake View Residence",
+        "ar": "شقة بغرفتي نوم في ليك فيو ريزيدنس"
+      },
+      "description": {
+        "en": "A two-bedroom apartment for four in Lake View Residence, with a dining area, a full kitchen, a washer, two bathrooms and a balcony, a short walk from cafés and shops.",
+        "ar": "شقة بغرفتي نوم لأربعة ضيوف في ليك فيو ريزيدنس، فيها منطقة طعام ومطبخ مجهّز وغسالة وحمّامان وبلكونة، على بعد خطوات من المقاهي والمحلات."
+      },
+      "type": "apartment",
+      "destination": "cairo",
+      "compound": "Lake View Residence",
       "bedrooms": 2,
       "beds": 3,
       "baths": 2,
       "guests": 4,
       "amenities": [
-        "garden",
+        "parking",
+        "wifi",
+        "air-conditioning",
+        "kitchen",
+        "washer"
+      ],
+      "fromPriceEgp": null,
+      "pinApprox": {
+        "lat": 30.02,
+        "lng": 31.54
+      },
+      "photos": [
+        "unit-CA-LVR-001-01",
+        "unit-CA-LVR-001-02",
+        "unit-CA-LVR-001-03",
+        "unit-CA-LVR-001-04",
+        "unit-CA-LVR-001-05",
+        "unit-CA-LVR-001-06",
+        "unit-CA-LVR-001-07",
+        "unit-CA-LVR-001-08",
+        "unit-CA-LVR-001-09",
+        "unit-CA-LVR-001-10"
+      ],
+      "collections": [
+        "city",
+        "family"
+      ],
+      "airbnbUrl": "https://www.airbnb.com/rooms/1790016742745408131",
+      "bookingUrl": null
+    },
+    {
+      "code": "GN-GCR-001",
+      "slug": "el-gouna-g-cribs-2br",
+      "name": {
+        "en": "Two-bedroom apartment in G Cribs, El Gouna",
+        "ar": "شقة بغرفتي نوم في جي كريبس بالجونة"
+      },
+      "description": {
+        "en": "A two-bedroom apartment for four in G Cribs, with a balcony over the pool, a full kitchen and a washer and dryer, close to El Gouna’s beaches and restaurants.",
+        "ar": "شقة بغرفتي نوم لأربعة ضيوف في جي كريبس، فيها بلكونة على حمام السباحة ومطبخ مجهّز وغسالة ومجفف، قريبة من شواطئ الجونة ومطاعمها."
+      },
+      "type": "apartment",
+      "destination": "gouna",
+      "compound": "G Cribs",
+      "bedrooms": 2,
+      "beds": 3,
+      "baths": 2,
+      "guests": 4,
+      "amenities": [
+        "shared-pool",
+        "parking",
+        "wifi",
+        "air-conditioning",
+        "kitchen",
+        "washer"
+      ],
+      "fromPriceEgp": null,
+      "pinApprox": {
+        "lat": 27.39,
+        "lng": 33.66
+      },
+      "photos": [
+        "unit-GN-GCR-001-01",
+        "unit-GN-GCR-001-02",
+        "unit-GN-GCR-001-03",
+        "unit-GN-GCR-001-04",
+        "unit-GN-GCR-001-05",
+        "unit-GN-GCR-001-06",
+        "unit-GN-GCR-001-07",
+        "unit-GN-GCR-001-08",
+        "unit-GN-GCR-001-09",
+        "unit-GN-GCR-001-10"
+      ],
+      "collections": [
+        "seaside",
+        "family"
+      ],
+      "airbnbUrl": "https://www.airbnb.com/rooms/1816873646456498631",
+      "bookingUrl": null
+    },
+    {
+      "code": "TB-LAI-001",
+      "slug": "taba-laila-sea-cabin",
+      "name": {
+        "en": "Sea and mountain view cabin at Laila camp",
+        "ar": "كابينة بإطلالة على البحر والجبل في مخيم ليلى"
+      },
+      "description": {
+        "en": "A simple cabin for three at Laila, a beach camp between Taba and Nuweiba, with the sea in front, the mountains behind, and a camp bar and restaurant.",
+        "ar": "كابينة بسيطة لثلاثة ضيوف في ليلى، مخيم على الشاطئ بين طابا ونويبع، البحر أمامها والجبال خلفها، وفي المخيم بار ومطعم."
+      },
+      "type": "chalet",
+      "destination": "taba",
+      "compound": "Laila Camp",
+      "bedrooms": 1,
+      "beds": 2,
+      "baths": 1,
+      "guests": 3,
+      "amenities": [
+        "sea-view",
+        "beach-access",
+        "parking",
+        "wifi",
+        "air-conditioning"
+      ],
+      "fromPriceEgp": null,
+      "pinApprox": {
+        "lat": 29.12,
+        "lng": 34.68
+      },
+      "photos": [
+        "unit-TB-LAI-001-01",
+        "unit-TB-LAI-001-02",
+        "unit-TB-LAI-001-03",
+        "unit-TB-LAI-001-04",
+        "unit-TB-LAI-001-05",
+        "unit-TB-LAI-001-06",
+        "unit-TB-LAI-001-07",
+        "unit-TB-LAI-001-08",
+        "unit-TB-LAI-001-09",
+        "unit-TB-LAI-001-10"
+      ],
+      "collections": [
+        "seaside"
+      ],
+      "airbnbUrl": "https://www.airbnb.com/rooms/1788411943986491303",
+      "bookingUrl": null
+    },
+    {
+      "code": "CA-RHB-001",
+      "slug": "rehab-3br",
+      "name": {
+        "en": "Three-bedroom apartment in Al Rehab",
+        "ar": "شقة بثلاث غرف نوم في الرحاب"
+      },
+      "description": {
+        "en": "A three-bedroom apartment for six in Rehab City, with roomy living areas, a jacuzzi, a washer and dryer and free parking, close to shops and cafés.",
+        "ar": "شقة بثلاث غرف نوم لستة ضيوف في مدينة الرحاب، فيها صالات واسعة وجاكوزي وغسالة ومجفف وموقف مجاني، قريبة من المحلات والمقاهي."
+      },
+      "type": "apartment",
+      "destination": "cairo",
+      "compound": "Al Rehab",
+      "bedrooms": 3,
+      "beds": 4,
+      "baths": 2.5,
+      "guests": 6,
+      "amenities": [
+        "parking",
+        "wifi",
+        "air-conditioning",
+        "kitchen",
+        "washer"
+      ],
+      "fromPriceEgp": null,
+      "pinApprox": {
+        "lat": 30.06,
+        "lng": 31.48
+      },
+      "photos": [
+        "unit-CA-RHB-001-01",
+        "unit-CA-RHB-001-02",
+        "unit-CA-RHB-001-03",
+        "unit-CA-RHB-001-04",
+        "unit-CA-RHB-001-05",
+        "unit-CA-RHB-001-06",
+        "unit-CA-RHB-001-07",
+        "unit-CA-RHB-001-08",
+        "unit-CA-RHB-001-09",
+        "unit-CA-RHB-001-10"
+      ],
+      "collections": [
+        "city",
+        "family"
+      ],
+      "airbnbUrl": "https://www.airbnb.com/rooms/1793366641390155615",
+      "bookingUrl": null
+    },
+    {
+      "code": "CA-MDN-001",
+      "slug": "madinaty-2br",
+      "name": {
+        "en": "Two-bedroom apartment in Madinaty",
+        "ar": "شقة بغرفتي نوم في مدينتي"
+      },
+      "description": {
+        "en": "A two-bedroom apartment for five in Madinaty, with a queen bed, two single beds, a full kitchen, a washer and free parking, close to shops and cafés.",
+        "ar": "شقة بغرفتي نوم لخمسة ضيوف في مدينتي، فيها سرير كوين وسريران فرديان ومطبخ مجهّز وغسالة وموقف مجاني، قريبة من المحلات والمقاهي."
+      },
+      "type": "apartment",
+      "destination": "cairo",
+      "compound": "Madinaty",
+      "bedrooms": 2,
+      "beds": 3,
+      "baths": 1,
+      "guests": 5,
+      "amenities": [
+        "parking",
+        "wifi",
+        "air-conditioning",
+        "kitchen",
+        "washer"
+      ],
+      "fromPriceEgp": null,
+      "pinApprox": {
+        "lat": 30.09,
+        "lng": 31.66
+      },
+      "photos": [
+        "unit-CA-MDN-001-01",
+        "unit-CA-MDN-001-02",
+        "unit-CA-MDN-001-03",
+        "unit-CA-MDN-001-04",
+        "unit-CA-MDN-001-05",
+        "unit-CA-MDN-001-06",
+        "unit-CA-MDN-001-07",
+        "unit-CA-MDN-001-08",
+        "unit-CA-MDN-001-09",
+        "unit-CA-MDN-001-10"
+      ],
+      "collections": [
+        "city",
+        "family"
+      ],
+      "airbnbUrl": "https://www.airbnb.com/rooms/1793010568092667705",
+      "bookingUrl": null
+    },
+    {
+      "code": "CA-NC1-003",
+      "slug": "new-cairo-2br-suite",
+      "name": {
+        "en": "Two-bedroom suite in New Cairo",
+        "ar": "جناح بغرفتي نوم في القاهرة الجديدة"
+      },
+      "description": {
+        "en": "A two-bedroom suite for four in a hotel-style building with a gym, a prayer room, co-working space and a reception. Two bathrooms, a washer and a dryer.",
+        "ar": "جناح بغرفتي نوم لأربعة ضيوف في مبنى بطابع فندقي فيه جيم ومصلى ومساحة عمل مشتركة واستقبال، مع حمّامين وغسالة ومجفف."
+      },
+      "type": "apartment",
+      "destination": "cairo",
+      "compound": "New Cairo",
+      "bedrooms": 2,
+      "beds": 3,
+      "baths": 2,
+      "guests": 4,
+      "amenities": [
         "parking",
         "wifi",
         "air-conditioning",
@@ -165,44 +327,143 @@
       "fromPriceEgp": null,
       "pinApprox": {
         "lat": 30.02,
-        "lng": 31.5
+        "lng": 31.42
       },
       "photos": [
-        "unit-CA-MVI-003-01",
-        "unit-CA-MVI-003-02",
-        "unit-CA-MVI-003-04",
-        "unit-CA-MVI-003-05",
-        "dest-cairo"
+        "unit-CA-NC1-003-01",
+        "unit-CA-NC1-003-02",
+        "unit-CA-NC1-003-03",
+        "unit-CA-NC1-003-04",
+        "unit-CA-NC1-003-05",
+        "unit-CA-NC1-003-06",
+        "unit-CA-NC1-003-07",
+        "unit-CA-NC1-003-08",
+        "unit-CA-NC1-003-09",
+        "unit-CA-NC1-003-10"
       ],
       "collections": [
         "city",
         "family"
       ],
-      "airbnbUrl": null,
+      "airbnbUrl": "https://www.airbnb.com/rooms/1815099070429980170",
       "bookingUrl": null
     },
     {
-      "code": "SZ-ALG-011",
-      "slug": "allegria-family-villa",
-      "sample": true,
+      "code": "CA-NC1-002",
+      "slug": "new-cairo-1br-suite",
       "name": {
-        "en": "Family villa in Allegria, Sheikh Zayed",
-        "ar": "فيلا عائلية في أليجريا، الشيخ زايد"
+        "en": "One-bedroom suite in New Cairo",
+        "ar": "جناح بغرفة نوم في القاهرة الجديدة"
       },
       "description": {
-        "en": "A four-bedroom villa with a private pool and garden, with room for large families.",
-        "ar": "فيلا بأربع غرف نوم مع حمام سباحة خاص وحديقة، تتسع للعائلات الكبيرة."
+        "en": "A one-bedroom suite for two with a king bed, a living and dining area, a full kitchen, a washer and dryer and a work corner, in a hotel-style building.",
+        "ar": "جناح بغرفة نوم لشخصين، فيه سرير كينج وصالة ومنطقة طعام ومطبخ مجهّز وغسالة ومجفف وركن للعمل، في مبنى بطابع فندقي."
       },
-      "type": "villa",
-      "destination": "sheikh-zayed",
-      "compound": "Allegria",
-      "bedrooms": 4,
-      "beds": 5,
-      "baths": 4,
-      "guests": 9,
+      "type": "apartment",
+      "destination": "cairo",
+      "compound": "New Cairo",
+      "bedrooms": 1,
+      "beds": 1,
+      "baths": 1.5,
+      "guests": 2,
       "amenities": [
-        "private-pool",
-        "garden",
+        "parking",
+        "wifi",
+        "air-conditioning",
+        "kitchen",
+        "washer",
+        "workspace"
+      ],
+      "fromPriceEgp": null,
+      "pinApprox": {
+        "lat": 30.02,
+        "lng": 31.43
+      },
+      "photos": [
+        "unit-CA-NC1-002-01",
+        "unit-CA-NC1-002-02",
+        "unit-CA-NC1-002-03",
+        "unit-CA-NC1-002-04",
+        "unit-CA-NC1-002-05",
+        "unit-CA-NC1-002-06",
+        "unit-CA-NC1-002-07",
+        "unit-CA-NC1-002-08",
+        "unit-CA-NC1-002-09",
+        "unit-CA-NC1-002-10"
+      ],
+      "collections": [
+        "city"
+      ],
+      "airbnbUrl": "https://www.airbnb.com/rooms/1812216427955182679",
+      "bookingUrl": null
+    },
+    {
+      "code": "CA-AND-S01",
+      "slug": "andalus-connected-3br-suite-s01",
+      "name": {
+        "en": "Connected three-bedroom suite S01 in Al Andalus",
+        "ar": "جناح متصل بثلاث غرف نوم S01 في الأندلس"
+      },
+      "description": {
+        "en": "Three connected studios for up to six, each with its own bathroom and kitchen, behind one shared entrance: for groups who want to stay together, apart.",
+        "ar": "ثلاثة استوديوهات متصلة لستة ضيوف، لكل منها حمّامه ومطبخه، خلف مدخل مشترك واحد: للعائلات والأصدقاء اللي عايزين يكونوا مع بعض ولكل واحد مساحته."
+      },
+      "type": "apartment",
+      "destination": "cairo",
+      "compound": "Al Andalus",
+      "bedrooms": 3,
+      "beds": 3,
+      "baths": 3,
+      "guests": 6,
+      "amenities": [
+        "parking",
+        "wifi",
+        "air-conditioning",
+        "kitchen"
+      ],
+      "fromPriceEgp": null,
+      "pinApprox": {
+        "lat": 30.0019,
+        "lng": 31.5158
+      },
+      "photos": [
+        "unit-CA-AND-S01-01",
+        "unit-CA-AND-S01-02",
+        "unit-CA-AND-S01-03",
+        "unit-CA-AND-S01-04",
+        "unit-CA-AND-S01-05",
+        "unit-CA-AND-S01-06",
+        "unit-CA-AND-S01-07",
+        "unit-CA-AND-S01-08",
+        "unit-CA-AND-S01-09",
+        "unit-CA-AND-S01-10"
+      ],
+      "collections": [
+        "city",
+        "family"
+      ],
+      "airbnbUrl": "https://www.airbnb.com/rooms/1805245786228670355",
+      "bookingUrl": null
+    },
+    {
+      "code": "CA-AND-R01",
+      "slug": "andalus-rooftop-1br-r01",
+      "name": {
+        "en": "Rooftop one-bedroom R01 in Al Andalus",
+        "ar": "شقة روف بغرفة نوم R01 في الأندلس"
+      },
+      "description": {
+        "en": "A one-bedroom rooftop apartment for two with its own private terrace, and a billiards table and a drum kit in the living room.",
+        "ar": "شقة روف بغرفة نوم لشخصين، لها تراس خاص، وفي الصالة طاولة بلياردو وطقم درامز."
+      },
+      "type": "penthouse",
+      "destination": "cairo",
+      "compound": "Al Andalus",
+      "bedrooms": 1,
+      "beds": 1,
+      "baths": 1,
+      "guests": 2,
+      "amenities": [
         "parking",
         "wifi",
         "air-conditioning",
@@ -211,20 +472,539 @@
       ],
       "fromPriceEgp": null,
       "pinApprox": {
-        "lat": 30.06,
-        "lng": 30.95
+        "lat": 30.0015,
+        "lng": 31.5178
       },
       "photos": [
-        "unit-SZ-ALG-011-02",
-        "unit-SZ-ALG-011-03",
-        "unit-SZ-ALG-011-04",
-        "unit-SZ-ALG-011-05",
-        "dest-sheikh-zayed"
+        "unit-CA-AND-R01-01",
+        "unit-CA-AND-R01-02",
+        "unit-CA-AND-R01-03",
+        "unit-CA-AND-R01-04",
+        "unit-CA-AND-R01-05",
+        "unit-CA-AND-R01-06",
+        "unit-CA-AND-R01-07",
+        "unit-CA-AND-R01-08",
+        "unit-CA-AND-R01-09"
       ],
       "collections": [
-        "family"
+        "city"
       ],
-      "airbnbUrl": null,
+      "airbnbUrl": "https://www.airbnb.com/rooms/1792979425917431328",
+      "bookingUrl": null
+    },
+    {
+      "code": "CA-AND-G03",
+      "slug": "andalus-2br-g03",
+      "name": {
+        "en": "Two-bedroom apartment G03 in Al Andalus",
+        "ar": "شقة بغرفتي نوم G03 في الأندلس"
+      },
+      "description": {
+        "en": "A two-bedroom apartment in a hotel-style building, with a king bed, a queen bed, two bathrooms, a full kitchen and self check-in with a lockbox.",
+        "ar": "شقة بغرفتي نوم في مبنى بطابع فندقي، فيها سرير كينج وسرير كوين وحمّامان ومطبخ مجهّز ودخول ذاتي بصندوق مفاتيح."
+      },
+      "type": "apartment",
+      "destination": "cairo",
+      "compound": "Al Andalus",
+      "bedrooms": 2,
+      "beds": 2,
+      "baths": 2,
+      "guests": 2,
+      "amenities": [
+        "parking",
+        "wifi",
+        "air-conditioning",
+        "kitchen"
+      ],
+      "fromPriceEgp": null,
+      "pinApprox": {
+        "lat": 30.0003,
+        "lng": 31.5193
+      },
+      "photos": [
+        "unit-CA-AND-G03-01",
+        "unit-CA-AND-G03-02",
+        "unit-CA-AND-G03-03",
+        "unit-CA-AND-G03-04",
+        "unit-CA-AND-G03-05",
+        "unit-CA-AND-G03-06",
+        "unit-CA-AND-G03-07",
+        "unit-CA-AND-G03-08",
+        "unit-CA-AND-G03-09",
+        "unit-CA-AND-G03-10"
+      ],
+      "collections": [
+        "city"
+      ],
+      "airbnbUrl": "https://www.airbnb.com/rooms/1817661266974316625",
+      "bookingUrl": null
+    },
+    {
+      "code": "CA-AND-G01",
+      "slug": "andalus-2br-g01",
+      "name": {
+        "en": "Two-bedroom apartment G01 in Al Andalus",
+        "ar": "شقة بغرفتي نوم G01 في الأندلس"
+      },
+      "description": {
+        "en": "A modern two-bedroom apartment with an open living and dining area, a full kitchen and free parking, with easy access to New Cairo’s main roads.",
+        "ar": "شقة حديثة بغرفتي نوم، فيها صالة مفتوحة على منطقة الطعام ومطبخ مجهّز وموقف مجاني، وقريبة من الطرق الرئيسية في القاهرة الجديدة."
+      },
+      "type": "apartment",
+      "destination": "cairo",
+      "compound": "Al Andalus",
+      "bedrooms": 2,
+      "beds": 1,
+      "baths": 1.5,
+      "guests": 2,
+      "amenities": [
+        "parking",
+        "wifi",
+        "air-conditioning",
+        "kitchen"
+      ],
+      "fromPriceEgp": null,
+      "pinApprox": {
+        "lat": 29.9987,
+        "lng": 31.52
+      },
+      "photos": [
+        "unit-CA-AND-G01-01",
+        "unit-CA-AND-G01-02",
+        "unit-CA-AND-G01-03",
+        "unit-CA-AND-G01-04",
+        "unit-CA-AND-G01-05",
+        "unit-CA-AND-G01-06",
+        "unit-CA-AND-G01-07",
+        "unit-CA-AND-G01-08",
+        "unit-CA-AND-G01-09",
+        "unit-CA-AND-G01-10"
+      ],
+      "collections": [
+        "city"
+      ],
+      "airbnbUrl": "https://www.airbnb.com/rooms/1804579749897003253",
+      "bookingUrl": null
+    },
+    {
+      "code": "CA-AND-E01",
+      "slug": "andalus-elegance-1br-e01",
+      "name": {
+        "en": "Elegance one-bedroom E01 in Al Andalus",
+        "ar": "شقة إليجانس بغرفة نوم E01 في الأندلس"
+      },
+      "description": {
+        "en": "A one-bedroom apartment for two with a modern living room, a kitchen, a washer and free parking, and check-in with the building staff.",
+        "ar": "شقة بغرفة نوم لشخصين، فيها صالة حديثة ومطبخ وغسالة وموقف مجاني، والدخول عن طريق فريق المبنى."
+      },
+      "type": "apartment",
+      "destination": "cairo",
+      "compound": "Al Andalus",
+      "bedrooms": 1,
+      "beds": 1,
+      "baths": 1,
+      "guests": 2,
+      "amenities": [
+        "parking",
+        "wifi",
+        "air-conditioning",
+        "kitchen",
+        "washer"
+      ],
+      "fromPriceEgp": null,
+      "pinApprox": {
+        "lat": 29.997,
+        "lng": 31.5197
+      },
+      "photos": [
+        "unit-CA-AND-E01-01",
+        "unit-CA-AND-E01-02",
+        "unit-CA-AND-E01-03",
+        "unit-CA-AND-E01-04",
+        "unit-CA-AND-E01-05",
+        "unit-CA-AND-E01-06",
+        "unit-CA-AND-E01-07",
+        "unit-CA-AND-E01-08"
+      ],
+      "collections": [
+        "city"
+      ],
+      "airbnbUrl": "https://www.airbnb.com/rooms/1819180774710755440",
+      "bookingUrl": null
+    },
+    {
+      "code": "CA-AND-101",
+      "slug": "andalus-1br-101",
+      "name": {
+        "en": "One-bedroom apartment 101 in Al Andalus",
+        "ar": "شقة بغرفة نوم 101 في الأندلس"
+      },
+      "description": {
+        "en": "A one-bedroom apartment for two in a hotel-style building, with a separate living room, a full kitchen and free parking.",
+        "ar": "شقة بغرفة نوم لشخصين في مبنى بطابع فندقي، فيها صالة منفصلة ومطبخ مجهّز وموقف مجاني."
+      },
+      "type": "apartment",
+      "destination": "cairo",
+      "compound": "Al Andalus",
+      "bedrooms": 1,
+      "beds": 1,
+      "baths": 1,
+      "guests": 2,
+      "amenities": [
+        "parking",
+        "wifi",
+        "air-conditioning",
+        "kitchen"
+      ],
+      "fromPriceEgp": null,
+      "pinApprox": {
+        "lat": 29.9956,
+        "lng": 31.5186
+      },
+      "photos": [
+        "unit-CA-AND-101-01",
+        "unit-CA-AND-101-02",
+        "unit-CA-AND-101-03",
+        "unit-CA-AND-101-04",
+        "unit-CA-AND-101-05",
+        "unit-CA-AND-101-06",
+        "unit-CA-AND-101-07",
+        "unit-CA-AND-101-08",
+        "unit-CA-AND-101-09",
+        "unit-CA-AND-101-10"
+      ],
+      "collections": [
+        "city"
+      ],
+      "airbnbUrl": "https://www.airbnb.com/rooms/1791581197376942898",
+      "bookingUrl": null
+    },
+    {
+      "code": "CA-AND-104",
+      "slug": "andalus-1br-104",
+      "name": {
+        "en": "One-bedroom apartment 104 in Al Andalus",
+        "ar": "شقة بغرفة نوم 104 في الأندلس"
+      },
+      "description": {
+        "en": "A one-bedroom apartment for two with a separate living room and a full kitchen, close to the American University in Cairo, with free parking.",
+        "ar": "شقة بغرفة نوم لشخصين، فيها صالة منفصلة ومطبخ مجهّز، قريبة من الجامعة الأمريكية بالقاهرة، مع موقف مجاني."
+      },
+      "type": "apartment",
+      "destination": "cairo",
+      "compound": "Al Andalus",
+      "bedrooms": 1,
+      "beds": 1,
+      "baths": 1,
+      "guests": 2,
+      "amenities": [
+        "parking",
+        "wifi",
+        "air-conditioning",
+        "kitchen"
+      ],
+      "fromPriceEgp": null,
+      "pinApprox": {
+        "lat": 29.9948,
+        "lng": 31.5168
+      },
+      "photos": [
+        "unit-CA-AND-104-01",
+        "unit-CA-AND-104-02",
+        "unit-CA-AND-104-03",
+        "unit-CA-AND-104-04",
+        "unit-CA-AND-104-05",
+        "unit-CA-AND-104-06",
+        "unit-CA-AND-104-07",
+        "unit-CA-AND-104-08",
+        "unit-CA-AND-104-09",
+        "unit-CA-AND-104-10"
+      ],
+      "collections": [
+        "city"
+      ],
+      "airbnbUrl": "https://www.airbnb.com/rooms/1796271794836143484",
+      "bookingUrl": null
+    },
+    {
+      "code": "CA-AND-105",
+      "slug": "andalus-1br-105",
+      "name": {
+        "en": "One-bedroom apartment 105 in Al Andalus",
+        "ar": "شقة بغرفة نوم 105 في الأندلس"
+      },
+      "description": {
+        "en": "A one-bedroom apartment for two with a separate living room and a kitchen, close to the American University in Cairo, with free parking.",
+        "ar": "شقة بغرفة نوم لشخصين، فيها صالة منفصلة ومطبخ، قريبة من الجامعة الأمريكية بالقاهرة، مع موقف مجاني."
+      },
+      "type": "apartment",
+      "destination": "cairo",
+      "compound": "Al Andalus",
+      "bedrooms": 1,
+      "beds": 1,
+      "baths": 1,
+      "guests": 2,
+      "amenities": [
+        "parking",
+        "wifi",
+        "air-conditioning",
+        "kitchen"
+      ],
+      "fromPriceEgp": null,
+      "pinApprox": {
+        "lat": 29.9948,
+        "lng": 31.5148
+      },
+      "photos": [
+        "unit-CA-AND-105-01",
+        "unit-CA-AND-105-02",
+        "unit-CA-AND-105-03",
+        "unit-CA-AND-105-04",
+        "unit-CA-AND-105-05",
+        "unit-CA-AND-105-06",
+        "unit-CA-AND-105-07",
+        "unit-CA-AND-105-08",
+        "unit-CA-AND-105-09",
+        "unit-CA-AND-105-10"
+      ],
+      "collections": [
+        "city"
+      ],
+      "airbnbUrl": "https://www.airbnb.com/rooms/1796277926764420881",
+      "bookingUrl": null
+    },
+    {
+      "code": "CA-AND-102",
+      "slug": "andalus-1br-102",
+      "name": {
+        "en": "One-bedroom apartment 102 in Al Andalus",
+        "ar": "شقة بغرفة نوم 102 في الأندلس"
+      },
+      "description": {
+        "en": "A one-bedroom apartment for two in a hotel-style building, with a living room, a kitchen with a gas stove and free parking.",
+        "ar": "شقة بغرفة نوم لشخصين في مبنى بطابع فندقي، فيها صالة ومطبخ بموقد غاز وموقف مجاني."
+      },
+      "type": "apartment",
+      "destination": "cairo",
+      "compound": "Al Andalus",
+      "bedrooms": 1,
+      "beds": 1,
+      "baths": 1,
+      "guests": 2,
+      "amenities": [
+        "parking",
+        "wifi",
+        "air-conditioning",
+        "kitchen"
+      ],
+      "fromPriceEgp": null,
+      "pinApprox": {
+        "lat": 29.9956,
+        "lng": 31.5131
+      },
+      "photos": [
+        "unit-CA-AND-102-01",
+        "unit-CA-AND-102-02",
+        "unit-CA-AND-102-03",
+        "unit-CA-AND-102-04",
+        "unit-CA-AND-102-05",
+        "unit-CA-AND-102-06",
+        "unit-CA-AND-102-07",
+        "unit-CA-AND-102-08",
+        "unit-CA-AND-102-09",
+        "unit-CA-AND-102-10"
+      ],
+      "collections": [
+        "city"
+      ],
+      "airbnbUrl": "https://www.airbnb.com/rooms/1791929033956789894",
+      "bookingUrl": null
+    },
+    {
+      "code": "CA-AND-B01",
+      "slug": "andalus-studio-b01",
+      "name": {
+        "en": "Studio B01 in Al Andalus",
+        "ar": "استوديو B01 في الأندلس"
+      },
+      "description": {
+        "en": "A quiet studio for two with a queen bed, a kitchen with a gas stove, a washer and free parking.",
+        "ar": "استوديو هادئ لشخصين، فيه سرير كوين ومطبخ بموقد غاز وغسالة وموقف مجاني."
+      },
+      "type": "studio",
+      "destination": "cairo",
+      "compound": "Al Andalus",
+      "bedrooms": 0,
+      "beds": 1,
+      "baths": 1,
+      "guests": 2,
+      "amenities": [
+        "parking",
+        "wifi",
+        "air-conditioning",
+        "kitchen",
+        "washer"
+      ],
+      "fromPriceEgp": null,
+      "pinApprox": {
+        "lat": 29.997,
+        "lng": 31.512
+      },
+      "photos": [
+        "unit-CA-AND-B01-01",
+        "unit-CA-AND-B01-02",
+        "unit-CA-AND-B01-03",
+        "unit-CA-AND-B01-04",
+        "unit-CA-AND-B01-05",
+        "unit-CA-AND-B01-06",
+        "unit-CA-AND-B01-07",
+        "unit-CA-AND-B01-08"
+      ],
+      "collections": [
+        "city"
+      ],
+      "airbnbUrl": "https://www.airbnb.com/rooms/1793070013228881437",
+      "bookingUrl": null
+    },
+    {
+      "code": "CA-AND-103",
+      "slug": "andalus-studio-103",
+      "name": {
+        "en": "Studio 103 in Al Andalus",
+        "ar": "استوديو 103 في الأندلس"
+      },
+      "description": {
+        "en": "A modern studio for two with a queen bed, a sofa, a kitchenette and free parking.",
+        "ar": "استوديو حديث لشخصين، فيه سرير كوين وكنبة ومطبخ صغير وموقف مجاني."
+      },
+      "type": "studio",
+      "destination": "cairo",
+      "compound": "Al Andalus",
+      "bedrooms": 0,
+      "beds": 1,
+      "baths": 1,
+      "guests": 2,
+      "amenities": [
+        "parking",
+        "wifi",
+        "air-conditioning",
+        "kitchen"
+      ],
+      "fromPriceEgp": null,
+      "pinApprox": {
+        "lat": 29.9987,
+        "lng": 31.5117
+      },
+      "photos": [
+        "unit-CA-AND-103-01",
+        "unit-CA-AND-103-02",
+        "unit-CA-AND-103-03",
+        "unit-CA-AND-103-04",
+        "unit-CA-AND-103-05",
+        "unit-CA-AND-103-06",
+        "unit-CA-AND-103-07",
+        "unit-CA-AND-103-08",
+        "unit-CA-AND-103-09",
+        "unit-CA-AND-103-10"
+      ],
+      "collections": [
+        "city"
+      ],
+      "airbnbUrl": "https://www.airbnb.com/rooms/1793353961254269462",
+      "bookingUrl": null
+    },
+    {
+      "code": "CA-AND-106",
+      "slug": "andalus-studio-106",
+      "name": {
+        "en": "Studio 106 in Al Andalus",
+        "ar": "استوديو 106 في الأندلس"
+      },
+      "description": {
+        "en": "A modern studio for two with a living area and a full kitchen, close to the American University in Cairo, with free parking.",
+        "ar": "استوديو حديث لشخصين، فيه ركن جلوس ومطبخ مجهّز، قريب من الجامعة الأمريكية بالقاهرة، مع موقف مجاني."
+      },
+      "type": "studio",
+      "destination": "cairo",
+      "compound": "Al Andalus",
+      "bedrooms": 0,
+      "beds": 1,
+      "baths": 1,
+      "guests": 2,
+      "amenities": [
+        "parking",
+        "wifi",
+        "air-conditioning",
+        "kitchen"
+      ],
+      "fromPriceEgp": null,
+      "pinApprox": {
+        "lat": 30.0003,
+        "lng": 31.5124
+      },
+      "photos": [
+        "unit-CA-AND-106-01",
+        "unit-CA-AND-106-02",
+        "unit-CA-AND-106-03",
+        "unit-CA-AND-106-04",
+        "unit-CA-AND-106-05",
+        "unit-CA-AND-106-06",
+        "unit-CA-AND-106-07",
+        "unit-CA-AND-106-08",
+        "unit-CA-AND-106-09",
+        "unit-CA-AND-106-10"
+      ],
+      "collections": [
+        "city"
+      ],
+      "airbnbUrl": "https://www.airbnb.com/rooms/1795126115006998837",
+      "bookingUrl": null
+    },
+    {
+      "code": "CA-AND-G02",
+      "slug": "andalus-studio-g02",
+      "name": {
+        "en": "Studio G02 in Al Andalus",
+        "ar": "استوديو G02 في الأندلس"
+      },
+      "description": {
+        "en": "A stylish studio for two with a sleeping area, a separate living space and a full kitchen, close to the American University in Cairo.",
+        "ar": "استوديو أنيق لشخصين، فيه ركن للنوم ومساحة جلوس منفصلة ومطبخ مجهّز، قريب من الجامعة الأمريكية بالقاهرة."
+      },
+      "type": "studio",
+      "destination": "cairo",
+      "compound": "Al Andalus",
+      "bedrooms": 0,
+      "beds": 1,
+      "baths": 1,
+      "guests": 2,
+      "amenities": [
+        "parking",
+        "wifi",
+        "air-conditioning",
+        "kitchen"
+      ],
+      "fromPriceEgp": null,
+      "pinApprox": {
+        "lat": 30.0015,
+        "lng": 31.5139
+      },
+      "photos": [
+        "unit-CA-AND-G02-01",
+        "unit-CA-AND-G02-02",
+        "unit-CA-AND-G02-03",
+        "unit-CA-AND-G02-04",
+        "unit-CA-AND-G02-05",
+        "unit-CA-AND-G02-06",
+        "unit-CA-AND-G02-07",
+        "unit-CA-AND-G02-08",
+        "unit-CA-AND-G02-09",
+        "unit-CA-AND-G02-10"
+      ],
+      "collections": [
+        "city"
+      ],
+      "airbnbUrl": "https://www.airbnb.com/rooms/1816828018095085769",
       "bookingUrl": null
     }
   ]

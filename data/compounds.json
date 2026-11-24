@@ -1,10 +1,26 @@
 {
   "_about": "Arabic names for the compounds that units use. Units keep the English name in their compound field, as in the System Blueprint's units table.",
   "compounds": {
-    "Marassi": { "ar": "مراسي" },
-    "Alamein Towers": { "ar": "أبراج العلمين" },
-    "Abu Tig Marina": { "ar": "مارينا أبو تيج" },
-    "Mountain View iCity": { "ar": "ماونتن فيو آي سيتي" },
-    "Allegria": { "ar": "أليجريا" }
+    "Al Andalus": {
+      "ar": "الأندلس"
+    },
+    "Lake View Residence": {
+      "ar": "ليك فيو ريزيدنس"
+    },
+    "Madinaty": {
+      "ar": "مدينتي"
+    },
+    "Al Rehab": {
+      "ar": "الرحاب"
+    },
+    "New Cairo": {
+      "ar": "القاهرة الجديدة"
+    },
+    "G Cribs": {
+      "ar": "جي كريبس"
+    },
+    "Laila Camp": {
+      "ar": "مخيم ليلى"
+    }
   }
 }
