@@ -2,10 +2,8 @@ import { getTranslations } from 'next-intl/server';
 import type { Locale } from '@/i18n/routing';
 import { Link } from '@/i18n/navigation';
 import { destinations } from '@/lib/destinations';
-import { stockCredits } from '@/lib/images';
 import { site, whatsappLink } from '@/lib/site';
 import { EaMark } from './ea-mark';
-import { ChevronIcon } from './explorer/icons';
 import { EmailText } from './email-text';
 import { LanguageSwitch } from './language-switch';
 
@@ -14,7 +12,6 @@ const linkClass = 'link-underline inline-flex min-h-11 items-center no-underline
 export async function SiteFooter({ locale }: { locale: Locale }) {
   const t = await getTranslations({ locale, namespace: 'footer' });
   const nav = await getTranslations({ locale, namespace: 'nav' });
-  const credits = stockCredits();
   const address = site.office.address[locale];
 
   return (
@@ -108,18 +105,7 @@ export async function SiteFooter({ locale }: { locale: Locale }) {
           <p className="tabular" dir="ltr">
             {t('rights', { year: String(new Date().getFullYear()) })}
           </p>
-          {/* The stand-in photos' credits: one line, with the photographers' names a tap away. */}
-          {credits.length > 0 ? (
-            <details className="group me-auto max-w-[54ch]">
-              <summary className="inline-flex min-h-11 cursor-pointer list-none items-center gap-2 [&::-webkit-details-marker]:hidden">
-                {t('photosTitle')}
-                <ChevronIcon className="rotate-90 transition-transform group-open:-rotate-90" />
-              </summary>
-              <p className="pb-2">{t('photosBy', { names: credits.join(locale === 'ar' ? '، ' : ', ') })}</p>
-            </details>
-          ) : (
-            <span className="me-auto" />
-          )}
+          <span className="me-auto" />
           <LanguageSwitch text={nav('switchTo')} className={linkClass} />
         </div>
       </div>

@@ -427,7 +427,9 @@
 /* ---------- Collections ---------- */
 .tiles {
   list-style: none;
-  margin: var(--space-8) 0 0;
+  /* The page's width (as .wrap), set here so the phone row below can run edge to edge. */
+  inline-size: min(100% - 2 * var(--gutter), var(--container));
+  margin: var(--space-8) auto 0;
   padding: 0;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -446,7 +448,8 @@
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     scrollbar-width: none;
-    margin-inline: calc(-1 * var(--gutter));
+    inline-size: auto;
+    margin-inline: 0;
     padding-inline: var(--gutter);
     scroll-padding-inline: var(--gutter);
   }
@@ -561,6 +564,59 @@
     align-items: last baseline;
     column-gap: var(--space-8);
   }
+}
+
+/* ---------- Phones: the collections and the places hold while their row slides ----------
+   The places' wide-screen scene, sized for a phone: the section stays put (CSS sticky) while scrolling
+   down moves its row sideways (GSAP scrubs the transform), then the page carries on. Keep this query
+   in step with the one in motion-loader.tsx. A phone on its side, reduced motion, no JavaScript, or
+   motion code that can't load (.no-motion) keep the swipe rows above. */
+@media (scripting: enabled) and (max-width: 47.99rem) and (min-height: 36rem) and (prefers-reduced-motion: no-preference) {
+  html:not(.no-motion) .pin {
+    --pin-gap: var(--space-5);
+    /* Cards narrow on shorter screens so each arch stays taller than it is wide. --pin-reserve is
+       the height the header, the heading and the text under a photo take. */
+    --pin-card: clamp(11rem, min(78vw, (100svh - var(--pin-reserve, 22rem)) / 1.15), 22rem);
+    /* The scroll length the sideways travel needs (GSAP measures the real distance; this reserves it). */
+    --pin-travel: max(
+      0px,
+      calc(var(--pin-count, 3) * var(--pin-card) + (var(--pin-count, 3) - 1) * var(--pin-gap) + 2 * var(--gutter) - 100vw)
+    );
+    block-size: calc(100svh + var(--pin-travel));
+    padding-block: 0;
+  }
+  /* The places carry a lead under their title. */
+  html:not(.no-motion) .dest.pin { --pin-reserve: 30rem; }
+  html:not(.no-motion) .pin__sticky {
+    position: sticky;
+    inset-block-start: var(--header-height);
+    block-size: calc(100svh - var(--header-height));
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto minmax(0, 1fr);
+    padding-block: var(--space-6);
+    overflow: hidden;
+  }
+  html:not(.no-motion) .pin__head { margin-block-end: var(--space-6); }
+  html:not(.no-motion) .pin__viewport {
+    min-block-size: 0;
+    overflow: visible;
+    scroll-snap-type: none;
+  }
+  html:not(.no-motion) .pin__track {
+    display: flex;
+    gap: var(--pin-gap);
+    inline-size: max-content;
+    block-size: 100%;
+    margin: 0;
+    padding-inline: var(--gutter);
+    overflow: visible;
+    scroll-snap-type: none;
+    will-change: transform;
+  }
+  html:not(.no-motion) .pin__card { inline-size: var(--pin-card); block-size: 100%; }
+  html:not(.no-motion) .pin__link { block-size: 100%; grid-template-rows: minmax(0, 1fr) auto auto auto; }
+  html:not(.no-motion) .pin__photo { aspect-ratio: auto; min-block-size: 0; }
 }
 
 /* ---------- Trust ---------- */

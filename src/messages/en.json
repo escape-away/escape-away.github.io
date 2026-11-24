@@ -68,7 +68,7 @@
     "familyLine": "Homes for four to six guests"
   },
   "destinationsSection": {
-    "titleLight": "Three places,",
+    "titleLight": "Many places,",
     "titleBold": "one team.",
     "lead": "From New Cairo to the Red Sea and the Sinai coast, the same Escape Away team prepares and runs every home."
   },
@@ -472,9 +472,7 @@
     "cancellation": "Cancellation and refunds",
     "contactPage": "Contact us",
     "owners": "List your unit",
-    "rights": "© {year} Escape Away Hospitality",
-    "photosTitle": "Stand-in photos from Unsplash",
-    "photosBy": "Photographs by {names}."
+    "rights": "© {year} Escape Away Hospitality"
   },
   "notFound": {
     "title": "This page isn’t here",

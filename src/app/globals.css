@@ -66,7 +66,7 @@
   }
 
   /* The footer closes every page, so it lays out when the reader nears it rather than in the first
-     paint, and only then fetches the extended-Latin glyphs its photo credits need. Nothing above it
+     paint. Nothing above it
      measures it. The sizes are its real heights, so the scrollbar barely moves when it renders. */
   .site-footer {
     content-visibility: auto;

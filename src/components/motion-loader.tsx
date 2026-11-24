@@ -29,10 +29,38 @@ function loadLibs() {
   return libs;
 }
 
-/** The scroll scenes: the destinations' horizontal travel and the turn from cream to navy. */
+/**
+ * The scroll scenes: the destinations' horizontal travel on wider screens, the collections' and the
+ * destinations' travel on phones, and the turn from cream to navy.
+ */
 function scenes({ gsap, ScrollTrigger }: Libs) {
   const mm = gsap.matchMedia();
   const header = () => document.querySelector<HTMLElement>('header')?.offsetHeight ?? 64;
+
+  /** Slides a pinned section's row sideways as the page scrolls through it. */
+  const travel = (section: HTMLElement, track: HTMLElement, viewport: HTMLElement) => {
+    const rtl = getComputedStyle(section).direction === 'rtl';
+    gsap.to(track, {
+      x: () => (rtl ? 1 : -1) * Math.max(0, track.scrollWidth - viewport.clientWidth),
+      ease: 'none',
+      scrollTrigger: {
+        trigger: section,
+        start: () => `top ${header()}px`,
+        end: 'bottom bottom',
+        scrub: 0.6,
+        invalidateOnRefresh: true,
+      },
+    });
+  };
+
+  // Phones: the same query as the pinned phone layout in home.css.
+  mm.add('(max-width: 47.99rem) and (min-height: 36rem) and (prefers-reduced-motion: no-preference)', () => {
+    document.querySelectorAll<HTMLElement>('[data-pin]').forEach((section) => {
+      const track = section.querySelector<HTMLElement>('[data-pin-track]');
+      const viewport = section.querySelector<HTMLElement>('[data-pin-viewport]');
+      if (track && viewport) travel(section, track, viewport);
+    });
+  });
 
   const dest = document.querySelector<HTMLElement>('[data-dest]');
   if (dest) {
@@ -40,19 +68,7 @@ function scenes({ gsap, ScrollTrigger }: Libs) {
     mm.add('(min-width: 48rem) and (min-height: 46rem) and (prefers-reduced-motion: no-preference)', () => {
       const track = dest.querySelector<HTMLElement>('[data-dest-track]');
       const viewport = dest.querySelector<HTMLElement>('[data-dest-viewport]');
-      if (!track || !viewport) return;
-      const rtl = getComputedStyle(dest).direction === 'rtl';
-      gsap.to(track, {
-        x: () => (rtl ? 1 : -1) * Math.max(0, track.scrollWidth - viewport.clientWidth),
-        ease: 'none',
-        scrollTrigger: {
-          trigger: dest,
-          start: () => `top ${header()}px`,
-          end: 'bottom bottom',
-          scrub: 0.6,
-          invalidateOnRefresh: true,
-        },
-      });
+      if (track && viewport) travel(dest, track, viewport);
     });
   }
 

@@ -25,7 +25,8 @@ jobs:
           node-version-file: .nvmrc
           cache: npm
 
-      - uses: actions/configure-pages@v6
+      - id: pages
+        uses: actions/configure-pages@v6
 
       - name: Reuse downloaded stock photos
         uses: actions/cache@v6
@@ -49,8 +50,11 @@ jobs:
       - name: Build the static export
         run: npm run build
         env:
-          # A user site (<account>.github.io) needs no basePath.
-          NEXT_PUBLIC_SITE_URL: https://${{ github.repository_owner }}.github.io
+          # The address Pages serves the site at: the custom domain once it's set in Settings → Pages
+          # (www.escape-away.com), <account>.github.io before or without one. Canonicals, the sitemap and
+          # share links follow it, so connecting or removing the domain only needs a new deploy.
+          # A user site needs no basePath.
+          NEXT_PUBLIC_SITE_URL: https://${{ steps.pages.outputs.host || format('{0}.github.io', github.repository_owner) }}
           NEXT_PUBLIC_NOINDEX: 'false'
           NEXT_PUBLIC_WHATSAPP: ${{ vars.WHATSAPP_NUMBER }}
           NEXT_PUBLIC_OWNER_WHATSAPP: ${{ vars.OWNER_WHATSAPP_NUMBER }}

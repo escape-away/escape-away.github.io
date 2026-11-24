@@ -4,7 +4,11 @@ import type { Locale } from '@/i18n/routing';
 
 type SlotRecord = {
   slot: string;
-  status: 'stock' | 'original';
+  /**
+   * original: Escape Away's own photograph. stock: a licensed stock photo (Unsplash License: no credit
+   * required; its page and photographer stay on record here). generated: Escape Away's own AI-made mood image.
+   */
+  status: 'stock' | 'original' | 'generated';
   src?: string;
   page?: string;
   photographer?: string;
@@ -25,12 +29,6 @@ export function imageSlot(slot: string): ImageSlot | undefined {
   const size = sizes[slot];
   if (!record || !size) return undefined;
   return { ...record, ...size };
-}
-
-/** Photographers of the stock photos in use, for the one footer credits line. */
-export function stockCredits() {
-  const names = slots.filter((s) => s.status === 'stock' && s.photographer && sizes[s.slot]).map((s) => s.photographer!);
-  return [...new Set(names)];
 }
 
 /**

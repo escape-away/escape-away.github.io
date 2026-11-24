@@ -266,7 +266,7 @@ Flat by default. Depth comes from the ground changing (cream, sand, navy), not f
 ### Navigation
 - **Header:** the EA mark, Stays, Destinations, Owners, the language switch, WhatsApp (outlined, so each page's own main action stays the one filled button on screen). Past the hero, the search folds into a compact pill in the header's middle: place, dates and guests, then only the place, then only the magnifier as the header narrows. It opens the same search bar in a cream panel under the header (a full screen on phones); searching closes it and lands on the stays.
 - **Phones:** a full-screen cream menu (a modal: the mark and close on top, the pages as large display-type links on hairlines, WhatsApp and the language switch at the foot); the listing's book bar and the explorer's map and list switch sit at the bottom. Without JavaScript, Menu jumps to the footer, which carries every page.
-- **Footer on phones:** the two link lists side by side; the photo credits fold into one line that opens.
+- **Footer on phones:** the two link lists side by side.
 
 ### Price pin (signature)
 A navy pill with cream tabular digits, 32 px tall. Selected, it turns cream with a navy border and text. Until a unit has a starting price, its pin names the kind of home (Chalet, شاليه). Clusters are navy circles ringed in cream with the EA mark over the count, 52, 60 or 68 px as they grow. The card and pin of the same stay light up together: hovering or focusing a card raises its pin, and the pin's card lifts onto shell with the raise shadow.

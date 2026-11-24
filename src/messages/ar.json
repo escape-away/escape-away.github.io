@@ -68,7 +68,7 @@
     "familyLine": "بيوت لأربعة إلى ستة ضيوف"
   },
   "destinationsSection": {
-    "titleLight": "ثلاث وجهات،",
+    "titleLight": "وجهات عديدة،",
     "titleBold": "فريق واحد.",
     "lead": "من القاهرة الجديدة إلى البحر الأحمر وساحل سيناء، يجهّز فريق Escape\u00a0Away نفسه كل بيت ويديره."
   },
@@ -472,9 +472,7 @@
     "cancellation": "الإلغاء والاسترداد",
     "contactPage": "تواصل معنا",
     "owners": "اعرض وحدتك معانا",
-    "rights": "© {year} Escape Away Hospitality",
-    "photosTitle": "صور مؤقتة من Unsplash",
-    "photosBy": "تصوير: {names}."
+    "rights": "© {year} Escape Away Hospitality"
   },
   "notFound": {
     "title": "الصفحة دي مش موجودة",

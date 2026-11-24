@@ -1,5 +1,5 @@
 {
-  "_about": "One slot, one ID. Every image slot with its source and status. Homes and destinations use Escape Away’s own photos from its Airbnb listings (status original, file in photos/). The Seaside and Family collection tiles and the three owner-journey steps use stock photos (status stock, credited in the footer) chosen as mood photos; never present a stock photo as a real unit.",
+  "_about": "One slot, one ID. Every image slot with its source and status. Homes and destinations use Escape Away’s own photos from its Airbnb listings (status original, file in photos/). The three collection tiles (City, Seaside, Family) and the three owner-journey steps use licensed Unsplash stock photos (status stock; the Unsplash License needs no credit, but each slot keeps its page and photographer on record) chosen as mood photos; never present a stock photo as a real unit.",
   "slots": [
     {
       "slot": "hero-01",
@@ -53,13 +53,17 @@
     },
     {
       "slot": "coll-city",
-      "status": "original",
-      "file": "photos/site/coll-city.jpg",
+      "status": "stock",
+      "stands_in_for": "City collection (New Cairo, Madinaty and Rehab)",
+      "src": "https://images.unsplash.com/photo-1719659018185-8a239c35fb4a",
+      "page": "https://unsplash.com/photos/felucca-on-nile-river-in-cairo-59RY-ykUIAg",
+      "photographer": "Hatem Ramadan",
+      "licence": "Unsplash License",
       "alt": {
-        "en": "A modern living room with a corner sofa and a wall of shelves in Lake View Residence, New Cairo",
-        "ar": "صالة حديثة بكنبة ركنية ورفوف على الحائط في ليك فيو ريزيدنس بالقاهرة الجديدة"
+        "en": "A felucca sailing on the Nile in Cairo, with the Cairo Tower rising behind the riverbank",
+        "ar": "مركب شراعي على النيل في القاهرة، ويظهر برج القاهرة خلف الضفة"
       },
-      "source": "Escape Away’s Airbnb listing 1790016742745408131 (CA-LVR-001)"
+      "note": "Zamalek, Cairo. A mood photo for the collection, not one of the homes."
     },
     {
       "slot": "coll-seaside",

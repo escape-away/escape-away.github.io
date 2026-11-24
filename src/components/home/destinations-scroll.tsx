@@ -9,9 +9,10 @@ import { Photo } from '../photo';
 import { SectionTitle } from '../section-title';
 
 /**
- * Act 2 opens with the five places. On wider screens the section holds still (CSS sticky) while
- * scrolling moves the row sideways (GSAP scrubs the transform); on phones, with reduced motion, or
- * without JavaScript it is a plain swipe row.
+ * Act 2 opens with the places. The section holds still (CSS sticky) while scrolling moves the row
+ * sideways (GSAP scrubs the transform): on wider screens through the `dest` scene, on phones through
+ * the `pin` scene it shares with the collections. With reduced motion or without JavaScript it is a
+ * plain swipe row on phones and a grid on wider screens.
  */
 export async function DestinationsScroll({ locale }: { locale: Locale }) {
   const t = await getTranslations({ locale, namespace: 'destinationsSection' });
@@ -21,23 +22,24 @@ export async function DestinationsScroll({ locale }: { locale: Locale }) {
     <section
       id="destinations"
       data-dest
-      className="dest bg-cream"
+      data-pin
+      className="dest pin bg-cream"
       aria-labelledby="dest-title"
-      style={{ '--dest-count': destinations.length } as CSSProperties}
+      style={{ '--dest-count': destinations.length, '--pin-count': destinations.length } as CSSProperties}
     >
-      <div className="dest__sticky">
-        <div className="wrap dest__head">
+      <div className="dest__sticky pin__sticky">
+        <div className="wrap dest__head pin__head">
           <SectionTitle id="dest-title" light={t('titleLight')} bold={t('titleBold')} />
           <p className="t-lead text-fg-muted">{t('lead')}</p>
         </div>
-        <div className="dest__viewport" data-dest-viewport>
-          <ul className="dest__track" data-dest-track>
+        <div className="dest__viewport pin__viewport" data-dest-viewport data-pin-viewport>
+          <ul className="dest__track pin__track" data-dest-track data-pin-track>
             {destinations.map((d) => {
               const count = unitsIn(d.slug).length;
               return (
-                <li key={d.slug} className="dest__card">
-                  <Link href={`/destinations/${d.slug}`} className="dest__link">
-                    <span className="arch dest__photo">
+                <li key={d.slug} className="dest__card pin__card">
+                  <Link href={`/destinations/${d.slug}`} className="dest__link pin__link">
+                    <span className="arch dest__photo pin__photo">
                       <Photo slot={d.photo} locale={locale} sizes="(max-width: 768px) 110vw, 41vw" />
                     </span>
                     <span className="dest__name">{d.name[locale]}</span>

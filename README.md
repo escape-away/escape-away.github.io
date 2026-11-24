@@ -130,7 +130,7 @@ Phone numbers may be typed the Egyptian way (010…) or with a country code, in 
 
 ## Deploy
 
-**Demo, GitHub Pages.** Push to `main` on the demo account's `<account>.github.io` repository with Pages set to "GitHub Actions". The workflow in `.github/workflows/deploy-pages.yml` builds, checks every page and publishes. Optional repository variables: `WHATSAPP_NUMBER`, `OWNER_WHATSAPP_NUMBER`, `MAPBOX_TOKEN`, `FORM_ENDPOINT`, `GBP_URL`. The demo carries noindex on every page.
+**Live, GitHub Pages.** Push to `main` of `escape-away/escape-away.github.io`, with Pages set to "GitHub Actions". The workflow in `.github/workflows/deploy-pages.yml` builds, checks every page and publishes. The site's address (canonicals, sitemap, share links) comes from the Pages settings: `https://www.escape-away.com` once that custom domain is set there, `https://escape-away.github.io` without one, so connecting or removing the domain needs only a new deploy. Search engines may list it; the system pages (`/admin`) are noindex. Optional repository variables: `WHATSAPP_NUMBER`, `OWNER_WHATSAPP_NUMBER`, `MAPBOX_TOKEN`, `FORM_ENDPOINT`, `GBP_URL`. The domain's DNS, its switch and how to undo it: `../backup/README.md` in the project folder.
 
 **Live, GoDaddy Node.js Hosting.** Same code, server build:
 
