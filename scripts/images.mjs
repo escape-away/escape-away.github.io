@@ -41,7 +41,9 @@ function downloadUrl(src) {
 async function originalOf(slot) {
   if (slot.file) return join(root, slot.file);
   if (!slot.src) return null;
-  const cached = join(root, '.cache', 'images', `${slot.slot}.jpg`);
+  // Named after the address too, so a slot switched to another photo never reuses the old download.
+  const key = createHash('sha1').update(slot.src).digest('hex').slice(0, 10);
+  const cached = join(root, '.cache', 'images', `${slot.slot}-${key}.jpg`);
   if (await exists(cached)) return cached;
   const res = await fetch(downloadUrl(slot.src));
   if (!res.ok) throw new Error(`HTTP ${res.status}`);

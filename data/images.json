@@ -1,5 +1,5 @@
 {
-  "_about": "One slot, one ID. Every image slot with its source and status. Homes and destinations use Escape Away’s own photos from its Airbnb listings (status original, file in photos/). The two owner-journey slots are still stock: they show a design desk and folded towels, never a home; never present a stock photo as a real unit.",
+  "_about": "One slot, one ID. Every image slot with its source and status. Homes and destinations use Escape Away’s own photos from its Airbnb listings (status original, file in photos/). The Seaside and Family collection tiles and the three owner-journey steps use stock photos (status stock, credited in the footer) chosen as mood photos; never present a stock photo as a real unit.",
   "slots": [
     {
       "slot": "hero-01",
@@ -63,48 +63,69 @@
     },
     {
       "slot": "coll-seaside",
-      "status": "original",
-      "file": "photos/site/coll-seaside.jpg",
+      "status": "stock",
+      "stands_in_for": "Seaside collection (El Gouna and Taba)",
+      "src": "https://images.unsplash.com/photo-1665643956022-ee053e925743",
+      "page": "https://unsplash.com/photos/a-beach-with-palm-trees-and-a-body-of-water-Figb0H3ExRw",
+      "photographer": "Omar Elsharawy",
+      "licence": "Unsplash License",
       "alt": {
-        "en": "A hammock by the water at sunset on the Gulf of Aqaba",
-        "ar": "أرجوحة على حافة الماء وقت الغروب على خليج العقبة"
+        "en": "Palm trees and beach umbrellas above a Red Sea bay, with the Sinai mountains behind",
+        "ar": "نخيل ومظلات شاطئ فوق خليج على البحر الأحمر، وخلفه جبال سيناء"
       },
-      "source": "Escape Away’s Airbnb listing 1788411943986491303 (TB-LAI-001)"
+      "note": "Sharm El-Sheikh, Red Sea. A mood photo for the collection, not one of the homes."
     },
     {
       "slot": "coll-family",
-      "status": "original",
-      "file": "photos/site/coll-family.jpg",
+      "status": "stock",
+      "stands_in_for": "Family and group stays collection",
+      "src": "https://images.unsplash.com/photo-1752769041956-1af511b2a225",
+      "page": "https://unsplash.com/photos/a-family-enjoys-a-relaxing-day-by-the-pool-lvrBUWYaiOI",
+      "photographer": "Ari Kurniawan",
+      "licence": "Unsplash License",
       "alt": {
-        "en": "A dining table for eight beside the living room of a three-bedroom home in New Cairo",
-        "ar": "طاولة طعام لثمانية بجوار صالة بيت بثلاث غرف نوم في القاهرة الجديدة"
+        "en": "A family relaxing together beside a private pool in a garden full of palms",
+        "ar": "عائلة تستمتع بوقتها بجوار حمام سباحة خاص في حديقة مليئة بالنخيل"
       },
-      "source": "Escape Away’s Airbnb listing 1803635713320975841 (CA-NC1-001)"
+      "note": "A villa in Bali. A mood photo for the collection, not one of the homes."
     },
     {
       "slot": "owner-design",
       "status": "stock",
       "stands_in_for": "Owner journey: design",
-      "src": "https://images.unsplash.com/photo-1667400104764-a5fd01a919b0",
-      "page": "https://unsplash.com/photos/pdCTX1harH4",
-      "photographer": "Karolina Grabowska",
+      "src": "https://images.unsplash.com/photo-1770970831074-6e88b6cc260b",
+      "page": "https://unsplash.com/photos/fabric-swatches-sketches-and-vase-on-a-table-kpipTG3gIk8",
+      "photographer": "Eric Human",
       "licence": "Unsplash License",
       "alt": {
-        "en": "Hand holding a fan of colour and material swatches over a floor plan on a wooden desk",
-        "ar": "يد تمسك بمجموعة من عينات الألوان والخامات فوق مخطط هندسي على مكتب خشبي"
+        "en": "Interior sketches, fabric swatches and a glass vase on a concrete desk",
+        "ar": "رسومات تصميم داخلي وعينات أقمشة وفازة زجاجية على مكتب خرساني"
+      }
+    },
+    {
+      "slot": "owner-style",
+      "status": "stock",
+      "stands_in_for": "Owner journey: style",
+      "src": "https://images.unsplash.com/photo-1705321963943-de94bb3f0dd3",
+      "page": "https://unsplash.com/photos/a-living-room-with-a-couch-and-a-table-g_5UyVBIX_k",
+      "photographer": "Pipcke",
+      "licence": "Unsplash License",
+      "alt": {
+        "en": "A calm cream living room with a deep sofa, soft cushions and round pendant lights",
+        "ar": "صالة هادئة بلون كريمي بكنبة واسعة ووسائد ناعمة وإضاءة معلقة دائرية"
       }
     },
     {
       "slot": "owner-prepare",
       "status": "stock",
-      "stands_in_for": "Owner journey: prepare",
-      "src": "https://images.unsplash.com/photo-1631015108968-ba3b87f89005",
-      "page": "https://unsplash.com/photos/COp-kDF4RWs",
-      "photographer": "Vije Vijendranath",
+      "stands_in_for": "Owner journey: manage",
+      "src": "https://images.unsplash.com/photo-1573014196346-87ac0314faf5",
+      "page": "https://unsplash.com/photos/person-holding-white-pillow-5-S_JpT7NGQ",
+      "photographer": "Trường Trung Cấp Kinh Tế Du Lịch TP.HCM (CET)",
       "licence": "Unsplash License",
       "alt": {
-        "en": "Neatly folded white towels on a made bed in a warm, wood-panelled bedroom",
-        "ar": "مناشف بيضاء مطوية بعناية على سرير مرتب في غرفة نوم دافئة بجدار خشبي"
+        "en": "A housekeeper smoothing fresh white pillows on a made bed",
+        "ar": "عاملة نظافة ترتّب وسائد بيضاء نظيفة على سرير مرتّب"
       }
     },
     {

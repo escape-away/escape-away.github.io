@@ -10,7 +10,7 @@ import { SectionTitle } from '../section-title';
 
 const journey = [
   { key: 'design', photo: 'owner-design' },
-  { key: 'style', photo: 'interior-01' },
+  { key: 'style', photo: 'owner-style' },
   { key: 'manage', photo: 'owner-prepare' },
 ] as const;
 
