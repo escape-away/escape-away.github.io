@@ -1,0 +1,485 @@
+/*
+  The two system screens that leave the admin frame, on top of system.css (same tokens, same classes):
+  - The housekeeping app (/staff): phone-first and Arabic-first. On a phone it is the whole screen,
+    like an app; from tablets up it sits in a phone-width column on the cream ground, with a sand
+    hairline and the float shadow, and no fake device around it.
+  - The owner portal (/portal): calmer and closer to the website, one column of shell panels.
+  Tap targets stay at 44px or more in both. Overrides are scoped under the screen's own class so they
+  win over system.css whatever order the two files load in. Logical properties only, so Arabic mirrors.
+*/
+
+/* ---------- Housekeeping app: the frame ---------- */
+
+.staff-app {
+  display: flex;
+  flex-direction: column;
+  min-block-size: 100dvh;
+  background: var(--ea-cream);
+  font-size: 1rem;
+}
+@media (min-width: 48rem) {
+  .staff {
+    padding: var(--space-6) var(--space-4);
+  }
+  .staff-app {
+    inline-size: min(25rem, 100%);
+    min-block-size: min(52rem, calc(100dvh - 2 * var(--space-6)));
+    margin-inline: auto;
+    border: 1px solid var(--ea-sand);
+    border-radius: 28px;
+    box-shadow: var(--shadow-float);
+    overflow: clip;
+  }
+}
+
+.staff-app__head {
+  display: grid;
+  gap: var(--space-4);
+  padding: var(--space-5) var(--space-4) var(--space-4);
+}
+.staff-app__brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+.staff-app__brand .ea-mark {
+  flex: none;
+  block-size: 24px;
+}
+.staff-app__titles {
+  display: grid;
+  min-inline-size: 0;
+}
+.sys .staff-app__title {
+  font-family: var(--font-text);
+  font-variation-settings: normal;
+  font-weight: var(--weight-strong);
+  font-size: 1.125rem;
+  letter-spacing: 0;
+  line-height: 1.3;
+}
+.staff-app__date {
+  color: var(--color-ink-muted);
+  font-size: var(--sys-small);
+}
+
+/* The day's three lists, one tap each, across the full width. */
+.staff-app .staff-tabs {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.staff-app .sys-segment button {
+  min-block-size: 44px;
+  padding-inline: var(--space-2);
+  font-size: var(--sys-small);
+}
+.staff-app .staff-kinds {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-radius: 16px;
+}
+.staff-app .staff-kinds button {
+  border-radius: 12px;
+}
+
+/* Big, plain controls for a phone held in one hand; 16px text so phones never zoom into a field. */
+.staff-app .sys-btn {
+  min-block-size: 48px;
+  font-size: 1rem;
+  white-space: normal;
+  text-align: center;
+  text-wrap: balance;
+}
+.staff-app .sys-input,
+.staff-app .sys-select {
+  min-block-size: 48px;
+  font-size: 1rem;
+}
+.staff-app textarea.sys-input {
+  min-block-size: 6rem;
+  padding-block: var(--space-3);
+  line-height: inherit;
+  resize: vertical;
+}
+
+/* ---------- Housekeeping app: the tasks ---------- */
+
+.staff-list {
+  display: grid;
+  gap: var(--space-3);
+  align-content: start;
+  padding: 0 var(--space-4) var(--space-5);
+}
+.staff-task {
+  display: grid;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  background: var(--sys-panel);
+  border: 1px solid var(--sys-line);
+  border-radius: var(--radius-card);
+}
+.staff-task .sys-empty {
+  padding: var(--space-2) 0;
+}
+.staff-task__head {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+}
+.sys .staff-task__head h2 {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-inline-size: 0;
+  font-size: 1.0625rem;
+}
+.staff-task__head svg {
+  flex: none;
+}
+.staff-task__head .sys-badge {
+  margin-inline-start: auto;
+}
+.staff-task__facts {
+  display: grid;
+  gap: var(--space-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.9375rem;
+}
+.staff-task__facts li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+}
+.staff-task__facts svg {
+  flex: none;
+  margin-block-start: 0.2em;
+  color: var(--color-ink-muted);
+}
+.staff-task__facts .sys-code {
+  font-weight: var(--weight-strong);
+}
+.staff-task__flags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+.staff-task__flags .sys-badge {
+  white-space: normal;
+}
+.staff-task__actions {
+  display: grid;
+  gap: var(--space-2);
+}
+
+/* The turnover checklist: real checkboxes, each row a full 44px target. */
+.staff-check {
+  display: grid;
+  padding-block-start: var(--space-2);
+  border-block-start: 1px solid var(--sys-line);
+}
+.staff-check__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding-block: var(--space-1);
+}
+.sys .staff-check__head h3 {
+  font-size: var(--sys-small);
+}
+.staff-check__item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  min-block-size: 44px;
+  cursor: pointer;
+}
+.staff-check__item input {
+  flex: none;
+  inline-size: 22px;
+  block-size: 22px;
+  margin: 0;
+  accent-color: var(--color-action);
+  cursor: pointer;
+}
+.staff-check__item input:checked + span {
+  color: var(--color-ink-muted);
+}
+
+/* "Report a problem", opened inside its task. */
+.staff-report {
+  display: grid;
+  gap: var(--space-4);
+  padding-block-start: var(--space-4);
+  border-block-start: 1px solid var(--sys-line);
+}
+.sys .staff-report h3 {
+  font-size: var(--sys-small);
+}
+
+.staff-app__foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-1) var(--space-2);
+  margin-block-start: auto;
+  padding: var(--space-2) var(--space-2) calc(var(--space-2) + env(safe-area-inset-bottom, 0px));
+  border-block-start: 1px solid var(--sys-line);
+  color: var(--color-ink-muted);
+  font-size: var(--sys-tiny);
+}
+.staff-app .staff-app__foot .sys-btn {
+  min-block-size: 44px;
+  font-size: var(--sys-small);
+}
+
+/* ---------- Owner portal ---------- */
+
+.portal-top {
+  position: sticky;
+  inset-block-start: 0;
+  z-index: var(--z-header);
+  background: var(--ea-cream);
+  border-block-end: 1px solid var(--sys-line);
+}
+.portal-top__inner,
+.portal-main {
+  inline-size: min(100% - 2 * var(--gutter), 60rem);
+  margin-inline: auto;
+}
+.portal-top__inner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-block-size: 4rem;
+}
+.portal-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  min-inline-size: 0;
+}
+.portal-brand .ea-mark {
+  flex: none;
+  block-size: 26px;
+}
+.portal-brand b {
+  font-weight: var(--weight-strong);
+  white-space: nowrap;
+}
+.portal-top__end {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  margin-inline-start: auto;
+}
+.portal-top__who {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding-inline: var(--space-3);
+  font-size: var(--sys-small);
+  white-space: nowrap;
+}
+.portal-top__who svg {
+  color: var(--color-ink-muted);
+}
+.portal .sys-btn {
+  min-block-size: 44px;
+}
+.portal .sys-input,
+.portal .sys-select {
+  min-block-size: 48px;
+  font-size: 1rem;
+}
+.portal .sys-panel {
+  border-radius: var(--radius-card);
+}
+
+.portal-main {
+  display: grid;
+  gap: var(--space-7);
+  align-content: start;
+  padding-block: var(--space-6) var(--space-9);
+}
+.portal-hello {
+  display: grid;
+  gap: var(--space-2);
+}
+.portal-hello .sys-head__sub {
+  max-inline-size: var(--measure);
+  font-size: 1.0625rem;
+}
+.portal-section {
+  display: grid;
+  gap: var(--space-3);
+  min-inline-size: 0;
+}
+.portal-section > header {
+  display: grid;
+  gap: var(--space-1);
+}
+.sys .portal-section > header h2 {
+  font-size: 1.125rem;
+}
+.portal-section > header p {
+  max-inline-size: var(--measure);
+  color: var(--color-ink-muted);
+  font-size: var(--sys-small);
+}
+.portal-panel__note {
+  padding: var(--space-3) var(--space-5);
+  border-block-start: 1px solid var(--sys-line);
+  color: var(--color-ink-muted);
+  font-size: var(--sys-tiny);
+}
+
+/* Her homes: the photo in the soft arch, then the facts, as on the website's cards. */
+.portal-homes {
+  display: grid;
+  gap: var(--space-4);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+}
+.portal-home {
+  display: grid;
+  align-content: start;
+  gap: var(--space-4);
+  padding: var(--space-3);
+}
+.portal-home__photo {
+  aspect-ratio: 16 / 10;
+}
+.portal-home__body {
+  display: grid;
+  gap: var(--space-2);
+  padding: 0 var(--space-2) var(--space-2);
+}
+.sys .portal-home__body h3 {
+  font-size: 1.0625rem;
+}
+.portal-home .sys-dl {
+  margin-block-start: var(--space-2);
+}
+
+/* Coming up: one row a stay. */
+.portal-stay {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: var(--space-1) var(--space-3);
+  padding: var(--space-3) var(--space-4);
+}
+.portal-stay__main {
+  display: grid;
+  gap: 2px;
+  min-inline-size: 0;
+}
+.portal-stay__main b {
+  font-weight: var(--weight-ui);
+}
+.portal-stay__end {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+/* Statements: a month a row, and its statement opening under it. */
+.portal-statement {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: var(--space-2) var(--space-4);
+  padding: var(--space-4);
+}
+.portal-statement__main {
+  display: grid;
+  gap: 2px;
+  min-inline-size: 0;
+}
+.portal-statement__main b {
+  font-weight: var(--weight-ui);
+}
+.portal-statement__amount {
+  font-size: 1.0625rem;
+  font-weight: var(--weight-strong);
+  text-align: end;
+}
+.portal-statement > .sys-badge {
+  justify-self: start;
+}
+.portal-statement__detail {
+  padding: 0 var(--space-4) var(--space-4);
+}
+/* The payout's rule runs unbroken under both columns: the gap becomes padding on the amounts. */
+.portal .sys-statement__total {
+  column-gap: 0;
+}
+.portal .sys-statement__total dd {
+  padding-inline-start: var(--space-4);
+}
+.portal-lines {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-block: 1px solid var(--sys-line);
+}
+.portal-lines li {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: var(--space-3);
+  padding-block: var(--space-3);
+}
+.portal-lines li + li {
+  border-block-start: 1px solid var(--sys-line);
+}
+.portal-lines__main {
+  display: grid;
+  gap: 2px;
+  min-inline-size: 0;
+}
+.portal-lines__main b {
+  font-weight: var(--weight-ui);
+}
+.portal-lines__end {
+  display: grid;
+  gap: 2px;
+  justify-items: end;
+  text-align: end;
+  font-variant-numeric: tabular-nums;
+}
+
+.portal-sample {
+  color: var(--color-ink-muted);
+  font-size: var(--sys-tiny);
+}
+
+@media (min-width: 40rem) {
+  .portal-statement {
+    grid-template-columns: minmax(0, 1fr) auto auto auto;
+  }
+  .portal-statement > .sys-badge {
+    justify-self: auto;
+  }
+}
+
+/* Phones: everything stacks; the month's three figures become three rows. */
+@media (max-width: 39.99rem) {
+  .portal-hide-narrow {
+    display: none;
+  }
+  .portal .portal-figures {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .portal .portal-figures .sys-figure {
+    border-inline-start: 0;
+    border-block-start: 1px solid var(--sys-line);
+  }
+  .portal .portal-figures .sys-figure:first-child {
+    border-block-start: 0;
+  }
+}

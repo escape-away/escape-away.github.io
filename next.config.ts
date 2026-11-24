@@ -18,6 +18,9 @@ const nextConfig: NextConfig = {
   trailingSlash: true,
   reactStrictMode: true,
   poweredByHeader: false,
+  // No floating Next.js badge in development: the demo is presented from the dev server too, and the
+  // badge covered the system's "Reset the demo" button.
+  devIndicators: false,
   images: {
     // Photos are pre-resized at build by scripts/images.mjs into public/img/<slot>/<width>.webp.
     loader: 'custom',

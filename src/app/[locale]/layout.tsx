@@ -5,9 +5,6 @@ import { hasLocale, NextIntlClientProvider } from 'next-intl';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { directionOf, routing } from '@/i18n/routing';
 import { site } from '@/lib/site';
-import { SiteFooter } from '@/components/site-footer';
-import { MotionLoader } from '@/components/motion-loader';
-import { SiteHeader } from '@/components/site-header';
 import { fontVariables } from '../fonts';
 import '../globals.css';
 
@@ -39,6 +36,10 @@ export const viewport: Viewport = {
   colorScheme: 'light',
 };
 
+/**
+ * The document for both halves of the product: the guest website in (site) and the Escape Away
+ * system in (system). Each half brings its own frame (header and footer, or the system's shell).
+ */
 export default async function LocaleLayout({ children, params }: Props) {
   const { locale } = await params;
   if (!hasLocale(routing.locales, locale)) notFound();
@@ -47,14 +48,7 @@ export default async function LocaleLayout({ children, params }: Props) {
   return (
     <html lang={locale} dir={directionOf(locale)} className={fontVariables} suppressHydrationWarning>
       <body>
-        <NextIntlClientProvider>
-          <SiteHeader locale={locale} />
-          <main id="main" tabIndex={-1} className="outline-none">
-            {children}
-          </main>
-          <SiteFooter locale={locale} />
-          <MotionLoader />
-        </NextIntlClientProvider>
+        <NextIntlClientProvider>{children}</NextIntlClientProvider>
       </body>
     </html>
   );

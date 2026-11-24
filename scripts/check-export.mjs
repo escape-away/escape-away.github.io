@@ -10,7 +10,7 @@
  * pre-resized photo the pages rely on, and destination guides that don't read alike.
  * Exits 1 on any problem.
  */
-import { access, readFile } from 'node:fs/promises';
+import { access, readdir, readFile } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -245,9 +245,12 @@ for (const locale of ['en', 'ar']) {
   }
 }
 
+// The home page's segment prefetch file. The website's pages sit in the (site) route group, which the
+// router names in base64 inside the file name (__next.$d$locale.!KHNpdGUp.__PAGE__.txt).
 for (const locale of ['en', 'ar']) {
-  const flat = join(out, locale, '__next.$d$locale.__PAGE__.txt');
-  if (!(await exists(flat))) problems.push(`${locale}/__next.$d$locale.__PAGE__.txt: segment prefetch file missing (client navigation would 404)`);
+  const names = await readdir(join(out, locale)).catch(() => []);
+  const found = names.some((n) => /^__next\.\$d\$locale(\.![A-Za-z0-9_-]+)?\.__PAGE__\.txt$/.test(n));
+  if (!found) problems.push(`${locale}/__next.$d$locale[.<group>].__PAGE__.txt: segment prefetch file missing (client navigation would 404)`);
 }
 
 // The sitemap lists every page once, with the same language links as the page itself.

@@ -1,0 +1,51 @@
+/*
+  The finance screens (owners, payouts, reports): the few layouts system.css doesn't carry.
+  Logical properties and the system's own tokens only, so Arabic mirrors from this file too.
+*/
+
+/* Owners: the list on the start side at its own width, the open statement taking the rest, from about 1100px. */
+.fin-split { display: grid; gap: var(--space-5); align-items: start; }
+@media (min-width: 68.75rem) {
+  .fin-split { grid-template-columns: auto minmax(0, 1fr); }
+  /* Side by side, the list drops what the open statement already says (the contract). */
+  .sys-table .fin-split-hide { display: none; }
+  /* The statement stays in view while the list scrolls; a long one scrolls inside its panel. */
+  .fin-split > .fin-statement {
+    position: sticky;
+    inset-block-start: calc(var(--sys-top) + var(--space-4));
+    max-block-size: calc(100dvh - var(--sys-top) - var(--space-6));
+    overflow-y: auto;
+  }
+}
+/* Where the statement column is still narrow, its lines keep stay, gross and fee. */
+@media (min-width: 68.75rem) and (max-width: 83.74rem) {
+  .sys-table .fin-mid-hide { display: none; }
+}
+
+/* Two panels side by side once each has room for its bars or table (charts need the width). */
+.fin-pair { display: grid; gap: var(--space-5); }
+@media (min-width: 80rem) {
+  .fin-pair { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+/* A statement's head (name, state, month) wraps on a phone instead of running off the panel. */
+.sys-panel.fin-statement > .sys-panel__head { flex-wrap: wrap; row-gap: var(--space-2); }
+.fin-totals { border-block-start: 1px solid var(--sys-line); }
+
+/* A row of buttons, or a button beside a short note. */
+.fin-actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2); }
+
+/* A name that opens another screen reads as a link: navy, underlined. */
+.fin-link { color: var(--ea-navy); text-decoration-line: underline; text-decoration-thickness: 1px; text-underline-offset: 0.22em; }
+.fin-link:hover { text-decoration-thickness: 2px; }
+
+/* Tables whose rows open nothing: no hand, no hover. */
+.sys-table.fin-static tbody tr { cursor: default; }
+.sys-table.fin-static tbody tr:hover { background: none; }
+
+/* A change against the last period: an arrow and the word, never colour alone. */
+.fin-delta { display: inline-flex; align-items: center; gap: var(--space-1); }
+
+@media (max-width: 40rem) {
+  .sys-panel.fin-statement > .sys-panel__head > .sys-segment { margin-inline-start: 0; }
+}
